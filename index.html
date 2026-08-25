@@ -103,7 +103,7 @@ h1 span{color:var(--orange)}
 
 /* SECTEURS / FORMULAIRES */
 #secteurs{background:#fff}
-.sect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;perspective:1200px}
+.sect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3.5rem;perspective:1200px}
 .sect-card{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
 .sect-card:hover{border-color:var(--orange);box-shadow:0 12px 34px rgba(15,32,68,.09)}
 .sect-emoji{font-size:2.2rem;margin-bottom:1rem}
@@ -391,6 +391,18 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="https://garage.novaspot.fr" target="_blank" class="sect-btn">Remplir le formulaire →</a>
       </div>
 
+      <div class="sect-card reveal">
+        <div class="sect-emoji">🔨</div>
+        <div class="sect-name">Artisans du bâtiment</div>
+        <p class="sect-desc">Plombiers, électriciens, peintres, maçons, et tous corps de métier du bâtiment.</p>
+        <div class="sect-feats">
+          <div class="sect-feat">Site professionnel</div>
+          <div class="sect-feat">QR codes avis clients</div>
+          <div class="sect-feat">Formulaire de devis</div>
+        </div>
+        <a href="https://batiment.novaspot.fr" target="_blank" class="sect-btn">Remplir le formulaire →</a>
+      </div>
+
     </div>
 
     <div class="sect-other reveal">
@@ -625,6 +637,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <a href="https://nettoyage.novaspot.fr" target="_blank">Nettoyage & Entretien</a>
           <a href="https://coiffure.novaspot.fr" target="_blank">Coiffure & Beauté</a>
           <a href="https://garage.novaspot.fr" target="_blank">Garage & Automobile</a>
+          <a href="https://batiment.novaspot.fr" target="_blank">Artisans du bâtiment</a>
           <a href="#tarifs">Tarifs</a>
         </div>
       </div>

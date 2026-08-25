@@ -51,8 +51,12 @@ nav{position:fixed;top:34px;left:0;right:0;z-index:100;height:66px;display:flex;
 
 /* HERO */
 #hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:100px}
-.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(232,112,10,.12) 0%,transparent 65%)}
-.hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(15,32,68,.06) 0%,transparent 65%)}
+.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(232,112,10,.12) 0%,transparent 65%);animation:drift1 14s ease-in-out infinite}
+.hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(15,32,68,.06) 0%,transparent 65%);animation:drift2 18s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-20px)}}
+.hero-spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(232,112,10,.10),transparent 60%);opacity:0;transition:opacity .4s ease}
+#hero:hover .hero-spot{opacity:1}
 .hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;text-align:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange3);border:1px solid rgba(232,112,10,.25);padding:.35rem 1rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1.75rem}
 .h-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;animation:pdot 1.5s infinite}
@@ -90,18 +94,18 @@ h1 span{color:var(--orange)}
 
 /* SERVICES */
 #services{background:var(--light)}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
-.srv-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;transition:all var(--t)}
-.srv-card:hover{border-color:rgba(232,112,10,.3);box-shadow:0 8px 30px rgba(15,32,68,.07);transform:translateY(-3px)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem;perspective:1200px}
+.srv-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
+.srv-card:hover{border-color:rgba(232,112,10,.3);box-shadow:0 8px 30px rgba(15,32,68,.07)}
 .srv-icon{width:48px;height:48px;background:var(--orange3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.25rem}
 .srv-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
 .srv-desc{font-size:.8rem;color:var(--text2);line-height:1.8}
 
 /* SECTEURS / FORMULAIRES */
 #secteurs{background:#fff}
-.sect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
-.sect-card{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:2rem;transition:all var(--t);display:flex;flex-direction:column}
-.sect-card:hover{border-color:var(--orange);box-shadow:0 12px 34px rgba(15,32,68,.09);transform:translateY(-4px)}
+.sect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;perspective:1200px}
+.sect-card{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
+.sect-card:hover{border-color:var(--orange);box-shadow:0 12px 34px rgba(15,32,68,.09)}
 .sect-emoji{font-size:2.2rem;margin-bottom:1rem}
 .sect-name{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
 .sect-desc{font-size:.8rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;flex:1}
@@ -146,8 +150,9 @@ h1 span{color:var(--orange)}
 
 /* TARIFS */
 #tarifs{background:var(--light)}
-.tarifs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem}
-.tarif-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:2.25rem;display:flex;flex-direction:column;position:relative;transition:all var(--t)}
+.tarifs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem;perspective:1200px}
+.tarif-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:2.25rem;display:flex;flex-direction:column;position:relative;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
+.tarif-card:hover{box-shadow:0 12px 34px rgba(15,32,68,.08)}
 .tarif-card.featured{border-color:var(--orange);box-shadow:0 14px 36px rgba(232,112,10,.14)}
 .tarif-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;white-space:nowrap}
 .tarif-name{font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:1.25rem}
@@ -168,8 +173,9 @@ h1 span{color:var(--orange)}
 
 /* TEMOIGNAGES */
 #temoignages{background:#fff}
-.temo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
-.temo-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:1.9rem}
+.temo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem;perspective:1200px}
+.temo-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:1.9rem;transition:box-shadow var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
+.temo-card:hover{box-shadow:0 10px 30px rgba(15,32,68,.07)}
 .temo-stars{color:var(--orange);font-size:.8rem;letter-spacing:3px;margin-bottom:1.1rem}
 .temo-text{font-size:.82rem;color:var(--text2);line-height:1.8;margin-bottom:1.4rem}
 .temo-author{display:flex;align-items:center;gap:.7rem}
@@ -278,6 +284,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
+  <div class="hero-spot" id="heroSpot"></div>
   <div class="hero-inner">
     <div class="hero-badge"><span class="h-dot"></span>Agence digitale · Commerces & Artisans locaux</div>
     <h1>Votre établissement mérite<br/>d'être <span>vu, trouvé, choisi.</span></h1>
@@ -287,8 +294,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <a href="#tarifs" class="btn-s">Voir les tarifs</a>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="hs-num"><span>48h</span></div><div class="hs-label">Délai de mise en ligne</div></div>
-      <div class="h-stat"><div class="hs-num"><span>49€</span></div><div class="hs-label">Par mois, tout inclus</div></div>
+      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="48" data-suffix="h">0h</span></div><div class="hs-label">Délai de mise en ligne</div></div>
+      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="49" data-suffix="€">0€</span></div><div class="hs-label">Par mois, tout inclus</div></div>
       <div class="h-stat"><div class="hs-num">0<span>€</span></div><div class="hs-label">De frais cachés</div></div>
     </div>
   </div>
@@ -699,6 +706,48 @@ function handleCta(){
   document.querySelector('.cta-form').innerHTML='<div style="width:100%;padding:1rem;background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);color:#86efac;font-size:.85rem;text-align:center;border-radius:6px">✓ Message reçu ! On vous recontacte très vite.</div>';
 }
 document.getElementById('ctaInput').addEventListener('keypress',e=>{if(e.key==='Enter')handleCta();});
+
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Compteurs animés (stats du hero)
+function animateCount(el){
+  const target=parseFloat(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  if(reduceMotion){el.textContent=target+suffix;return;}
+  const dur=1200;const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*eased)+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+window.addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.cnt').forEach(animateCount),500));
+
+// Halo qui suit la souris dans le hero
+if(!reduceMotion){
+  const heroEl=document.getElementById('hero');
+  const spot=document.getElementById('heroSpot');
+  heroEl.addEventListener('mousemove',e=>{
+    const r=heroEl.getBoundingClientRect();
+    spot.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    spot.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+}
+
+// Tilt 3D au survol des cartes
+if(!reduceMotion){
+  document.querySelectorAll('.srv-card,.sect-card,.tarif-card,.temo-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5;
+      const py=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`translateY(-4px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+}
 </script>
 </body>
 </html>

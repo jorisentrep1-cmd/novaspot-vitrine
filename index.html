@@ -31,8 +31,12 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .l-bar:nth-child(5){animation-delay:0s}
 @keyframes lbar{from{transform:scaleY(.35);opacity:.4}to{transform:scaleY(1);opacity:1}}
 
+/* TOP BAR */
+.top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600;position:relative;z-index:101}
+.top-bar span{color:var(--orange2)}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:34px;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .n-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
 .n-logo-mark{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
 .n-logo-text{font-size:1.05rem;font-weight:800;color:var(--navy)}
@@ -46,7 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;ali
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2)}
 
 /* HERO */
-#hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:66px}
+#hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:100px}
 .hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(232,112,10,.12) 0%,transparent 65%)}
 .hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(15,32,68,.06) 0%,transparent 65%)}
 .hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;text-align:center;position:relative;z-index:1}
@@ -252,6 +256,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   </div>
 </div>
 
+<div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
+
 <!-- NAV -->
 <nav id="nav">
   <a class="n-logo" href="#hero">
@@ -275,7 +281,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="hero-inner">
     <div class="hero-badge"><span class="h-dot"></span>Agence digitale · Commerces & Artisans locaux</div>
     <h1>Votre établissement mérite<br/>d'être <span>vu, trouvé, choisi.</span></h1>
-    <p class="hero-sub">NovaSpot crée et gère votre présence en ligne. Site web, avis clients, visibilité locale — vous vous concentrez sur votre métier.</p>
+    <p class="hero-sub">NovaSpot crée et gère votre présence en ligne. Site web, récolte d'avis clients, visibilité locale — vous vous concentrez sur votre métier.</p>
     <div class="hero-btns">
       <a href="#secteurs" class="btn-p">Créer mon site →</a>
       <a href="#tarifs" class="btn-s">Voir les tarifs</a>
@@ -312,15 +318,20 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="s-tag reveal">Ce qu'on fait</div>
     <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin, <span>inclus.</span></h2>
     <div class="srv-grid">
+      <div class="srv-card reveal" style="border-color:rgba(232,112,10,.35);position:relative">
+        <div class="srv-icon" style="background:var(--orange);color:#fff">⭐</div>
+        <div class="srv-title">Récolte & gestion des avis clients</div>
+        <p class="srv-desc">Notre spécialité. QR codes à poser en boutique ou à remettre à vos clients. Les avis positifs sont orientés vers Google, les négatifs sont gérés directement avec vous — jamais publiés sans réponse.</p>
+      </div>
       <div class="srv-card reveal">
         <div class="srv-icon">🌐</div>
         <div class="srv-title">Site web professionnel</div>
-        <p class="srv-desc">Design sur-mesure selon votre activité, vos prestations, vos horaires. Rapide, mobile-first, et optimisé pour Google.</p>
+        <p class="srv-desc">Design sur-mesure selon votre activité, vos prestations, vos horaires. Rapide, mobile-first et pensé pour convertir vos visiteurs en clients.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">⭐</div>
-        <div class="srv-title">Gestion des avis clients</div>
-        <p class="srv-desc">QR codes à poser en boutique ou à remettre à vos clients. Les avis positifs vont sur Google, les négatifs sont gérés directement avec vous.</p>
+        <div class="srv-icon">📍</div>
+        <div class="srv-title">SEO local inclus</div>
+        <p class="srv-desc">Chaque site intègre les bases techniques pour être bien vu par Google : données structurées, méta-descriptions, vitesse de chargement, version mobile optimisée.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">📅</div>
@@ -333,14 +344,9 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment — envoyez-nous un message, c'est mis à jour sous 24h.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">📍</div>
-        <div class="srv-title">Visibilité locale</div>
-        <p class="srv-desc">Votre site est optimisé pour apparaître quand vos clients cherchent votre activité dans votre quartier.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🔒</div>
-        <div class="srv-title">Hébergement inclus</div>
-        <p class="srv-desc">Hébergement, nom de domaine, SSL — tout est géré. Votre site est disponible 24h/24, sans que vous ayez à y penser.</p>
+        <div class="srv-icon">🤝</div>
+        <div class="srv-title">Sans engagement</div>
+        <p class="srv-desc">Contrairement à d'autres agences qui vous engagent sur plusieurs années, vous restez chez nous parce que le service fonctionne — pas parce que vous êtes coincé.</p>
       </div>
     </div>
   </div>

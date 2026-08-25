@@ -171,18 +171,6 @@ h1 span{color:var(--orange)}
 .tarif-btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
 .tarif-btn-s:hover{border-color:var(--navy)}
 
-/* TEMOIGNAGES */
-#temoignages{background:#fff}
-.temo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem;perspective:1200px}
-.temo-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:1.9rem;transition:box-shadow var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
-.temo-card:hover{box-shadow:0 10px 30px rgba(15,32,68,.07)}
-.temo-stars{color:var(--orange);font-size:.8rem;letter-spacing:3px;margin-bottom:1.1rem}
-.temo-text{font-size:.82rem;color:var(--text2);line-height:1.8;margin-bottom:1.4rem}
-.temo-author{display:flex;align-items:center;gap:.7rem}
-.temo-avatar{width:34px;height:34px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
-.temo-name{font-size:.82rem;font-weight:700;color:var(--navy)}
-.temo-role{font-size:.68rem;color:var(--text3);margin-top:.1rem}
-
 /* FAQ */
 #faq{background:var(--light)}
 .faq-list{max-width:680px;margin:3.5rem auto 0}
@@ -238,7 +226,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .n-links{display:none}
   .n-links.open{display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
   .hamburger{display:flex}
-  .srv-grid,.sect-grid,.tarifs-grid,.temo-grid,.sol-grid{grid-template-columns:1fr}
+  .srv-grid,.sect-grid,.tarifs-grid,.sol-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr}
   .proc-steps::before{display:none}
   .hero-stats{flex-wrap:wrap;border-radius:10px}
@@ -553,42 +541,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   </div>
 </section>
 
-<!-- TEMOIGNAGES -->
-<section class="section" id="temoignages">
-  <div class="si">
-    <div style="text-align:center">
-      <div class="s-tag reveal" style="justify-content:center">Ils nous font confiance</div>
-      <h2 class="s-title reveal" style="text-align:center">Ce que nos clients <span>disent.</span></h2>
-    </div>
-    <div class="temo-grid">
-      <div class="temo-card reveal">
-        <div class="temo-stars">★★★★★</div>
-        <p class="temo-text">En 48h, mon salon était en ligne avec un site que je n'aurais jamais pu créer moi-même. Depuis, j'ai clairement plus de prises de rendez-vous et les avis sont bien mieux gérés.</p>
-        <div class="temo-author">
-          <div class="temo-avatar">MR</div>
-          <div><div class="temo-name">Marion R.</div><div class="temo-role">Gérante, Salon de coiffure · Lyon</div></div>
-        </div>
-      </div>
-      <div class="temo-card reveal">
-        <div class="temo-stars">★★★★★</div>
-        <p class="temo-text">Pour 49€ par mois, j'ai un site pro, mes avis sont suivis et j'ai quelqu'un à qui envoyer un message quand j'ai besoin de changer quelque chose. C'est exactement ce qu'il me fallait.</p>
-        <div class="temo-author">
-          <div class="temo-avatar">SB</div>
-          <div><div class="temo-name">Sophie B.</div><div class="temo-role">Gérante, Institut de beauté · Lyon</div></div>
-        </div>
-      </div>
-      <div class="temo-card reveal">
-        <div class="temo-stars">★★★★★</div>
-        <p class="temo-text">J'avais peur que ce soit compliqué, mais tout a été géré pour moi. Le formulaire est simple, et deux jours plus tard mon garage était en ligne. Simple et efficace.</p>
-        <div class="temo-author">
-          <div class="temo-avatar">TM</div>
-          <div><div class="temo-name">Thomas M.</div><div class="temo-role">Gérant, Garage automobile · Bordeaux</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="si" style="text-align:center">
@@ -738,7 +690,7 @@ if(!reduceMotion){
 
 // Tilt 3D au survol des cartes
 if(!reduceMotion){
-  document.querySelectorAll('.srv-card,.sect-card,.tarif-card,.temo-card').forEach(card=>{
+  document.querySelectorAll('.srv-card,.sect-card,.tarif-card').forEach(card=>{
     card.addEventListener('mousemove',e=>{
       const r=card.getBoundingClientRect();
       const px=(e.clientX-r.left)/r.width-.5;

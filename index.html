@@ -118,6 +118,23 @@ h1 span{color:var(--orange)}
 .sect-other-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
 .sect-other-desc{font-size:.8rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7}
 
+/* REALISATIONS */
+#realisations{background:#fff}
+.real-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-top:3.5rem;max-width:720px}
+.real-card{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:1.25rem;transition:all var(--t)}
+.real-card:hover{box-shadow:0 16px 40px rgba(15,32,68,.1);transform:translateY(-4px)}
+.real-browser{display:flex;gap:.35rem;margin-bottom:1rem;align-items:center;padding:0 .25rem}
+.real-dot{width:9px;height:9px;border-radius:50%}
+.real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
+.real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
+.real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
+.real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,10,8,.85) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
+.real-name{font-size:1.2rem;font-weight:800;color:#fff}
+.real-sector{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.15rem}
+.real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--navy);color:#fff;border:none;padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
+.real-btn:hover{background:var(--orange)}
+.real-note{font-size:.78rem;color:var(--text3);margin-top:2rem;max-width:560px}
+
 /* SOLUTION */
 #solution{background:var(--light)}
 .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
@@ -261,6 +278,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <ul class="n-links" id="nLinks">
     <li><a href="#services">Services</a></li>
     <li><a href="#secteurs">Secteurs</a></li>
+    <li><a href="#realisations">Réalisations</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#cta-final" class="n-cta">Nous contacter</a></li>
@@ -446,6 +464,34 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <p class="sect-other-desc">Artisans, professionnels de santé, commerces de proximité... On travaille avec tous types de commerces locaux. Contactez-nous directement, on adapte le formulaire à votre activité.</p>
       <a href="#cta-final" class="btn-p">Nous contacter</a>
     </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="section" id="realisations">
+  <div class="si">
+    <div class="s-tag reveal">Nos réalisations</div>
+    <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous.</span></h2>
+    <p class="s-sub reveal" style="max-width:560px">Un exemple concret du type de site livré à nos clients — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
+    <div class="real-grid">
+      <div class="real-card reveal">
+        <div class="real-browser">
+          <div class="real-dot" style="background:#ef4444"></div>
+          <div class="real-dot" style="background:#f59e0b"></div>
+          <div class="real-dot" style="background:#22c55e"></div>
+          <div class="real-url">🔒 demo-coiffure.novaspot.fr</div>
+        </div>
+        <div class="real-preview" style="background-image:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1200&q=80')">
+          <div class="real-badge">Exemple</div>
+          <div class="real-overlay">
+            <div class="real-name">Salon Lumière</div>
+            <div class="real-sector">Coiffure & Beauté</div>
+          </div>
+        </div>
+        <a href="https://demo-coiffure.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
+      </div>
+    </div>
+    <p class="real-note reveal">Ceci est un site de démonstration fictif, réalisé pour illustrer notre niveau de finition. D'autres exemples arrivent bientôt pour chaque secteur.</p>
   </div>
 </section>
 

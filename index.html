@@ -32,11 +32,12 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 @keyframes lbar{from{transform:scaleY(.35);opacity:.4}to{transform:scaleY(1);opacity:1}}
 
 /* TOP BAR */
-.top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600;position:relative;z-index:101}
+#fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
+.top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
 .top-bar span{color:var(--orange2)}
 
 /* NAV */
-nav{position:fixed;top:34px;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{position:relative;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .n-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
 .n-logo-mark{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
 .n-logo-text{font-size:1.05rem;font-weight:800;color:var(--navy)}
@@ -246,7 +247,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 @media(max-width:900px){
   nav{padding:0 1.5rem}
   .n-links{display:none}
-  .n-links.open{display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
+  .n-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
   .hamburger{display:flex}
   .srv-grid,.sect-grid,.tarifs-grid,.sol-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr}
@@ -272,24 +273,26 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   </div>
 </div>
 
-<div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
+<div id="fixedHead">
+  <div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
 
-<!-- NAV -->
-<nav id="nav">
-  <a class="n-logo" href="#hero">
-    <div class="n-logo-mark">N</div>
-    <div class="n-logo-text">Nova<span>Spot</span></div>
-  </a>
-  <ul class="n-links" id="nLinks">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#secteurs">Secteurs</a></li>
-    <li><a href="#realisations">Réalisations</a></li>
-    <li><a href="#tarifs">Tarifs</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#cta-final" class="n-cta">Nous contacter</a></li>
-  </ul>
-  <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
-</nav>
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="n-logo" href="#hero">
+      <div class="n-logo-mark">N</div>
+      <div class="n-logo-text">Nova<span>Spot</span></div>
+    </a>
+    <ul class="n-links" id="nLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#secteurs">Secteurs</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#cta-final" class="n-cta">Nous contacter</a></li>
+    </ul>
+    <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -754,6 +757,14 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <script>
 window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),350));
 const nav=document.getElementById('nav');
+
+function syncHeaderHeight(){
+  const h=document.getElementById('fixedHead').offsetHeight;
+  document.getElementById('hero').style.paddingTop=h+'px';
+}
+syncHeaderHeight();
+window.addEventListener('resize',syncHeaderHeight);
+window.addEventListener('load',syncHeaderHeight);
 document.getElementById('burger').addEventListener('click',()=>document.getElementById('nLinks').classList.toggle('open'));
 document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nLinks').classList.remove('open')));
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});

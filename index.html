@@ -92,6 +92,7 @@ h1 span{color:var(--orange)}
 .s-title{font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
 .s-title span{color:var(--orange)}
 .s-sub{font-size:.92rem;color:var(--text2);line-height:1.8}
+.scroll-hint{display:none;font-size:.72rem;font-weight:600;color:var(--orange);margin-top:.75rem}
 
 /* SERVICES */
 #services{background:var(--light)}
@@ -249,7 +250,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .n-links{display:none}
   .n-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
   .hamburger{display:flex}
-  .srv-grid,.sect-grid,.tarifs-grid,.sol-grid{grid-template-columns:1fr}
+  .section{padding:3.5rem 1.5rem}
+  .srv-grid,.tarifs-grid,.sol-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr}
   .proc-steps::before{display:none}
   .hero-stats{flex-wrap:wrap;border-radius:10px}
@@ -258,6 +260,20 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .cta-form{flex-direction:column}
   .cta-input{border-right:1.5px solid rgba(255,255,255,.15);border-radius:6px 6px 0 0;height:48px}
   .cta-send{height:48px;border-radius:0 0 6px 6px}
+
+  .scroll-hint{display:block}
+  .sect-grid,.real-grid{
+    display:flex;
+    grid-template-columns:none;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:1rem;
+    padding-bottom:.25rem;
+  }
+  .sect-grid::-webkit-scrollbar,.real-grid::-webkit-scrollbar{display:none}
+  .sect-card,.real-card{scroll-snap-align:start;flex:0 0 80%}
 }
 </style>
 </head>
@@ -379,6 +395,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="s-tag reveal">Démarrer maintenant</div>
     <h2 class="s-title reveal">Choisissez votre secteur<br/>et <span>lancez votre projet.</span></h2>
     <p class="s-sub reveal" style="max-width:560px">Remplissez le formulaire dédié à votre activité (5 minutes). On reçoit votre demande instantanément et votre site est prêt sous 48h.</p>
+    <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
 
       <div class="sect-card reveal">
@@ -481,6 +498,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="s-tag reveal">Nos réalisations</div>
     <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous.</span></h2>
     <p class="s-sub reveal" style="max-width:560px">Un exemple concret du type de site livré à nos clients — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
+    <p class="scroll-hint">← Faites glisser pour voir tous les exemples →</p>
     <div class="real-grid">
       <div class="real-card reveal">
         <div class="real-browser">

@@ -119,6 +119,10 @@ h1 span{color:var(--orange)}
 .tarif-btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
 .tarif-btn-s:hover{border-color:var(--navy)}
 .tarif-desc{font-size:.78rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem}
+.tarif-feats{display:flex;flex-direction:column;gap:.45rem;margin-bottom:.85rem}
+.tarif-feat{display:flex;align-items:flex-start;gap:.5rem;font-size:.78rem;color:var(--text2);line-height:1.4}
+.tarif-feat::before{content:'✓';color:var(--green);flex-shrink:0;font-weight:700}
+.tarif-setup-note{font-size:.75rem;color:var(--text3);margin-bottom:1.5rem}
 .tarif-more{text-align:center;margin-top:2rem;font-size:.85rem;color:var(--text2)}
 .tarif-more a{color:var(--orange);font-weight:700;text-decoration:none}
 
@@ -262,20 +266,35 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
       <div class="tarif-card reveal">
         <div class="tarif-name">Starter</div>
         <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">49</span><span class="tarif-per">/mois</span></div>
-        <p class="tarif-desc">Site pro + gestion des avis + QR code sticker vitrine. + 149€ à la création.</p>
+        <div class="tarif-feats">
+        <div class="tarif-feat">Site pro</div>
+        <div class="tarif-feat">Gestion des avis</div>
+        <div class="tarif-feat">QR code sticker vitrine</div>
+        </div>
+        <div class="tarif-setup-note">+ 149€ à la création.</div>
         <a href="https://demenagement.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
       <div class="tarif-card featured reveal">
         <div class="tarif-pop">Le plus demandé</div>
         <div class="tarif-name">Pro</div>
         <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">79</span><span class="tarif-per">/mois</span></div>
-        <p class="tarif-desc">Domaine perso + galerie de prestations + 3 formats de QR codes. + 249€ à la création.</p>
+        <div class="tarif-feats">
+        <div class="tarif-feat">Domaine perso</div>
+        <div class="tarif-feat">Galerie de prestations</div>
+        <div class="tarif-feat">3 formats de QR codes</div>
+        </div>
+        <div class="tarif-setup-note">+ 249€ à la création.</div>
         <a href="https://demenagement.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-p">Démarrer →</a>
       </div>
       <div class="tarif-card reveal">
         <div class="tarif-name">Premium</div>
         <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">129</span><span class="tarif-per">/mois</span></div>
-        <p class="tarif-desc">Manager dédié + Google My Business + mise à jour prioritaire 2h. + 399€ à la création.</p>
+        <div class="tarif-feats">
+        <div class="tarif-feat">Manager dédié</div>
+        <div class="tarif-feat">Gestion Google My Business</div>
+        <div class="tarif-feat">Mise à jour prioritaire (2h)</div>
+        </div>
+        <div class="tarif-setup-note">+ 399€ à la création.</div>
         <a href="https://demenagement.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
     </div>

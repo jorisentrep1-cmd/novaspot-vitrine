@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Site internet pour salons de coiffure et instituts de beauté — NovaSpot</title>
+<meta name="description" content="Site web professionnel pour salons de coiffure, instituts de beauté, barbiers et onglerie. Galerie de prestations et gestion des avis incluses. En ligne en 48h, dès 49€/mois."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0f2044;--navy2:#162a57;--navy3:#1e3570;
+  --orange:#e8700a;--orange2:#f08020;--orange3:rgba(232,112,10,.08);
+  --light:#f4f7fc;--light2:#eaeff8;--border:#d8e2f0;
+  --text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
+  --white:#fff;--green:#22c55e;
+  --t:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+#fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
+.top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
+.top-bar span{color:var(--orange2)}
+
+nav{position:relative;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.n-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.n-logo-mark{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+.n-logo-text{font-size:1.05rem;font-weight:800;color:var(--navy)}
+.n-logo-text span{color:var(--orange)}
+.n-links{display:flex;list-style:none;align-items:center;gap:.2rem}
+.n-links a{padding:.4rem .9rem;font-size:.8rem;font-weight:600;color:var(--text2);text-decoration:none;transition:color var(--t)}
+.n-links a:hover{color:var(--navy)}
+.n-cta{background:var(--orange)!important;color:#fff!important;padding:.5rem 1.3rem!important;border-radius:5px;transition:background var(--t)!important}
+.n-cta:hover{background:var(--orange2)!important;color:#fff!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text2)}
+
+#hero{background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:150px;padding-bottom:4rem}
+.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(232,112,10,.12) 0%,transparent 65%)}
+.breadcrumb{font-size:.75rem;color:var(--text3);margin-bottom:1.5rem;max-width:1100px;margin-left:auto;margin-right:auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb a{color:var(--text2);text-decoration:none}
+.breadcrumb a:hover{color:var(--orange)}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange3);border:1px solid rgba(232,112,10,.25);padding:.35rem 1rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem}
+.h-dot{width:5px;height:5px;background:var(--orange);border-radius:50%}
+h1{font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:800;line-height:1.15;letter-spacing:-1.3px;color:var(--navy);margin-bottom:1.25rem}
+h1 span{color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--text2);max-width:520px;margin:0 0 2rem;line-height:1.8}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-p{background:var(--orange);color:#fff;border:none;padding:.95rem 2.1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border-radius:6px}
+.btn-p:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,112,10,.28)}
+.btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border);padding:.95rem 2.1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all var(--t);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border-radius:6px}
+.btn-s:hover{border-color:var(--navy);background:var(--light)}
+
+.hero-preview{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:1.25rem;box-shadow:0 16px 40px rgba(15,32,68,.1)}
+.real-browser{display:flex;gap:.35rem;margin-bottom:1rem;align-items:center;padding:0 .25rem}
+.real-dot{width:9px;height:9px;border-radius:50%}
+.real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
+.real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
+.real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
+.real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,10,8,.85) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
+.real-name{font-size:1.2rem;font-weight:800;color:#fff}
+.real-sector{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.15rem}
+.real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--navy);color:#fff;border:none;padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
+.real-btn:hover{background:var(--orange)}
+
+.section{padding:5.5rem 2rem}
+.si{max-width:1100px;margin:0 auto}
+.s-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:.9rem}
+.s-tag::before{content:'';width:20px;height:2px;background:var(--orange)}
+.s-title{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
+.s-title span{color:var(--orange)}
+.s-sub{font-size:.92rem;color:var(--text2);line-height:1.8}
+
+#services{background:var(--light)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.srv-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem}
+.srv-icon{width:48px;height:48px;background:var(--orange3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.25rem}
+.srv-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.srv-desc{font-size:.8rem;color:var(--text2);line-height:1.8}
+
+#tarifs{background:#fff}
+.tarifs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.tarif-card{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:2rem;display:flex;flex-direction:column;position:relative}
+.tarif-card.featured{border-color:var(--orange);background:#fff;box-shadow:0 14px 36px rgba(232,112,10,.14)}
+.tarif-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;white-space:nowrap}
+.tarif-name{font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:1.1rem}
+.tarif-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:1.5rem}
+.tarif-num{font-size:2.4rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}
+.tarif-cur{font-size:1rem;font-weight:700;color:var(--text2)}
+.tarif-per{font-size:.78rem;color:var(--text2)}
+.tarif-btn{width:100%;padding:.8rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:all var(--t);text-align:center;text-decoration:none;display:block;border-radius:6px;margin-top:auto}
+.tarif-btn-p{background:var(--orange);color:#fff;border:none}
+.tarif-btn-p:hover{background:var(--orange2)}
+.tarif-btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
+.tarif-btn-s:hover{border-color:var(--navy)}
+.tarif-desc{font-size:.78rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem}
+.tarif-more{text-align:center;margin-top:2rem;font-size:.85rem;color:var(--text2)}
+.tarif-more a{color:var(--orange);font-weight:700;text-decoration:none}
+
+#faq{background:var(--light)}
+.faq-list{max-width:680px;margin:3.5rem auto 0}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:.75rem;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.5rem;cursor:pointer;gap:1rem}
+.faq-q-text{font-size:.88rem;font-weight:700;color:var(--navy)}
+.faq-icon{width:24px;height:24px;background:var(--light);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--text2);flex-shrink:0;transition:all var(--t)}
+.faq-item.open .faq-icon{background:var(--orange3);color:var(--orange);transform:rotate(45deg)}
+.faq-a{font-size:.8rem;color:var(--text2);line-height:1.8;padding:0 1.5rem 1.3rem;display:none}
+.faq-item.open .faq-a{display:block}
+
+#cta-final{background:var(--navy);position:relative;overflow:hidden;text-align:center}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 30%,rgba(232,112,10,.14) 0%,transparent 70%)}
+.cta-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.cta-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.2;margin-bottom:1.25rem}
+.cta-title span{color:var(--orange)}
+.cta-sub{font-size:.92rem;color:rgba(255,255,255,.55);margin-bottom:2rem;line-height:1.75}
+
+footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.35)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:0 1.5rem}
+  .n-links{display:none}
+  .n-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-btns{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .srv-grid,.tarifs-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="fixedHead">
+  <div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
+  <nav id="nav">
+    <a class="n-logo" href="/">
+      <div class="n-logo-mark">N</div>
+      <div class="n-logo-text">Nova<span>Spot</span></div>
+    </a>
+    <ul class="n-links" id="nLinks">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#secteurs">Secteurs</a></li>
+      <li><a href="/#realisations">Réalisations</a></li>
+      <li><a href="/#tarifs">Tarifs</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#cta-final" class="n-cta">Nous contacter</a></li>
+    </ul>
+    <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
+  </nav>
+</div>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="breadcrumb"><a href="/">Accueil</a> / <a href="/#secteurs">Secteurs</a> / Coiffure &amp; Beauté</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="h-dot"></span>Coiffure · Beauté · Barbier · Onglerie</div>
+      <h1>Un site internet qui donne <span>envie de pousser la porte.</span></h1>
+      <p class="hero-sub">NovaSpot crée le site web de votre salon : galerie de prestations, avis clients, horaires, prise de contact. En ligne en 48h, dès 49€/mois.</p>
+      <div class="hero-btns">
+        <a href="https://coiffure.novaspot.fr" target="_blank" class="btn-p">Créer mon site →</a>
+        <a href="https://demo-coiffure.novaspot.fr" target="_blank" class="btn-s">Voir un exemple</a>
+      </div>
+    </div>
+    <div class="hero-preview reveal">
+      <div class="real-browser">
+        <div class="real-dot" style="background:#ef4444"></div>
+        <div class="real-dot" style="background:#f59e0b"></div>
+        <div class="real-dot" style="background:#22c55e"></div>
+        <div class="real-url">🔒 demo-coiffure.novaspot.fr</div>
+      </div>
+      <div class="real-preview" style="background-image:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1200&q=80')">
+        <div class="real-badge">Exemple</div>
+        <div class="real-overlay">
+          <div class="real-name">Salon Lumière</div>
+          <div class="real-sector">Coiffure & Beauté</div>
+        </div>
+      </div>
+      <a href="https://demo-coiffure.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="si">
+    <div class="s-tag reveal">Pensé pour votre métier</div>
+    <h2 class="s-title reveal">Ce dont un salon a<br/>vraiment <span>besoin.</span></h2>
+    <div class="srv-grid">
+      <div class="srv-card reveal" style="border-color:rgba(232,112,10,.35)">
+        <div class="srv-icon" style="background:var(--orange);color:#fff">⭐</div>
+        <div class="srv-title">Avis clients mis en avant</div>
+        <p class="srv-desc">Vos clientes satisfaites deviennent votre meilleure publicité, visible directement sur votre site et sur Google.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">💇</div>
+        <div class="srv-title">Galerie de vos réalisations</div>
+        <p class="srv-desc">Coupes, colorations, soins — une galerie photo qui donne envie de prendre rendez-vous.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🕐</div>
+        <div class="srv-title">Horaires et coordonnées à jour</div>
+        <p class="srv-desc">Vos horaires, adresse et téléphone toujours visibles, mis à jour dès que ça change.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">📍</div>
+        <div class="srv-title">SEO local inclus</div>
+        <p class="srv-desc">Optimisé pour apparaître quand quelqu'un cherche un salon près de chez lui.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">📱</div>
+        <div class="srv-title">QR Codes avis inclus</div>
+        <p class="srv-desc">À laisser en caisse ou remettre après une prestation, pour récolter un avis pendant que la cliente est encore ravie.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">✏️</div>
+        <div class="srv-title">Mises à jour illimitées</div>
+        <p class="srv-desc">Nouvelle prestation, nouveaux tarifs, promotion du moment — un message suffit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tarifs">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:1rem">
+      <div class="s-tag reveal" style="justify-content:center">Tarifs</div>
+      <h2 class="s-title reveal" style="text-align:center">Clair, simple, <span>sans surprise.</span></h2>
+    </div>
+    <div class="tarifs-grid">
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Starter</div>
+        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">49</span><span class="tarif-per">/mois</span></div>
+        <p class="tarif-desc">Site pro + gestion des avis + QR code sticker vitrine. + 149€ à la création.</p>
+        <a href="https://coiffure.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
+      </div>
+      <div class="tarif-card featured reveal">
+        <div class="tarif-pop">Le plus demandé</div>
+        <div class="tarif-name">Pro</div>
+        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">79</span><span class="tarif-per">/mois</span></div>
+        <p class="tarif-desc">Domaine perso + galerie de prestations + 3 formats de QR codes. + 249€ à la création.</p>
+        <a href="https://coiffure.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-p">Démarrer →</a>
+      </div>
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Premium</div>
+        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">129</span><span class="tarif-per">/mois</span></div>
+        <p class="tarif-desc">Manager dédié + Google My Business + mise à jour prioritaire 2h. + 399€ à la création.</p>
+        <a href="https://coiffure.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
+      </div>
+    </div>
+    <p class="tarif-more reveal">Détail complet des formules sur <a href="/#tarifs">la page tarifs</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="si" style="text-align:center">
+    <div class="s-tag reveal" style="justify-content:center">Questions fréquentes</div>
+    <h2 class="s-title reveal" style="text-align:center">Spécifique à la<br/><span>coiffure &amp; beauté.</span></h2>
+    <div class="faq-list" style="text-align:left">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Puis-je afficher une galerie de mes réalisations ?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Oui, une galerie photo dédiée met en valeur vos coupes, couleurs et soins.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Est-ce que je peux ajouter mes tarifs ?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Oui, votre grille tarifaire peut être affichée par prestation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Comment mettre à jour mes horaires pour les vacances ?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Un message suffit, c'est mis à jour sous 24h.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cta-final">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="s-tag reveal" style="justify-content:center;color:var(--orange2)">Démarrer</div>
+    <h2 class="cta-title reveal">Prêt à remplir votre<br/><span>carnet de rendez-vous ?</span></h2>
+    <p class="cta-sub reveal">5 minutes pour remplir le formulaire, votre site est prêt sous 48h.</p>
+    <a href="https://coiffure.novaspot.fr" target="_blank" class="btn-p">Remplir le formulaire →</a>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-copy">© 2025 NovaSpot · Tous droits réservés</p>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('nLinks').classList.toggle('open'));
+document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nLinks').classList.remove('open')));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+</script>
+</body>
+</html>

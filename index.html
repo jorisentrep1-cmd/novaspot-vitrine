@@ -6,6 +6,7 @@
 <title>NovaSpot — L'agence digitale des commerces et artisans locaux</title>
 <meta name="description" content="NovaSpot crée et gère la présence digitale de votre commerce ou entreprise locale. Site web professionnel, gestion des avis clients, visibilité locale. Dès 49€/mois."/>
 <link rel="canonical" href="https://novaspot.fr/"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="NovaSpot"/>
@@ -848,8 +849,9 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <h2 class="cta-title reveal">Votre secteur n'est pas<br/>listé ? <span>Écrivez-nous.</span></h2>
     <p class="cta-sub reveal">Laissez votre email ou numéro. On vous rappelle pour un premier échange sans engagement.</p>
     <div class="cta-form reveal">
+      <input type="text" id="ctaHp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
       <input class="cta-input" type="text" id="ctaInput" placeholder="Email ou numéro de téléphone..."/>
-      <button class="cta-send" onclick="handleCta()">Envoyer →</button>
+      <button class="cta-send" id="ctaSendBtn" onclick="handleCta()">Envoyer →</button>
     </div>
     <p class="cta-note reveal">Ou directement : <a href="mailto:contact.novaspot@gmail.com">contact.novaspot@gmail.com</a></p>
   </div>
@@ -911,10 +913,36 @@ document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
 function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+const EMAILJS_PUBLIC_KEY='IENEk0fXfBBkXFNwj';
+const EMAILJS_SERVICE_ID='service_5jg5lod';
+const EMAILJS_TEMPLATE_ID='template_9fnztax';
+const CTA_NOVASPOT_EMAIL='contact.novaspot@gmail.com';
+if(typeof emailjs!=='undefined'){emailjs.init(EMAILJS_PUBLIC_KEY);}
+const ctaLoadedAt=Date.now();
 function handleCta(){
+  if(document.getElementById('ctaHp').value){return;}
+  if(Date.now()-ctaLoadedAt<3000){return;}
   const val=document.getElementById('ctaInput').value.trim();
   if(!val){document.getElementById('ctaInput').focus();return;}
-  document.querySelector('.cta-form').innerHTML='<div style="width:100%;padding:1rem;background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);color:#86efac;font-size:.85rem;text-align:center;border-radius:6px">✓ Message reçu ! On vous recontacte très vite.</div>';
+  const btn=document.getElementById('ctaSendBtn');
+  const isEmail=val.includes('@');
+  btn.textContent='Envoi...';
+  btn.disabled=true;
+  emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{
+    to_email:CTA_NOVASPOT_EMAIL,
+    from_name:'Prospect (formulaire homepage — secteur non listé)',
+    from_email:isEmail?val:'',
+    from_phone:isEmail?'':val,
+    subject:'Nouvelle demande — secteur non listé',
+    message:`Contact laissé sur la homepage NovaSpot : ${val}`
+  }).then(()=>{
+    document.querySelector('.cta-form').innerHTML='<div style="width:100%;padding:1rem;background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);color:#86efac;font-size:.85rem;text-align:center;border-radius:6px">✓ Message reçu ! On vous recontacte très vite.</div>';
+  }).catch((err)=>{
+    console.error('Erreur EmailJS:',err);
+    btn.textContent='Envoyer →';
+    btn.disabled=false;
+    alert('Une erreur est survenue lors de l\'envoi. Merci de nous écrire directement à contact.novaspot@gmail.com');
+  });
 }
 document.getElementById('ctaInput').addEventListener('keypress',e=>{if(e.key==='Enter')handleCta();});
 

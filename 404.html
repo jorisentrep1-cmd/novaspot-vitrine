@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Page introuvable — NovaSpot</title>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0f1f3d;--orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
+  --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);color:var(--text);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;padding:1.5rem 3rem}
+.n-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.n-logo-mark{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+.n-logo-text{font-size:1.05rem;font-weight:800;color:var(--navy)}
+.n-logo-text span{color:var(--orange)}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center}
+.inner{max-width:480px}
+.code{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+h1{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.5px;color:var(--navy);line-height:1.25;margin-bottom:1rem}
+p{font-size:.92rem;color:var(--text2);line-height:1.7;margin-bottom:2.25rem}
+.btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-p{background:var(--orange);color:#fff;padding:.85rem 1.75rem;border-radius:6px;font-size:.82rem;font-weight:700;text-decoration:none;transition:background .2s}
+.btn-p:hover{background:var(--orange2)}
+.btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border);padding:.85rem 1.75rem;border-radius:6px;font-size:.82rem;font-weight:600;text-decoration:none;transition:border-color .2s}
+.btn-s:hover{border-color:var(--navy)}
+.sect-links{display:flex;flex-wrap:wrap;gap:.5rem .9rem;justify-content:center;font-size:.78rem}
+.sect-links a{color:var(--text2);text-decoration:none}
+.sect-links a:hover{color:var(--orange)}
+.sect-links span{color:var(--text3)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="n-logo" href="/">
+    <div class="n-logo-mark">N</div>
+    <div class="n-logo-text">Nova<span>Spot</span></div>
+  </a>
+</nav>
+
+<main>
+  <div class="inner">
+    <div class="code">Erreur 404</div>
+    <h1>Cette page n'existe pas (ou plus).</h1>
+    <p>Le lien est peut-être obsolète ou mal orthographié. Pas d'inquiétude, le reste du site fonctionne — voici où aller.</p>
+    <div class="btns">
+      <a href="/" class="btn-p">Retour à l'accueil →</a>
+      <a href="/#tarifs" class="btn-s">Voir les tarifs</a>
+    </div>
+    <div class="sect-links">
+      <a href="/secteurs/nettoyage/">Nettoyage</a><span>·</span>
+      <a href="/secteurs/coiffure/">Coiffure</a><span>·</span>
+      <a href="/secteurs/garage/">Garage</a><span>·</span>
+      <a href="/secteurs/batiment/">Bâtiment</a><span>·</span>
+      <a href="/secteurs/demenagement/">Déménagement</a><span>·</span>
+      <a href="/secteurs/jardinage/">Jardinage</a><span>·</span>
+      <a href="/secteurs/osteopathie-animale/">Ostéopathie animale</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

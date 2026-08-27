@@ -33,7 +33,7 @@
 <style>
 :root{
   --navy:#0f1f3d;--navy2:#16294f;--navy3:#1e3660;
-  --orange:#10b981;--orange2:#34d399;--orange3:rgba(16,185,129,.08);
+  --orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
   --light:#f4f7fc;--light2:#eaeff8;--border:#d8e2f0;
   --text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
   --white:#fff;--green:#22c55e;
@@ -75,14 +75,14 @@ nav{position:relative;height:66px;display:flex;align-items:center;justify-conten
 
 /* HERO */
 #hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:100px}
-.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 65%);animation:drift1 14s ease-in-out infinite}
+.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(4,120,87,.12) 0%,transparent 65%);animation:drift1 14s ease-in-out infinite}
 .hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(15,31,61,.06) 0%,transparent 65%);animation:drift2 18s ease-in-out infinite}
 @keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
 @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-20px)}}
-.hero-spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(16,185,129,.10),transparent 60%);opacity:0;transition:opacity .4s ease}
+.hero-spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(4,120,87,.10),transparent 60%);opacity:0;transition:opacity .4s ease}
 #hero:hover .hero-spot{opacity:1}
 .hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;text-align:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange3);border:1px solid rgba(16,185,129,.25);padding:.35rem 1rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1.75rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange3);border:1px solid rgba(4,120,87,.25);padding:.35rem 1rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1.75rem}
 .h-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;animation:pdot 1.5s infinite}
 @keyframes pdot{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.12;letter-spacing:-1.5px;color:var(--navy);margin-bottom:1.5rem}
@@ -90,7 +90,7 @@ h1 span{color:var(--orange)}
 .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;margin:0 auto 2.5rem;line-height:1.8}
 .hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
 .btn-p{background:var(--orange);color:#fff;border:none;padding:.95rem 2.1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border-radius:6px}
-.btn-p:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(16,185,129,.28)}
+.btn-p:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(4,120,87,.28)}
 .btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border);padding:.95rem 2.1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all var(--t);text-decoration:none;display:inline-block;border-radius:6px}
 .btn-s:hover{border-color:var(--navy);background:var(--light)}
 .hero-stats{display:flex;gap:0;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:10px;max-width:640px;margin:0 auto;box-shadow:0 8px 30px rgba(15,31,61,.06)}
@@ -121,7 +121,7 @@ h1 span{color:var(--orange)}
 #services{background:var(--light)}
 .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem;perspective:1200px}
 .srv-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
-.srv-card:hover{border-color:rgba(16,185,129,.3);box-shadow:0 8px 30px rgba(15,31,61,.07)}
+.srv-card:hover{border-color:rgba(4,120,87,.3);box-shadow:0 8px 30px rgba(15,31,61,.07)}
 .srv-icon{width:48px;height:48px;background:var(--orange3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.25rem}
 .srv-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
 .srv-desc{font-size:.8rem;color:var(--text2);line-height:1.8}
@@ -139,7 +139,7 @@ h1 span{color:var(--orange)}
 .sect-feat::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
 .sect-btn{background:var(--navy);color:#fff;border:none;padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
 .sect-btn:hover{background:var(--orange)}
-.sect-other{background:var(--orange3);border:1.5px dashed rgba(16,185,129,.35);border-radius:12px;padding:1.75rem 2rem;margin-top:1.5rem;text-align:center}
+.sect-other{background:var(--orange3);border:1.5px dashed rgba(4,120,87,.35);border-radius:12px;padding:1.75rem 2rem;margin-top:1.5rem;text-align:center}
 .sect-other-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
 .sect-other-desc{font-size:.8rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7}
 
@@ -177,7 +177,7 @@ h1 span{color:var(--orange)}
 .sv-form-title::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%}
 .sv-field{background:#fff;border:1px solid var(--border);border-radius:5px;padding:.5rem .75rem;font-size:.65rem;color:var(--text3);margin-bottom:.5rem}
 .sv-check{display:flex;gap:.4rem;flex-wrap:wrap}
-.sv-chip{background:var(--orange3);color:var(--orange);border:1px solid rgba(16,185,129,.25);border-radius:100px;padding:.2rem .6rem;font-size:.58rem;font-weight:700}
+.sv-chip{background:var(--orange3);color:var(--orange);border:1px solid rgba(4,120,87,.25);border-radius:100px;padding:.2rem .6rem;font-size:.58rem;font-weight:700}
 .sv-notif{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:.65rem .9rem;font-size:.68rem;color:#15803d;border-radius:6px;display:flex;align-items:center;gap:.5rem}
 .notif-dot{width:5px;height:5px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pdot 1.5s infinite}
 
@@ -195,7 +195,7 @@ h1 span{color:var(--orange)}
 .tarifs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem;perspective:1200px}
 .tarif-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:2.25rem;display:flex;flex-direction:column;position:relative;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
 .tarif-card:hover{box-shadow:0 12px 34px rgba(15,31,61,.08)}
-.tarif-card.featured{border-color:var(--orange);box-shadow:0 14px 36px rgba(16,185,129,.14)}
+.tarif-card.featured{border-color:var(--orange);box-shadow:0 14px 36px rgba(4,120,87,.14)}
 .tarif-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;white-space:nowrap}
 .tarif-name{font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:1.25rem}
 .tarif-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:.4rem}
@@ -234,7 +234,7 @@ h1 span{color:var(--orange)}
 
 /* CTA FINAL */
 #cta-final{background:var(--navy);position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 30%,rgba(16,185,129,.14) 0%,transparent 70%)}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 30%,rgba(4,120,87,.14) 0%,transparent 70%)}
 .cta-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
 .cta-title span{color:var(--orange)}
@@ -383,7 +383,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="s-tag reveal">Ce qu'on fait</div>
     <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin, <span>inclus.</span></h2>
     <div class="srv-grid">
-      <div class="srv-card reveal" style="border-color:rgba(16,185,129,.35);position:relative">
+      <div class="srv-card reveal" style="border-color:rgba(4,120,87,.35);position:relative">
         <div class="srv-icon" style="background:var(--orange);color:#fff">⭐</div>
         <div class="srv-title">Récolte & gestion des avis clients</div>
         <p class="srv-desc">Notre spécialité. QR codes à poser en boutique ou à remettre à vos clients. Les avis positifs sont orientés vers Google, les négatifs sont gérés directement avec vous — jamais publiés sans réponse.</p>

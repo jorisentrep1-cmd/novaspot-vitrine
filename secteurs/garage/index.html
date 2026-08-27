@@ -347,7 +347,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
 </section>
 
 <footer>
-  <p class="footer-copy">© 2025 NovaSpot · Tous droits réservés</p>
+  <p class="footer-copy">© <span id="year">2026</span> NovaSpot · Tous droits réservés</p>
 </footer>
 
 <script>
@@ -355,6 +355,7 @@ document.getElementById('burger').addEventListener('click',()=>document.getEleme
 document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nLinks').classList.remove('open')));
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.getElementById('year').textContent=new Date().getFullYear();
 function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
 </script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>

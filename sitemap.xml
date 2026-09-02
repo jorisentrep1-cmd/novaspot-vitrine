@@ -26,11 +26,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://novaspot.fr/secteurs/demenagement/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://novaspot.fr/secteurs/jardinage/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

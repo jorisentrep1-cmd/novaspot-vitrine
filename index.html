@@ -143,9 +143,10 @@ h1 span{color:var(--orange)}
 .sect-feat::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
 .sect-btn{background:var(--navy);color:#fff;border:none;padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
 .sect-btn:hover{background:var(--orange)}
-.sect-other{background:var(--orange3);border:1.5px dashed rgba(4,120,87,.35);border-radius:12px;padding:1.75rem 2rem;margin-top:1.5rem;text-align:center}
-.sect-other-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
-.sect-other-desc{font-size:.8rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7}
+.sect-other{background:var(--orange3);border:2px solid var(--orange);border-radius:14px;padding:2.25rem 2rem;margin-top:2rem;text-align:center;box-shadow:0 10px 30px rgba(4,120,87,.1)}
+.sect-other-emoji{font-size:1.8rem;margin-bottom:.5rem}
+.sect-other-title{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.6rem}
+.sect-other-desc{font-size:.85rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
 
 /* REALISATIONS */
 #realisations{background:#fff}
@@ -424,8 +425,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="secteurs">
   <div class="si">
     <div class="s-tag reveal">Démarrer maintenant</div>
-    <h2 class="s-title reveal">Choisissez votre secteur<br/>et <span>lancez votre projet.</span></h2>
-    <p class="s-sub reveal" style="max-width:560px">Remplissez le formulaire dédié à votre activité (5 minutes). On reçoit votre demande instantanément et votre site est prêt sous 48h.</p>
+    <h2 class="s-title reveal">Quelques exemples de secteurs<br/>— mais <span>on fait bien plus large.</span></h2>
+    <p class="s-sub reveal" style="max-width:560px">Ces secteurs ont un formulaire dédié pour aller plus vite, mais on crée des sites sur-mesure pour n'importe quel commerce ou activité. Remplissez le formulaire de votre secteur (5 minutes) ou contactez-nous directement — votre site est prêt sous 48h.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
 
@@ -478,18 +479,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">📦</div>
-        <div class="sect-name">Déménagement</div>
-        <p class="sect-desc">Déménageurs particuliers et professionnels, garde-meuble, transport spécialisé.</p>
-        <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
-          <div class="sect-feat">Formulaire de devis</div>
-        </div>
-        <a href="/secteurs/demenagement/" class="sect-btn">Découvrir →</a>
-      </div>
-
-      <div class="sect-card reveal">
         <div class="sect-emoji">🌳</div>
         <div class="sect-name">Jardinage & Paysagisme</div>
         <p class="sect-desc">Entretien de jardins, élagage, création et aménagement paysager.</p>
@@ -516,8 +505,9 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
 
     <div class="sect-other reveal">
-      <div class="sect-other-title">Votre secteur n'est pas listé ?</div>
-      <p class="sect-other-desc">Artisans, professionnels de santé, commerces de proximité... On travaille avec tous types de commerces locaux. Contactez-nous directement, on adapte le formulaire à votre activité.</p>
+      <div class="sect-other-emoji">✨</div>
+      <div class="sect-other-title">Et pour tous les autres secteurs ?</div>
+      <p class="sect-other-desc">La liste ci-dessus n'est qu'un aperçu. Artisans, professionnels de santé, commerces de proximité, associations, indépendants... on crée des sites sur-mesure pour absolument tout type d'activité. Contactez-nous directement, on adapte le formulaire à votre métier.</p>
       <a href="#cta-final" class="btn-p">Nous contacter</a>
     </div>
   </div>
@@ -594,22 +584,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           </div>
         </div>
         <a href="https://demo-batiment.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
-      </div>
-      <div class="real-card reveal">
-        <div class="real-browser">
-          <div class="real-dot" style="background:#ef4444"></div>
-          <div class="real-dot" style="background:#f59e0b"></div>
-          <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-demenagement.novaspot.fr</div>
-        </div>
-        <div class="real-preview" style="background-image:url('/img/unsplash-photo-1698917414969-feade59e3343.jpg')">
-          <div class="real-badge">Exemple</div>
-          <div class="real-overlay">
-            <div class="real-name">Mobilité Express</div>
-            <div class="real-sector">Déménagement</div>
-          </div>
-        </div>
-        <a href="https://demo-demenagement.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
       <div class="real-card reveal">
         <div class="real-browser">
@@ -878,7 +852,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <a href="/secteurs/coiffure/">Coiffure & Beauté</a>
           <a href="/secteurs/garage/">Garage & Automobile</a>
           <a href="/secteurs/batiment/">Artisans du bâtiment</a>
-          <a href="/secteurs/demenagement/">Déménagement</a>
           <a href="/secteurs/jardinage/">Jardinage & Paysagisme</a>
           <a href="/secteurs/osteopathie-animale/">Ostéopathie Animale</a>
           <a href="#tarifs">Tarifs</a>

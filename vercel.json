@@ -1,8 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/secteurs/demenagement",
+      "destination": "/#secteurs",
+      "permanent": true
+    },
+    {
+      "source": "/secteurs/demenagement/",
       "destination": "/#secteurs",
       "permanent": true
     },

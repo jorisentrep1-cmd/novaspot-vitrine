@@ -39,7 +39,7 @@
   --navy:#0f1f3d;--navy2:#16294f;--navy3:#1e3660;
   --orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
   --light:#f4f7fc;--light2:#eaeff8;--border:#d8e2f0;
-  --text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
+  --text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
   --white:#fff;--green:#22c55e;
   --t:.25s cubic-bezier(.4,0,.2,1);
 }
@@ -74,7 +74,7 @@ nav{position:relative;height:66px;display:flex;align-items:center;justify-conten
 .n-links a:hover{color:var(--navy)}
 .n-cta{background:var(--orange)!important;color:#fff!important;padding:.5rem 1.3rem!important;border-radius:5px;transition:background var(--t)!important}
 .n-cta:hover{background:var(--orange2)!important;color:#fff!important}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:pointer;width:44px;height:44px;padding:0;margin-right:-10px}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2)}
 
 /* HERO */
@@ -262,7 +262,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 .footer-desc{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.8;max-width:280px}
 .ft-col-title{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
 .ft-links{display:flex;flex-direction:column;gap:.5rem}
-.ft-links a{font-size:.78rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color var(--t)}
+.ft-links a{display:inline-block;padding:.35rem 0;font-size:.78rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color var(--t)}
 .ft-links a:hover{color:var(--orange2)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
 .footer-copy{font-size:.7rem;color:rgba(255,255,255,.25)}
@@ -358,7 +358,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
     <div class="hero-stats">
       <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="48" data-suffix="h">0h</span></div><div class="hs-label">Délai de mise en ligne</div></div>
-      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="49" data-suffix="€">0€</span></div><div class="hs-label">Par mois, tout inclus</div></div>
+      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="39" data-suffix="€">0€</span></div><div class="hs-label">Par mois, tout inclus</div></div>
       <div class="h-stat"><div class="hs-num">0<span>€</span></div><div class="hs-label">De frais cachés</div></div>
     </div>
   </div>
@@ -411,7 +411,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="srv-card reveal">
         <div class="srv-icon">✏️</div>
         <div class="srv-title">Mises à jour illimitées</div>
-        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment — envoyez-nous un message, c'est mis à jour sous 24h.</p>
+        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment — envoyez-nous un message, c'est mis à jour sous 48h.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">🤝</div>
@@ -642,7 +642,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           </div>
           <div class="sol-item">
             <div class="sol-num">03</div>
-            <div><div class="sol-item-title">On met à jour dès que vous en avez besoin</div><div class="sol-item-desc">Un message WhatsApp suffit. Nouvelle prestation, nouveaux horaires — c'est fait sous 24h.</div></div>
+            <div><div class="sol-item-title">On met à jour dès que vous en avez besoin</div><div class="sol-item-desc">Un message WhatsApp suffit. Nouvelle prestation, nouveaux horaires — c'est fait sous 48h.</div></div>
           </div>
         </div>
       </div>
@@ -723,7 +723,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Sous-domaine novaspot.fr</div>
           <div class="tf"><span class="tf-check">✓</span>Gestion des avis clients</div>
           <div class="tf"><span class="tf-check">✓</span>QR Code avis (format sticker vitrine)</div>
-          <div class="tf"><span class="tf-check">✓</span>Mises à jour du contenu (sous 5 jours ouvrés)</div>
+          <div class="tf"><span class="tf-check">✓</span>Mises à jour du contenu (sous 48h)</div>
           <div class="tf"><span class="tf-x">✗</span><span style="opacity:.4">Domaine personnalisé</span></div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
@@ -740,7 +740,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Design personnalisé avancé</div>
           <div class="tf"><span class="tf-check">✓</span>Galerie de prestations avec photos</div>
           <div class="tf"><span class="tf-check">✓</span>QR Codes avis (3 formats : brut, comptoir, vitrine)</div>
-          <div class="tf"><span class="tf-check">✓</span>Support prioritaire (mises à jour sous 48h)</div>
+          <div class="tf"><span class="tf-check">✓</span>Support prioritaire</div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-p">Démarrer →</a>
       </div>
@@ -754,7 +754,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Suivi proactif (on vous recontacte, pas l'inverse)</div>
           <div class="tf"><span class="tf-check">✓</span>QR Codes avis (3 formats + variantes sur demande)</div>
           <div class="tf"><span class="tf-check">✓</span>Gestion Google My Business</div>
-          <div class="tf"><span class="tf-check">✓</span>Mise à jour prioritaire (2h)</div>
           <div class="tf"><span class="tf-check">✓</span>Newsletter clients</div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
@@ -810,7 +809,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <span class="faq-q-text">Est-ce que je peux modifier mes prestations moi-même ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Pas besoin. Envoyez-nous un message (WhatsApp ou email) avec vos modifications, et on s'en occupe dans les 24h. C'est inclus dans votre abonnement, sans limite.</div>
+        <div class="faq-a">Pas besoin. Envoyez-nous un message (WhatsApp ou email) avec vos modifications, et on s'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -867,6 +866,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="ft-links">
           <a href="mailto:contact.novaspot@gmail.com">contact.novaspot@gmail.com</a>
           <a href="#faq">FAQ</a>
+          <a href="/confidentialite">Politique de confidentialité</a>
         </div>
       </div>
     </div>

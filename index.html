@@ -37,7 +37,7 @@
 <style>
 :root{
   --navy:#0f1f3d;--navy2:#16294f;--navy3:#1e3660;
-  --orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
+  --orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);--green-dk:#34d399;
   --light:#f4f7fc;--light2:#eaeff8;--border:#d8e2f0;
   --text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
   --white:#fff;--green:#22c55e;
@@ -61,7 +61,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 /* TOP BAR */
 #fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
 .top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
-.top-bar span{color:var(--orange2)}
+.top-bar span{color:var(--green-dk)}
 
 /* NAV */
 nav{position:relative;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
@@ -126,7 +126,8 @@ h1 span{color:var(--orange)}
 .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem;perspective:1200px}
 .srv-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
 .srv-card:hover{border-color:rgba(4,120,87,.3);box-shadow:0 8px 30px rgba(15,31,61,.07)}
-.srv-icon{width:48px;height:48px;background:var(--orange3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.25rem}
+.srv-icon{width:48px;height:48px;background:var(--orange3);color:var(--orange);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.srv-icon svg{width:24px;height:24px}
 .srv-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
 .srv-desc{font-size:.8rem;color:var(--text2);line-height:1.8}
 
@@ -135,14 +136,15 @@ h1 span{color:var(--orange)}
 .sect-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:3.5rem;perspective:1200px}
 .sect-card{flex:1 1 300px;max-width:350px;background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:2rem;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
 .sect-card:hover{border-color:var(--orange);box-shadow:0 12px 34px rgba(15,31,61,.09)}
-.sect-emoji{font-size:2.2rem;margin-bottom:1rem}
+.sect-emoji{width:44px;height:44px;border-radius:9px;background:var(--orange3);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.sect-emoji svg{width:23px;height:23px}
 .sect-name{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
 .sect-desc{font-size:.8rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;flex:1}
 .sect-feats{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.75rem}
 .sect-feat{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--text)}
 .sect-feat::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
-.sect-btn{background:var(--navy);color:#fff;border:none;padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
-.sect-btn:hover{background:var(--orange)}
+.sect-btn{background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
+.sect-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .sect-other{background:var(--orange3);border:2px solid var(--orange);border-radius:14px;padding:2.25rem 2rem;margin-top:2rem;text-align:center;box-shadow:0 10px 30px rgba(4,120,87,.1)}
 .sect-other-emoji{font-size:1.8rem;margin-bottom:.5rem}
 .sect-other-title{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.6rem}
@@ -158,11 +160,11 @@ h1 span{color:var(--orange)}
 .real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
 .real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
 .real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
-.real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,10,8,.85) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
+.real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,61,0) 30%,rgba(15,31,61,.55) 62%,rgba(15,31,61,.92) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
 .real-name{font-size:1.2rem;font-weight:800;color:#fff}
 .real-sector{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.15rem}
-.real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--navy);color:#fff;border:none;padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
-.real-btn:hover{background:var(--orange)}
+.real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
+.real-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .real-note{font-size:.78rem;color:var(--text3);margin-top:2rem;max-width:560px}
 
 /* SOLUTION */
@@ -200,14 +202,15 @@ h1 span{color:var(--orange)}
 .tarifs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem;perspective:1200px}
 .tarif-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:2.25rem;display:flex;flex-direction:column;position:relative;transition:box-shadow var(--t),border-color var(--t),transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
 .tarif-card:hover{box-shadow:0 12px 34px rgba(15,31,61,.08)}
-.tarif-card.featured{border-color:var(--orange);box-shadow:0 14px 36px rgba(4,120,87,.14)}
+.tarif-card.featured{border-color:var(--orange);border-width:2px;box-shadow:0 20px 48px rgba(4,120,87,.20);z-index:2}
+@media(min-width:901px){.tarif-card.featured{margin:-16px -6px;padding:2.9rem 2.4rem}}
 .tarif-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;white-space:nowrap}
 .tarif-name{font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:1.25rem}
 .tarif-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:.4rem}
-.tarif-num{font-size:2.8rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}
+.tarif-num{font-size:3.4rem;font-weight:800;color:var(--navy);letter-spacing:-2px;line-height:1}
 .tarif-cur{font-size:1.05rem;font-weight:700;color:var(--text2)}
 .tarif-per{font-size:.8rem;color:var(--text2)}
-.tarif-setup{font-size:.7rem;color:var(--text3);margin-bottom:2rem}
+.tarif-setup{font-size:.78rem;font-weight:600;color:var(--text2);margin-bottom:2rem}
 .tarif-note{font-size:.78rem;color:var(--text3);text-align:center;max-width:640px;margin:1.75rem auto 0;line-height:1.7}
 .tarif-features{flex:1;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
 .tf{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:var(--text2);line-height:1.5}
@@ -240,10 +243,11 @@ h1 span{color:var(--orange)}
 
 /* CTA FINAL */
 #cta-final{background:var(--navy);position:relative;overflow:hidden}
+#cta-final .s-tag::before{background:var(--green-dk)}
 .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 30%,rgba(4,120,87,.14) 0%,transparent 70%)}
 .cta-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
-.cta-title span{color:var(--orange)}
+.cta-title span{color:var(--green-dk)}
 .cta-sub{font-size:.92rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem;line-height:1.75}
 .cta-form{display:flex;max-width:440px;margin:0 auto 1rem}
 .cta-input{-webkit-appearance:none;appearance:none;box-sizing:border-box;flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-right:none;color:#fff;padding:0 1.25rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;outline:none;height:50px;border-radius:6px 0 0 6px;transition:border-color var(--t)}
@@ -251,21 +255,21 @@ h1 span{color:var(--orange)}
 .cta-input::placeholder{color:rgba(255,255,255,.35)}
 .cta-send{background:var(--orange);color:#fff;border:none;padding:0 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:background var(--t);height:50px;white-space:nowrap;border-radius:0 6px 6px 0}
 .cta-send:hover{background:var(--orange2)}
-.cta-note{font-size:.72rem;color:rgba(255,255,255,.4)}
-.cta-note a{color:var(--orange);text-decoration:none}
+.cta-note{font-size:.72rem;color:rgba(255,255,255,.6)}
+.cta-note a{color:var(--green-dk);text-decoration:none}
 
 /* FOOTER */
 footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(255,255,255,.06)}
 .footer-inner{max-width:1100px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
-.footer-desc{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.8;max-width:280px}
-.ft-col-title{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
+.footer-desc{font-size:.78rem;color:rgba(255,255,255,.62);line-height:1.8;max-width:280px}
+.ft-col-title{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.58);margin-bottom:1rem}
 .ft-links{display:flex;flex-direction:column;gap:.5rem}
 .ft-links a{display:inline-block;padding:.35rem 0;font-size:.78rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color var(--t)}
-.ft-links a:hover{color:var(--orange2)}
+.ft-links a:hover{color:var(--green-dk)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
-.footer-copy{font-size:.7rem;color:rgba(255,255,255,.25)}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.5)}
 .footer-live{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:rgba(255,255,255,.35)}
 .footer-live-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pdot 2s infinite}
 
@@ -389,32 +393,32 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin, <span>inclus.</span></h2>
     <div class="srv-grid">
       <div class="srv-card reveal" style="border-color:rgba(4,120,87,.35);position:relative">
-        <div class="srv-icon" style="background:var(--orange);color:#fff">⭐</div>
+        <div class="srv-icon" style="background:var(--orange);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85z"/></svg></div>
         <div class="srv-title">Récolte & gestion des avis clients</div>
         <p class="srv-desc">Notre spécialité. QR codes à poser en boutique ou à remettre à vos clients : laisser un avis Google devient l'affaire de 10 secondes. Et si un client est mécontent, vous êtes prévenu immédiatement pour réagir avant que ça s'envenime.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">🌐</div>
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19M5.8 6.25h.01M8.3 6.25h.01M10.8 6.25h.01"/></svg></div>
         <div class="srv-title">Site web professionnel</div>
         <p class="srv-desc">Design sur-mesure selon votre activité, vos prestations, vos horaires. Rapide, mobile-first et pensé pour convertir vos visiteurs en clients.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">📍</div>
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.2 7-10.5A7 7 0 0 0 5 10.5C5 15.8 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.6"/></svg></div>
         <div class="srv-title">SEO local inclus</div>
         <p class="srv-desc">Chaque site intègre les bases techniques pour être bien vu par Google : données structurées, méta-descriptions, vitesse de chargement, version mobile optimisée.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">📱</div>
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/><path d="M14 14h3v3h-3zM20.5 14v3M17.5 20.5h3M14 20.5h.01"/></svg></div>
         <div class="srv-title">QR Codes avis inclus</div>
         <p class="srv-desc">Fichiers prêts à imprimer (sticker vitrine, carte comptoir) générés à partir du lien vers la section avis de votre site. À poser où vous voulez.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">✏️</div>
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 3.6a2.1 2.1 0 0 1 3 3L9.2 16.9l-4 1 1-4z"/><path d="M14.5 5.6l3 3"/></svg></div>
         <div class="srv-title">Mises à jour illimitées</div>
         <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment — envoyez-nous un message, c'est mis à jour sous 48h.</p>
       </div>
       <div class="srv-card reveal">
-        <div class="srv-icon">🤝</div>
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 8.5v7a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-7"/><path d="M3.5 8.5l8.5-5 8.5 5"/><path d="M9 17.5v-4.2a3 3 0 0 1 6 0v4.2"/></svg></div>
         <div class="srv-title">Sans engagement</div>
         <p class="srv-desc">Contrairement à d'autres agences qui vous engagent sur plusieurs années, vous restez chez nous parce que le service fonctionne — pas parce que vous êtes coincé.</p>
       </div>
@@ -426,13 +430,13 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="secteurs">
   <div class="si">
     <div class="s-tag reveal">Démarrer maintenant</div>
-    <h2 class="s-title reveal">Quelques exemples de secteurs<br/>— mais <span>on fait bien plus large.</span></h2>
+    <h2 class="s-title reveal">Quelques exemples de secteurs,<br/><span>et bien plus encore.</span></h2>
     <p class="s-sub reveal" style="max-width:560px">Ces secteurs ont un formulaire dédié pour aller plus vite, mais on crée des sites sur-mesure pour n'importe quel commerce ou activité. Remplissez le formulaire de votre secteur (5 minutes) ou contactez-nous directement — votre site est prêt sous 48h.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">🧹</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5v8"/><path d="M6.5 10.5h11l1.2 4.2a2 2 0 0 1-1.9 2.6H7.2a2 2 0 0 1-1.9-2.6z"/><path d="M8.6 17.3v4M12 17.3v4M15.4 17.3v4"/></svg></div>
         <div class="sect-name">Nettoyage & Entretien</div>
         <p class="sect-desc">Entreprises de nettoyage, esthétique automobile, services associés.</p>
         <div class="sect-feats">
@@ -444,7 +448,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">✂️</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="17.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/><path d="M8.6 15.4L19 3.5M15.4 15.4L5 3.5"/></svg></div>
         <div class="sect-name">Coiffure & Beauté</div>
         <p class="sect-desc">Salons de coiffure, instituts de beauté, barbiers, onglerie.</p>
         <div class="sect-feats">
@@ -456,7 +460,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">🔧</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.2a5 5 0 0 0-4.1 8.3L3.6 19.3a2 2 0 0 0 2.8 2.8l7.8-7.8a5 5 0 0 0 6.1-6.9l-2.9 2.9-2.6-.7-.7-2.6z"/></svg></div>
         <div class="sect-name">Garage & Automobile</div>
         <p class="sect-desc">Garages, mécanique, carrosserie, esthétique automobile.</p>
         <div class="sect-feats">
@@ -468,7 +472,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">🔨</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5l3-3 3.5 3.5-3 3z"/><path d="M15.6 8.7L6 18.3a2.2 2.2 0 0 1-3.1-3.1l9.6-9.6"/><path d="M9 3.5l3 3-2.5 2.5-3-3z"/></svg></div>
         <div class="sect-name">Artisans du bâtiment</div>
         <p class="sect-desc">Plombiers, électriciens, peintres, maçons, et tous corps de métier du bâtiment.</p>
         <div class="sect-feats">
@@ -480,7 +484,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">🌳</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-6.5"/><path d="M12 14.5c0-3.6 2.6-6.5 6-6.5 0 3.6-2.6 6.5-6 6.5z"/><path d="M12 14.5c0-3.6-2.6-6.5-6-6.5 0 3.6 2.6 6.5 6 6.5z"/><path d="M12 8.5C12 5.6 13.4 3 15 3c0 2.9-1.4 5.5-3 5.5z"/></svg></div>
         <div class="sect-name">Jardinage & Paysagisme</div>
         <p class="sect-desc">Entretien de jardins, élagage, création et aménagement paysager.</p>
         <div class="sect-feats">
@@ -492,7 +496,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
 
       <div class="sect-card reveal">
-        <div class="sect-emoji">🐾</div>
+        <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="3.6" ry="3"/><ellipse cx="6" cy="10.5" rx="2" ry="2.4"/><ellipse cx="18" cy="10.5" rx="2" ry="2.4"/><ellipse cx="9.6" cy="6.2" rx="1.9" ry="2.3"/><ellipse cx="14.4" cy="6.2" rx="1.9" ry="2.3"/></svg></div>
         <div class="sect-name">Ostéopathie Animale</div>
         <p class="sect-desc">Praticiens en ostéopathie pour chiens, chats, chevaux et NAC.</p>
         <div class="sect-feats">
@@ -519,7 +523,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="si">
     <div class="s-tag reveal">Nos réalisations</div>
     <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous.</span></h2>
-    <p class="s-sub reveal" style="max-width:560px">Un exemple concret du type de site livré à nos clients — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
+    <p class="s-sub reveal" style="max-width:560px">Des exemples concrets du type de site qu'on livre — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les exemples →</p>
     <div class="real-grid">
       <div class="real-card reveal">
@@ -693,7 +697,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="proc-step reveal">
         <div class="proc-num">3</div>
         <div class="proc-title">Mise en ligne</div>
-        <p class="proc-desc">Votre site est en ligne sur votre domaine. QR codes avis envoyés.</p>
+        <p class="proc-desc">Votre site est en ligne sur votre adresse. QR codes avis envoyés.</p>
       </div>
       <div class="proc-step reveal">
         <div class="proc-num">4</div>
@@ -826,9 +830,9 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="cta-final">
   <div class="cta-bg"></div>
   <div class="cta-inner">
-    <div class="s-tag reveal" style="justify-content:center;color:var(--orange2)">Démarrer</div>
-    <h2 class="cta-title reveal">Votre secteur n'est pas<br/>listé ? <span>Écrivez-nous.</span></h2>
-    <p class="cta-sub reveal">Laissez votre email ou numéro. On vous rappelle pour un premier échange sans engagement.</p>
+    <div class="s-tag reveal" style="justify-content:center;color:var(--green-dk)">Démarrer</div>
+    <h2 class="cta-title reveal">Prêt à lancer<br/>votre site ? <span>Parlons-en.</span></h2>
+    <p class="cta-sub reveal">Quel que soit votre métier, laissez votre email ou votre numéro. On vous rappelle pour un premier échange, sans engagement.</p>
     <div class="cta-form reveal">
       <input type="text" id="ctaHp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
       <input class="cta-input" type="text" id="ctaInput" placeholder="Email ou téléphone..."/>
@@ -845,7 +849,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div>
         <div class="footer-logo">
           <div class="n-logo-mark">N</div>
-          <div class="n-logo-text" style="color:#fff">Nova<span>Spot</span></div>
+          <div class="n-logo-text" style="color:#fff">Nova<span style="color:var(--green-dk)">Spot</span></div>
         </div>
         <p class="footer-desc">L'agence digitale des commerces et artisans locaux. Site web, avis clients, visibilité — on s'occupe de tout.</p>
       </div>

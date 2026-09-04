@@ -301,6 +301,9 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .sect-grid,.real-grid{
     display:flex;
     flex-wrap:nowrap;
+    /* Indispensable : le justify-content:center du desktop rendrait le debut
+       du carrousel inatteignable (les 1eres cartes debordent a gauche). */
+    justify-content:flex-start;
     grid-template-columns:none;
     overflow-x:auto;
     scroll-snap-type:x proximity;

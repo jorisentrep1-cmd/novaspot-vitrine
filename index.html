@@ -303,13 +303,16 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     flex-wrap:nowrap;
     grid-template-columns:none;
     overflow-x:auto;
-    scroll-snap-type:x mandatory;
+    scroll-snap-type:x proximity;
+    overscroll-behavior-x:contain;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
     gap:1rem;
     padding-bottom:.25rem;
   }
   .sect-grid::-webkit-scrollbar,.real-grid::-webkit-scrollbar{display:none}
+  .sect-grid{perspective:none}
+  .sect-card,.real-card{transform-style:flat;will-change:auto}
   .sect-card,.real-card{scroll-snap-align:start;flex:0 0 80%;max-width:none}
 }
 </style>
@@ -961,8 +964,11 @@ if(!reduceMotion){
   });
 }
 
-// Tilt 3D au survol des cartes
-if(!reduceMotion){
+// Tilt 3D au survol des cartes — souris uniquement.
+// Sur tactile, les navigateurs émettent des mousemove de compatibilité : le transform
+// écrit sur une carte décalait son point d'accroche et cassait le défilement du carrousel.
+const pointeurFin = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+if(!reduceMotion && pointeurFin){
   document.querySelectorAll('.srv-card,.sect-card,.tarif-card').forEach(card=>{
     card.addEventListener('mousemove',e=>{
       const r=card.getBoundingClientRect();

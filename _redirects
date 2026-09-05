@@ -1,0 +1,5 @@
+# Redirections Cloudflare Pages (équivalent des "redirects" de vercel.json)
+# Le secteur déménagement a été retiré de l'offre : on renvoie vers la liste des secteurs.
+/secteurs/demenagement/*   /#secteurs   301
+/secteurs/demenagement/    /#secteurs   301
+/secteurs/demenagement     /#secteurs   301

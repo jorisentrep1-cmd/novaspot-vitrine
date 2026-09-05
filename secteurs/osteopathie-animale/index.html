@@ -379,7 +379,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 document.getElementById('year').textContent=new Date().getFullYear();
 function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
 </script>
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
-<script defer src="/_vercel/insights/script.js"></script>
+<!-- Mesure d'audience : à remplacer par le script Cloudflare Web Analytics
+     (gratuit, sans cookie) une fois le site migré. -->
 </body>
 </html>

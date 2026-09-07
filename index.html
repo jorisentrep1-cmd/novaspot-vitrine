@@ -146,7 +146,8 @@ h1 span{color:var(--orange)}
 .sect-btn{background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
 .sect-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .sect-other{background:var(--orange3);border:2px solid var(--orange);border-radius:14px;padding:2.25rem 2rem;margin-top:2rem;text-align:center;box-shadow:0 10px 30px rgba(4,120,87,.1)}
-.sect-other-emoji{font-size:1.8rem;margin-bottom:.5rem}
+.sect-other-emoji{width:2rem;height:2rem;margin:0 auto .6rem;color:var(--orange)}
+.sect-other-emoji svg{width:100%;height:100%;display:block}
 .sect-other-title{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.6rem}
 .sect-other-desc{font-size:.85rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
 
@@ -222,7 +223,8 @@ h1 span{color:var(--orange)}
 .tarif-btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
 .tarif-btn-s:hover{border-color:var(--navy)}
 .tarif-addon{display:flex;align-items:flex-start;gap:1rem;background:#fff;border:1.5px dashed var(--border);border-radius:12px;padding:1.5rem 1.75rem;margin-top:2rem;max-width:720px;margin-left:auto;margin-right:auto}
-.tarif-addon-icon{font-size:1.4rem;flex-shrink:0}
+.tarif-addon-icon{flex-shrink:0;width:1.5rem;height:1.5rem;color:var(--orange)}
+.tarif-addon-icon svg{width:100%;height:100%;display:block}
 .tarif-addon-title{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
 .tarif-addon-desc{font-size:.8rem;color:var(--text2);line-height:1.6}
 .tarif-addon-desc strong{color:var(--orange)}
@@ -516,7 +518,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
 
     <div class="sect-other reveal">
-      <div class="sect-other-emoji">✨</div>
+      <div class="sect-other-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
       <div class="sect-other-title">Et pour tous les autres secteurs ?</div>
       <p class="sect-other-desc">La liste ci-dessus n'est qu'un aperçu. Artisans, professionnels de santé, commerces de proximité, associations, indépendants... on crée des sites sur-mesure pour absolument tout type d'activité. Contactez-nous directement, on adapte le formulaire à votre métier.</p>
       <a href="#cta-final" class="btn-p">Nous contacter</a>
@@ -772,7 +774,14 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <p class="tarif-note reveal" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et on vous remet les fichiers de votre site.</p>
     <p class="tarif-note reveal">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15€ par an), à votre nom — on s'occupe gratuitement de toute la configuration technique.</p>
     <div class="tarif-addon reveal">
-      <span class="tarif-addon-icon">🖨️</span>
+      <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span>
+      <div>
+        <div class="tarif-addon-title">Besoin d'une fonctionnalité en plus&nbsp;?</div>
+        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150€</strong>. Dites-nous ce dont vous avez besoin, on vous dit si c'est faisable et à quel prix.</div>
+      </div>
+    </div>
+    <div class="tarif-addon reveal">
+      <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></span>
       <div>
         <div class="tarif-addon-title">Option disponible sur tous les plans</div>
         <div class="tarif-addon-desc">Impression & remise physique de vos QR codes (stickers + carte comptoir), en plus des fichiers numériques déjà inclus — <strong>à partir de 29€</strong> (selon quantité et formats souhaités).</div>

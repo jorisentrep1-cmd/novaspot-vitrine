@@ -290,7 +290,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .n-links.open a{padding:.7rem .9rem}
   .hamburger{display:flex}
   .section{padding:3.5rem 1.5rem}
-  .srv-grid,.tarifs-grid,.sol-grid{grid-template-columns:1fr}
+  .sol-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr}
   .proc-steps::before{display:none}
   .hero-stats{flex-wrap:wrap;border-radius:10px}
@@ -300,7 +300,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .cta-send{height:56px;font-size:.85rem;padding:0 1.1rem}
 
   .scroll-hint{display:block}
-  .sect-grid,.real-grid{
+  .sect-grid,.real-grid,.srv-grid,.tarifs-grid{
     display:flex;
     flex-wrap:nowrap;
     /* Indispensable : le justify-content:center du desktop rendrait le debut
@@ -315,10 +315,20 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     gap:1rem;
     padding-bottom:.25rem;
   }
-  .sect-grid::-webkit-scrollbar,.real-grid::-webkit-scrollbar{display:none}
-  .sect-grid{perspective:none}
-  .sect-card,.real-card{transform-style:flat;will-change:auto}
+  .sect-grid::-webkit-scrollbar,.real-grid::-webkit-scrollbar,.srv-grid::-webkit-scrollbar,.tarifs-grid::-webkit-scrollbar{display:none}
+  .sect-grid,.srv-grid,.tarifs-grid{perspective:none}
+  .sect-card,.real-card,.srv-card,.tarif-card{transform-style:flat;will-change:auto}
   .sect-card,.real-card{scroll-snap-align:start;flex:0 0 80%;max-width:none}
+
+  /* Compression mobile : la section tarifs faisait 3,3 ecrans a elle seule. */
+  .tarifs-grid{margin-top:2rem;gap:.9rem}
+  .tarif-card{padding:1.6rem 1.5rem;scroll-snap-align:start;flex:0 0 84%;max-width:none}
+  .tarif-card.featured{margin:0;padding:1.8rem 1.5rem}
+  .tarif-addon{padding:1.1rem 1.25rem;margin-top:1.25rem;gap:.8rem}
+  .tarif-addon-desc{font-size:.76rem;line-height:1.55}
+  .tarif-note{margin-top:1rem;line-height:1.6}
+  .srv-grid{margin-top:2rem}
+  .srv-card{scroll-snap-align:start;flex:0 0 82%;max-width:none;padding:1.5rem}
 }
 </style>
 </head>
@@ -431,6 +441,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <p class="srv-desc">Contrairement à d'autres agences qui vous engagent sur plusieurs années, vous restez chez nous parce que le service fonctionne — pas parce que vous êtes coincé.</p>
       </div>
     </div>
+    <p class="scroll-hint">← Faites glisser pour voir tous les services →</p>
   </div>
 </section>
 
@@ -771,6 +782,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
     </div>
+    <p class="scroll-hint">← Faites glisser pour comparer les formules →</p>
     <p class="tarif-note reveal" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et on vous remet les fichiers de votre site.</p>
     <p class="tarif-note reveal">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15€ par an), à votre nom — on s'occupe gratuitement de toute la configuration technique.</p>
     <div class="tarif-addon reveal">

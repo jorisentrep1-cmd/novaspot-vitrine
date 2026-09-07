@@ -1,4 +1,15 @@
 # En-têtes Cloudflare Pages (équivalent des "headers" de vercel.json)
+
+# Sécurité, sur tout le site.
+# NB : pas de "includeSubDomains" sur le HSTS — il s'appliquerait à tous les
+# sous-domaines clients, et un seul mal configuré deviendrait injoignable.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: SAMEORIGIN
+
 # Les images sont versionnées par leur nom de fichier : cache long sans risque.
 /img/*
   Cache-Control: public, max-age=31536000, immutable

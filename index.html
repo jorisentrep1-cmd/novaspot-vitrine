@@ -257,6 +257,9 @@ h1 span{color:var(--orange)}
 .cta-input::placeholder{color:rgba(255,255,255,.35)}
 .cta-send{background:var(--orange);color:#fff;border:none;padding:0 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:background var(--t);height:50px;white-space:nowrap;border-radius:0 6px 6px 0}
 .cta-send:hover{background:var(--orange2)}
+.cta-err{font-size:.82rem;color:#fca5a5;margin-top:.7rem;min-height:1.2em;opacity:0;transition:opacity .2s ease}
+.cta-err.on{opacity:1}
+.cta-input.faux{outline:2px solid #fca5a5;outline-offset:-2px}
 .cta-note{font-size:.72rem;color:rgba(255,255,255,.6)}
 .cta-note a{color:var(--green-dk);text-decoration:none}
 
@@ -866,7 +869,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <input class="cta-input" type="text" id="ctaInput" placeholder="Email ou téléphone..."/>
       <button class="cta-send" id="ctaSendBtn" onclick="handleCta()">Envoyer →</button>
     </div>
-    <p class="cta-note reveal">Ou directement : <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a></p>
+    <p class="cta-err" id="ctaErr" role="alert" aria-live="polite"></p>
+  <p class="cta-note reveal">Ou directement : <span id="ctaMail"></span></p>
   </div>
 </section>
 
@@ -896,7 +900,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div>
         <div class="ft-col-title">Contact</div>
         <div class="ft-links">
-          <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>
+          <span id="ftMail"></span>
           <a href="#faq">FAQ</a>
           <a href="/confidentialite">Politique de confidentialité</a>
           <a href="/mentions-legales">Mentions légales</a>
@@ -933,13 +937,48 @@ const EMAILJS_TEMPLATE_ID='template_9fnztax';
 const CTA_NOVASPOT_EMAIL='contact@novaspot.fr';
 if(typeof emailjs!=='undefined'){emailjs.init(EMAILJS_PUBLIC_KEY);}
 const ctaLoadedAt=Date.now();
+// L'adresse n'apparait nulle part dans le HTML : elle est reconstituee ici,
+// pour que les aspirateurs d'adresses qui n'executent pas JS repartent bredouilles.
+(function(){
+  const b=['contact','novaspot','fr'];
+  const adr=b[0]+String.fromCharCode(64)+b[1]+'.'+b[2];
+  ['ctaMail','ftMail'].forEach(function(id){
+    const cible=document.getElementById(id);
+    if(!cible) return;
+    const a=document.createElement('a');
+    a.href='mail'+'to:'+adr;
+    a.textContent=adr;
+    cible.appendChild(a);
+  });
+})();
+
 function handleCta(){
   if(document.getElementById('ctaHp').value){return;}
   if(Date.now()-ctaLoadedAt<3000){return;}
-  const val=document.getElementById('ctaInput').value.trim();
-  if(!val){document.getElementById('ctaInput').focus();return;}
+  const champ=document.getElementById('ctaInput');
+  const err=document.getElementById('ctaErr');
+  const val=champ.value.trim();
+
+  // Un seul champ, deux formats acceptes : email ou telephone francais.
+  const estEmail = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(val);
+  const estTel   = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.\-]*\d{2}){4}$/.test(val);
+
+  function refuser(msg){
+    err.textContent=msg; err.classList.add('on');
+    champ.classList.add('faux'); champ.focus();
+  }
+  err.classList.remove('on'); champ.classList.remove('faux');
+
+  if(!val){ refuser('Laissez votre email ou votre numéro pour qu\'on puisse vous rappeler.'); return; }
+  if(!estEmail && !estTel){
+    refuser(val.indexOf('@')>=0
+      ? 'Cette adresse email semble incomplète. Exemple : prenom@monentreprise.fr'
+      : 'Entrez un email (prenom@monentreprise.fr) ou un numéro à 10 chiffres (06 12 34 56 78).');
+    return;
+  }
+
   const btn=document.getElementById('ctaSendBtn');
-  const isEmail=val.includes('@');
+  const isEmail=estEmail;
   btn.textContent='Envoi...';
   btn.disabled=true;
   emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{

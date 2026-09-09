@@ -24,12 +24,64 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
+  "@id": "https://novaspot.fr/#novaspot",
   "name": "NovaSpot",
   "url": "https://novaspot.fr/",
-  "description": "Agence digitale pour commerces et artisans locaux : création de sites web, gestion des avis clients, visibilité locale.",
+  "description": "Création et gestion de sites internet pour les commerçants et artisans : site web, récolte d'avis clients Google, visibilité locale.",
   "email": "contact@novaspot.fr",
-  "areaServed": "FR"
+  "telephone": "+33646574982",
+  "image": "https://novaspot.fr/img/og-image.jpg",
+  "priceRange": "€",
+  "founder": {
+    "@type": "Person",
+    "name": "Joris Arnoux"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Saint-Martin-Lacaussade",
+    "postalCode": "33390",
+    "addressRegion": "Gironde",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Gironde"
+    },
+    {
+      "@type": "City",
+      "name": "Blaye"
+    }
+  ],
+  "knowsLanguage": "fr",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Formules NovaSpot",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Essentiel",
+        "price": "39",
+        "priceCurrency": "EUR",
+        "description": "Site d'une page, gestion des avis clients, QR code, mises à jour sous 48h."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "69",
+        "priceCurrency": "EUR",
+        "description": "Jusqu'à 5 pages, domaine personnalisé, galerie de prestations, 3 formats de QR codes."
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium",
+        "price": "119",
+        "priceCurrency": "EUR",
+        "description": "Jusqu'à 15 pages sur-mesure, suivi proactif, gestion Google Business Profile, newsletter."
+      }
+    ]
+  }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -142,7 +194,7 @@ h1 span{color:var(--orange)}
 .sect-desc{font-size:.8rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;flex:1}
 .sect-feats{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.75rem}
 .sect-feat{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--text)}
-.sect-feat::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
+.sect-feat::before{content:'✓';color:var(--orange);font-weight:800;flex-shrink:0}
 .sect-btn{background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.8rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:6px}
 .sect-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .sect-other{background:var(--orange3);border:2px solid var(--orange);border-radius:14px;padding:2.25rem 2rem;margin-top:2rem;text-align:center;box-shadow:0 10px 30px rgba(4,120,87,.1)}
@@ -215,7 +267,7 @@ h1 span{color:var(--orange)}
 .tarif-note{font-size:.78rem;color:var(--text3);text-align:center;max-width:640px;margin:1.75rem auto 0;line-height:1.7}
 .tarif-features{flex:1;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
 .tf{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:var(--text2);line-height:1.5}
-.tf-check{color:var(--green);flex-shrink:0;font-size:.8rem}
+.tf-check{color:var(--orange);flex-shrink:0;font-size:.8rem}
 .tf-x{color:var(--text3);flex-shrink:0}
 .tarif-btn{width:100%;padding:.85rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:all var(--t);text-align:center;text-decoration:none;display:block;border-radius:6px}
 .tarif-btn-p{background:var(--orange);color:#fff;border:none}
@@ -1046,5 +1098,59 @@ if(!reduceMotion && pointeurFin){
 </script>
 <!-- Mesure d'audience : à remplacer par le script Cloudflare Web Analytics
      (gratuit, sans cookie) une fois le site migré. -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment ça démarre concrètement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous choisissez votre secteur dans la section \"Secteurs\" ci-dessus, vous remplissez le formulaire dédié (5 minutes) avec vos informations, logo et photos. On reçoit votre demande instantanément et on vous recontacte sous 48h."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps pour mettre mon site en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En général, votre site est prêt et en ligne en 48 heures après réception de votre formulaire. On crée le site, vous le validez, et on le met en ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je peux résilier à tout moment ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. Et vous ne repartez pas les mains vides : votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous nous quittez, on vous remet également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la gestion des avis ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On vous fournit des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. On ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je peux modifier mes prestations moi-même ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas besoin. Envoyez-nous un email avec vos modifications, et on s'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon secteur n'a pas de formulaire dédié, que faire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contactez-nous directement via le formulaire tout en bas de cette page. On travaille avec tous types de commerces et artisans locaux, et on adapte le brief à votre activité."
+      }
+    }
+  ]
+}</script>
 </body>
 </html>

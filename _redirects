@@ -3,3 +3,6 @@
 /secteurs/demenagement/*   /#secteurs   301
 /secteurs/demenagement/    /#secteurs   301
 /secteurs/demenagement     /#secteurs   301
+
+# Les sous-domaines demenagement.novaspot.fr et demo-demenagement.novaspot.fr
+# ont ete supprimes le 22/09/2026 avec le retrait definitif du secteur.

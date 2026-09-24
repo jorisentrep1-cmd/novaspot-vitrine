@@ -6,7 +6,10 @@
 <title>NovaSpot — L'agence digitale des commerces et artisans locaux</title>
 <meta name="description" content="Site web professionnel, gestion des avis clients et visibilité locale pour les commerces et artisans. En ligne en 48h, dès 39€/mois."/>
 <link rel="canonical" href="https://novaspot.fr/"/>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Marque que JavaScript tourne, avant la premiere peinture : le rideau de
+     chargement ne s'affiche que s'il y a quelqu'un pour le retirer. -->
+<script>document.documentElement.className+=' js';</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="NovaSpot"/>
@@ -100,8 +103,15 @@ html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* LOADER */
-#loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity .7s,visibility .7s}
-#loader.out{opacity:0;visibility:hidden}
+/* Le rideau de chargement n'existe que si JavaScript peut le retirer.
+   Sans JS -- ou si le script casse -- il ne s'affiche jamais, et le
+   visiteur voit le site au lieu d'un ecran vide. L'animation est une
+   troisieme sortie : meme si le gestionnaire ne se declenche pas, le
+   rideau se leve tout seul au bout de trois secondes. */
+#loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity .7s,visibility .7s}
+html.js #loader{display:flex;animation:rideau-secours .5s linear 3s forwards}
+#loader.out{opacity:0;visibility:hidden;animation:none}
+@keyframes rideau-secours{to{opacity:0;visibility:hidden}}
 .l-bars{display:flex;align-items:flex-end;gap:5px;height:44px}
 .l-bar{width:4px;background:var(--orange);border-radius:2px;animation:lbar 1s ease-in-out infinite alternate}
 .l-bar:nth-child(2){animation-delay:.15s}
@@ -124,6 +134,9 @@ nav{position:relative;height:66px;display:flex;align-items:center;justify-conten
 .n-links{display:flex;list-style:none;align-items:center;gap:.2rem}
 .n-links a{padding:.4rem .9rem;font-size:.8rem;font-weight:600;color:var(--text2);text-decoration:none;transition:color var(--t)}
 .n-links a:hover{color:var(--navy)}
+/* La partie qu'on est en train de lire est soulignee dans le menu. */
+.n-links a.actif{color:var(--navy);position:relative}
+.n-links a.actif::after{content:'';position:absolute;left:.9rem;right:.9rem;bottom:.1rem;height:2px;background:var(--orange)}
 .n-cta{background:var(--orange)!important;color:#fff!important;padding:.5rem 1.3rem!important;border-radius:5px;transition:background var(--t)!important}
 .n-cta:hover{background:var(--orange2)!important;color:#fff!important}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:pointer;width:44px;height:44px;padding:0;margin-right:-10px}
@@ -969,7 +982,15 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 </footer>
 
 <script>
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),350));
+/* Au DOM pret, pas au chargement complet : sinon une police ou le script
+   EmailJS qui tarde laisse le visiteur devant le rideau. */
+(function(){
+  var lever=function(){ setTimeout(function(){
+    var l=document.getElementById('loader'); if(l) l.classList.add('out');
+  },350); };
+  if(document.readyState==='loading') addEventListener('DOMContentLoaded',lever);
+  else lever();
+})();
 const nav=document.getElementById('nav');
 
 function syncHeaderHeight(){
@@ -989,7 +1010,15 @@ const EMAILJS_PUBLIC_KEY='IENEk0fXfBBkXFNwj';
 const EMAILJS_SERVICE_ID='service_ovh';
 const EMAILJS_TEMPLATE_ID='template_9fnztax';
 const CTA_NOVASPOT_EMAIL='contact@novaspot.fr';
-if(typeof emailjs!=='undefined'){emailjs.init(EMAILJS_PUBLIC_KEY);}
+// EmailJS est charge en differe : on l'initialise au premier envoi, et on
+// sait dire au visiteur quoi faire si le script n'est jamais arrive
+// (bloqueur de publicite, reseau d'entreprise, DNS filtrant).
+var emailjsInitialise=false;
+function emailjsPret(){
+  if(typeof emailjs==='undefined') return false;
+  if(!emailjsInitialise){ emailjs.init(EMAILJS_PUBLIC_KEY); emailjsInitialise=true; }
+  return true;
+}
 const ctaLoadedAt=Date.now();
 // L'adresse n'apparait nulle part dans le HTML : elle est reconstituee ici,
 // pour que les aspirateurs d'adresses qui n'executent pas JS repartent bredouilles.
@@ -1028,6 +1057,12 @@ function handleCta(){
     refuser(val.indexOf('@')>=0
       ? 'Cette adresse email semble incomplète. Exemple : prenom@monentreprise.fr'
       : 'Entrez un email (prenom@monentreprise.fr) ou un numéro à 10 chiffres (06 12 34 56 78).');
+    return;
+  }
+
+  if(!emailjsPret()){
+    refuser('L\'envoi est indisponible depuis votre navigateur. Écrivez-nous '
+          + 'directement à '+CTA_NOVASPOT_EMAIL+', ou appelez le 06 46 57 49 82.');
     return;
   }
 
@@ -1154,5 +1189,59 @@ if(!reduceMotion && pointeurFin){
     }
   ]
 }</script>
+<script>
+/* Repere de section : le lien de la partie lue est souligne.
+   C'est un supplement -- sans JavaScript la navigation fonctionne. */
+(function(){
+  var barreFixe = document.getElementById('fixedHead');
+  var liens = [].slice.call(document.querySelectorAll('.n-links a[href^="#"]'));
+  if(!liens.length) return;
+
+  /* On repere la partie lue par sa position, pas par un ratio d'intersection :
+     une section plus haute que la bande de mesure n'atteint jamais le seuil,
+     et l'indicateur reste alors eteint sur toute la page. */
+  var parts = [];
+  liens.forEach(function(a){
+    var s = document.getElementById(a.getAttribute('href').slice(1));
+    if(s) parts.push({lien:a, sec:s});
+  });
+  if(!parts.length) return;
+
+  var attente = false;
+  var reperer = function(){
+    attente = false;
+    /* On trie a chaque mesure : l'ordre du menu n'est pas forcement celui de
+       la page, et une image qui arrive tard peut decaler les sections. */
+    parts.sort(function(x,y){
+      return x.sec.getBoundingClientRect().top - y.sec.getBoundingClientRect().top;
+    });
+    var haut = 0;
+    if(barreFixe){
+      var rb = barreFixe.getBoundingClientRect();
+      if(rb.bottom > 0) haut = rb.bottom;
+    }
+    /* La ligne de lecture : au tiers de ce qui reste visible sous la barre. */
+    var ligne = haut + (innerHeight - haut) / 3;
+    var courant = null;
+    parts.forEach(function(p){
+      if(p.sec.getBoundingClientRect().top <= ligne) courant = p;
+    });
+    /* Tout en bas de page, la derniere partie l'emporte : sinon une section
+       courte placee en fin de page ne serait jamais atteignable. */
+    if(scrollY + innerHeight >= document.documentElement.scrollHeight - 2){
+      courant = parts[parts.length - 1];
+    }
+    liens.forEach(function(a){ a.classList.remove('actif'); });
+    if(courant) courant.lien.classList.add('actif');
+  };
+  var planifier = function(){
+    if(!attente){ attente = true; requestAnimationFrame(reperer); }
+  };
+  addEventListener('scroll', planifier, {passive:true});
+  addEventListener('resize', planifier);
+  addEventListener('load', planifier);
+  reperer();
+})();
+</script>
 </body>
 </html>

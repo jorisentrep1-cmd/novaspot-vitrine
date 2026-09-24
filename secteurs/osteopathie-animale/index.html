@@ -178,6 +178,41 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   .srv-grid,.tarifs-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Les questions ci-dessous reprennent mot pour mot celles affichees
+     plus bas. Si le texte visible change, celui-ci doit changer aussi :
+     Google sanctionne un balisage qui ne correspond pas a la page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Je traite plusieurs types d'animaux, c'est possible ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, toutes vos spécialités (chiens, chats, chevaux, NAC...) sont présentées sur votre site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je afficher ma zone de déplacement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, votre secteur d'intervention est affiché clairement pour rassurer vos clients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment les propriétaires me contactent ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Via un formulaire de contact ou directement par téléphone, affichés sur votre site."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

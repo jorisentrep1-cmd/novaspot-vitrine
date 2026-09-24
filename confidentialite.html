@@ -48,7 +48,11 @@ a{color:var(--orange);font-weight:600}
 .callout p:last-child{margin-bottom:0}
 .callout-t{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
 
-.tbl-wrap{overflow-x:auto;margin:1rem 0 1.5rem}
+.tbl-wrap{overflow-x:auto;margin:1rem 0 1.5rem;-webkit-overflow-scrolling:touch}
+/* Sur telephone le tableau se lit en le faisant glisser : la barre de
+   defilement est invisible, donc rien ne l'indique. On le dit en clair. */
+.tbl-glisser{display:none;font-size:.72rem;color:var(--text2);margin:-.5rem 0 1rem}
+@media(max-width:700px){.tbl-glisser{display:block}}
 table{width:100%;border-collapse:collapse;font-size:.82rem;min-width:520px}
 th,td{text-align:left;padding:.7rem .8rem;border:1px solid var(--border);vertical-align:top}
 th{background:var(--light);font-weight:700;color:var(--navy);font-size:.78rem}
@@ -111,6 +115,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
     </tbody>
   </table>
   </div>
+  <p class="tbl-glisser">Faites glisser le tableau vers la gauche pour voir la suite.</p>
 
   <p>Les champs marqués comme optionnels peuvent être laissés vides sans conséquence sur le traitement de votre demande.</p>
 
@@ -133,6 +138,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
     </tbody>
   </table>
   </div>
+  <p class="tbl-glisser">Faites glisser le tableau vers la gauche pour voir la suite.</p>
 
   <p><strong>Transferts hors Union européenne.</strong> Cloudflare, EmailJS, imgbb et Google sont établis aux États-Unis. Vos données peuvent donc être traitées en dehors de l'Union européenne, dans le cadre des mécanismes de transfert prévus par le RGPD. Si vous préférez ne pas passer par les formulaires en ligne, écrivez-nous : vos informations peuvent nous être transmises directement par email.</p>
 
@@ -173,5 +179,23 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
 </footer>
 
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+/* La mention n'a de sens que si le tableau deborde vraiment : sous 700 px le
+   CSS l'affiche par precaution, ici on la retire quand tout tient a l'ecran.
+   Sans JavaScript elle reste visible -- une phrase de trop, jamais un blocage. */
+(function(){
+  var ajuster = function(){
+    [].slice.call(document.querySelectorAll('.tbl-wrap')).forEach(function(w){
+      var m = w.nextElementSibling;
+      if(m && m.classList.contains('tbl-glisser')){
+        m.hidden = w.scrollWidth - w.clientWidth < 4;
+      }
+    });
+  };
+  addEventListener('resize', ajuster);
+  if(document.readyState === 'loading') addEventListener('DOMContentLoaded', ajuster);
+  else ajuster();
+})();
+</script>
 </body>
 </html>

@@ -178,6 +178,41 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   .srv-grid,.tarifs-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Les questions ci-dessous reprennent mot pour mot celles affichees
+     plus bas. Si le texte visible change, celui-ci doit changer aussi :
+     Google sanctionne un balisage qui ne correspond pas a la page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Puis-je afficher une galerie de mes réalisations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, une galerie photo dédiée met en valeur vos coupes, couleurs et soins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je peux ajouter mes tarifs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, votre grille tarifaire peut être affichée par prestation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment mettre à jour mes horaires pour les vacances ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un message suffit, c'est mis à jour sous 48h."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

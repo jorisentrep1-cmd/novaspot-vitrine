@@ -189,6 +189,41 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   .srv-grid,.tarifs-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Les questions ci-dessous reprennent mot pour mot celles affichees
+     plus bas. Si le texte visible change, celui-ci doit changer aussi :
+     Google sanctionne un balisage qui ne correspond pas a la page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Je fais plusieurs corps de métier, c'est possible ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le formulaire vous permet de détailler toutes vos prestations (plomberie, électricité, peinture, maçonnerie...), elles sont toutes présentées sur votre site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je afficher ma zone d'intervention ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, votre zone d'intervention (ville, rayon en km) est affichée clairement sur votre site pour rassurer vos prospects locaux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les demandes de devis arrivent où ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Directement par email, avec les coordonnées du client et sa description de besoin. Vous n'avez rien à configurer."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

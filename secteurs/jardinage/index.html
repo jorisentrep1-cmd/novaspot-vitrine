@@ -178,6 +178,41 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   .srv-grid,.tarifs-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Les questions ci-dessous reprennent mot pour mot celles affichees
+     plus bas. Si le texte visible change, celui-ci doit changer aussi :
+     Google sanctionne un balisage qui ne correspond pas a la page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Puis-je afficher une galerie avant/après ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, une galerie photo dédiée met en valeur vos réalisations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Je fais de l'entretien et de la création, c'est possible ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, toutes vos prestations sont présentées séparément."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les demandes de devis arrivent où ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Directement par email, avec la description du projet et la surface concernée."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

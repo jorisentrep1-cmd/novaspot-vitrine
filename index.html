@@ -9,7 +9,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- Marque que JavaScript tourne, avant la premiere peinture : le rideau de
      chargement ne s'affiche que s'il y a quelqu'un pour le retirer. -->
-<script>document.documentElement.className+=' js';</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="NovaSpot"/>
@@ -102,24 +101,6 @@
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* LOADER */
-/* Le rideau de chargement n'existe que si JavaScript peut le retirer.
-   Sans JS -- ou si le script casse -- il ne s'affiche jamais, et le
-   visiteur voit le site au lieu d'un ecran vide. L'animation est une
-   troisieme sortie : meme si le gestionnaire ne se declenche pas, le
-   rideau se leve tout seul au bout de trois secondes. */
-#loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity .7s,visibility .7s}
-html.js #loader{display:flex;animation:rideau-secours .5s linear 3s forwards}
-#loader.out{opacity:0;visibility:hidden;animation:none}
-@keyframes rideau-secours{to{opacity:0;visibility:hidden}}
-.l-bars{display:flex;align-items:flex-end;gap:5px;height:44px}
-.l-bar{width:4px;background:var(--orange);border-radius:2px;animation:lbar 1s ease-in-out infinite alternate}
-.l-bar:nth-child(2){animation-delay:.15s}
-.l-bar:nth-child(3){animation-delay:.3s}
-.l-bar:nth-child(4){animation-delay:.15s}
-.l-bar:nth-child(5){animation-delay:0s}
-@keyframes lbar{from{transform:scaleY(.35);opacity:.4}to{transform:scaleY(1);opacity:1}}
-
 /* TOP BAR */
 #fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
 .top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
@@ -145,16 +126,7 @@ nav{position:relative;height:66px;display:flex;align-items:center;justify-conten
 
 /* HERO */
 #hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--light) 0%,#fff 100%);position:relative;overflow:hidden;padding-top:100px}
-.hero-glow{position:absolute;top:-15%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(4,120,87,.12) 0%,transparent 65%);animation:drift1 14s ease-in-out infinite}
-.hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(15,31,61,.06) 0%,transparent 65%);animation:drift2 18s ease-in-out infinite}
-@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
-@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-20px)}}
-.hero-spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(4,120,87,.10),transparent 60%);opacity:0;transition:opacity .4s ease}
-#hero:hover .hero-spot{opacity:1}
 .hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;text-align:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange3);border:1px solid rgba(4,120,87,.25);padding:.35rem 1rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1.75rem}
-.h-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;animation:pdot 1.5s infinite}
-@keyframes pdot{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.12;letter-spacing:-1.5px;color:var(--navy);margin-bottom:1.5rem}
 h1 span{color:var(--orange)}
 .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;margin:0 auto 2.5rem;line-height:1.8}
@@ -170,12 +142,12 @@ h1 span{color:var(--orange)}
 .hs-num span{color:var(--orange)}
 .hs-label{font-size:.72rem;color:var(--text2);margin-top:.35rem}
 
-/* MARQUEE */
-.marquee-wrap{background:var(--orange);padding:.6rem 0;overflow:hidden}
-.marquee{display:flex;animation:mq 24s linear infinite;white-space:nowrap}
-.mq-item{display:inline-flex;align-items:center;gap:1.25rem;padding:0 2.5rem;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.92)}
-.mq-item::after{content:'◆';opacity:.4;font-size:.45rem}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* HERO : une personne, pas une agence */
+.hero-moi{display:inline-flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--text2);margin-bottom:1.6rem}
+.hero-moi b{color:var(--navy);font-weight:700}
+.moi-txt{display:flex;flex-direction:column;text-align:left;line-height:1.35}
+/* Emplacement de la photo : a remplacer par un portrait rond de 44 px */
+.moi-photo{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0}
 
 /* SECTIONS */
 .section{padding:6rem 2rem}
@@ -303,7 +275,6 @@ h1 span{color:var(--orange)}
 
 /* CTA FINAL */
 #cta-final{background:var(--navy);position:relative;overflow:hidden}
-#cta-final .s-tag::before{background:var(--green-dk)}
 .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 30%,rgba(4,120,87,.14) 0%,transparent 70%)}
 .cta-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
@@ -335,13 +306,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 .footer-copy{font-size:.7rem;color:rgba(255,255,255,.5)}
 .footer-live{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:rgba(255,255,255,.58)}
 
-/* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-.reveal.v{opacity:1;transform:translateY(0)}
-.reveal-l{opacity:0;transform:translateX(-16px);transition:opacity .6s ease,transform .6s ease}
-.reveal-l.v{opacity:1;transform:translateX(0)}
-.reveal-r{opacity:0;transform:translateX(16px);transition:opacity .6s ease,transform .6s ease}
-.reveal-r.v{opacity:1;transform:translateX(0)}
 
 @media(max-width:900px){
   .top-bar{font-size:.7rem;padding:.5rem .75rem}
@@ -402,15 +366,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 </head>
 <body>
 
-<div id="loader">
-  <div class="l-bars">
-    <div class="l-bar" style="height:40%"></div>
-    <div class="l-bar" style="height:70%"></div>
-    <div class="l-bar" style="height:100%"></div>
-    <div class="l-bar" style="height:70%"></div>
-    <div class="l-bar" style="height:40%"></div>
-  </div>
-</div>
 
 <div id="fixedHead">
   <div class="top-bar">✓ <span>Sans engagement</span> — <span class="tb-long">contrairement à d'autres agences qui vous engagent sur 48 mois, </span>vous restez parce que ça fonctionne.</div>
@@ -427,7 +382,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <li><a href="#realisations">Réalisations</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#cta-final" class="n-cta">Nous contacter</a></li>
+      <li><a href="#cta-final" class="n-cta">Me contacter</a></li>
     </ul>
     <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
   </nav>
@@ -435,78 +390,57 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-  <div class="hero-spot" id="heroSpot"></div>
   <div class="hero-inner">
-    <div class="hero-badge"><span class="h-dot"></span>Agence digitale · Commerces & Artisans locaux</div>
-    <h1>Votre établissement mérite<br/>d'être <span>vu<span class="pt">,</span> trouvé<span class="pt">,</span> choisi<span class="pt">.</span></span></h1>
-    <p class="hero-sub">NovaSpot crée et gère votre présence en ligne. Site web, récolte d'avis clients, visibilité locale — vous vous concentrez sur votre métier.</p>
+    <div class="hero-moi"><span class="moi-photo" aria-hidden="true">JA</span><span class="moi-txt"><b>Joris Arnoux</b>Sites internet en Gironde</span></div>
+    <h1>Votre site internet<span class="pt">,</span><br/>et quelqu'un à appeler<span class="pt">.</span></h1>
+    <p class="hero-sub">Je fais les sites des artisans et commerçants de Gironde et je vous aide à récolter des avis Google. Un horaire ou un tarif à changer ? Vous m'envoyez un message, c'est fait sous 48&nbsp;h.</p>
     <div class="hero-btns">
       <a href="#secteurs" class="btn-p">Créer mon site →</a>
       <a href="#tarifs" class="btn-s">Voir les tarifs</a>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="48" data-suffix="h">0h</span></div><div class="hs-label">Après réception de votre dossier</div></div>
-      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="39" data-suffix="&nbsp;€">0&nbsp;€</span></div><div class="hs-label">Par mois, sans engagement</div></div>
+      <div class="h-stat"><div class="hs-num">48h</div><div class="hs-label">Après réception de votre dossier</div></div>
+      <div class="h-stat"><div class="hs-num">39&nbsp;<span>€</span></div><div class="hs-label">Par mois, sans engagement</div></div>
       <div class="h-stat"><div class="hs-num">0&nbsp;<span>€</span></div><div class="hs-label">De frais de résiliation</div></div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee">
-    <span class="mq-item">Site web pro</span>
-    <span class="mq-item">Gestion des avis</span>
-    <span class="mq-item">QR Code avis client</span>
-    <span class="mq-item">Visibilité locale</span>
-    <span class="mq-item">Mise en ligne en 48h</span>
-    <span class="mq-item">Sans engagement</span>
-    <span class="mq-item">Site web pro</span>
-    <span class="mq-item">Gestion des avis</span>
-    <span class="mq-item">QR Code avis client</span>
-    <span class="mq-item">Visibilité locale</span>
-    <span class="mq-item">Mise en ligne en 48h</span>
-    <span class="mq-item">Sans engagement</span>
-  </div>
-</div>
 
 <!-- SERVICES -->
 <section class="section" id="services">
   <div class="si">
-    <div class="s-tag reveal">Ce qu'on fait</div>
-    <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin<span class="pt">,</span> <span>inclus<span class="pt">.</span></span></h2>
+    <h2 class="s-title">Ce qui est compris<br/>dans l'abonnement</h2>
     <div class="srv-grid">
-      <div class="srv-card reveal" style="border-color:rgba(4,120,87,.35);position:relative">
+      <div class="srv-card" style="border-color:rgba(4,120,87,.35);position:relative">
         <div class="srv-icon" style="background:var(--orange);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85z"/></svg></div>
         <div class="srv-title">Récolte & gestion des avis clients</div>
-        <p class="srv-desc">Notre spécialité. QR codes à poser en boutique ou à remettre à vos clients : laisser un avis Google devient l'affaire de 10 secondes. Et si un client est mécontent, vous êtes prévenu immédiatement pour réagir avant que ça s'envenime.</p>
+        <p class="srv-desc">Ma spécialité. QR codes à poser en boutique ou à remettre à vos clients : laisser un avis Google devient l'affaire de 10 secondes. Et si un client est mécontent, vous êtes prévenu immédiatement pour réagir avant que ça s'envenime.</p>
       </div>
-      <div class="srv-card reveal">
+      <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19M5.8 6.25h.01M8.3 6.25h.01M10.8 6.25h.01"/></svg></div>
         <div class="srv-title">Site web professionnel</div>
         <p class="srv-desc">Design sur-mesure selon votre activité, vos prestations, vos horaires. Rapide, parfaitement lisible sur téléphone, et pensé pour transformer vos visiteurs en clients.</p>
       </div>
-      <div class="srv-card reveal">
+      <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.2 7-10.5A7 7 0 0 0 5 10.5C5 15.8 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.6"/></svg></div>
         <div class="srv-title">SEO local inclus</div>
         <p class="srv-desc">Chaque site intègre les bases techniques pour être bien vu par Google : données structurées, méta-descriptions, vitesse de chargement, version mobile optimisée.</p>
       </div>
-      <div class="srv-card reveal">
+      <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/><path d="M14 14h3v3h-3zM20.5 14v3M17.5 20.5h3M14 20.5h.01"/></svg></div>
         <div class="srv-title">QR Codes avis inclus</div>
         <p class="srv-desc">Fichiers prêts à imprimer (sticker vitrine, carte comptoir) générés à partir du lien vers la section avis de votre site. À poser où vous voulez.</p>
       </div>
-      <div class="srv-card reveal">
+      <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 3.6a2.1 2.1 0 0 1 3 3L9.2 16.9l-4 1 1-4z"/><path d="M14.5 5.6l3 3"/></svg></div>
         <div class="srv-title">Mises à jour illimitées</div>
-        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment — envoyez-nous un message, c'est mis à jour sous 48h.</p>
+        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment : envoyez-moi un message, c'est mis à jour sous 48h.</p>
       </div>
-      <div class="srv-card reveal">
+      <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 8.5v7a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-7"/><path d="M3.5 8.5l8.5-5 8.5 5"/><path d="M9 17.5v-4.2a3 3 0 0 1 6 0v4.2"/></svg></div>
         <div class="srv-title">Sans engagement</div>
-        <p class="srv-desc">Contrairement à d'autres agences qui vous engagent sur plusieurs années, vous restez chez nous parce que le service fonctionne — pas parce que vous êtes coincé.</p>
+        <p class="srv-desc">Pas de contrat sur plusieurs années : vous restez parce que le service fonctionne, pas parce que vous êtes coincé.</p>
       </div>
     </div>
     <p class="scroll-hint">← Faites glisser pour voir tous les services →</p>
@@ -516,13 +450,12 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <!-- SECTEURS / FORMULAIRES -->
 <section class="section" id="secteurs">
   <div class="si">
-    <div class="s-tag reveal">Démarrer maintenant</div>
-    <h2 class="s-title reveal">Quelques exemples de secteurs<span class="pt">,</span><br/><span>et bien plus encore<span class="pt">.</span></span></h2>
-    <p class="s-sub reveal" style="max-width:560px">Ces secteurs ont un formulaire dédié pour aller plus vite, mais on crée des sites sur-mesure pour n'importe quel commerce ou activité. Remplissez le formulaire de votre secteur (5 minutes) ou contactez-nous directement — votre site est prêt sous 48h après réception de vos éléments.</p>
+    <h2 class="s-title">Six métiers ont déjà<br/>leur formulaire</h2>
+    <p class="s-sub" style="max-width:560px">Ces six métiers ont un formulaire tout prêt, mais je fais des sites pour bien d'autres commerces et activités. Remplissez celui de votre métier (5 minutes) ou appelez-moi : votre site est en ligne 48h après réception de vos éléments.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5v8"/><path d="M6.5 10.5h11l1.2 4.2a2 2 0 0 1-1.9 2.6H7.2a2 2 0 0 1-1.9-2.6z"/><path d="M8.6 17.3v4M12 17.3v4M15.4 17.3v4"/></svg></div>
         <div class="sect-name">Nettoyage & Entretien</div>
         <p class="sect-desc">Entreprises de nettoyage, esthétique automobile, services associés.</p>
@@ -532,7 +465,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="/secteurs/nettoyage/" class="sect-btn">Découvrir →</a>
       </div>
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="17.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/><path d="M8.6 15.4L19 3.5M15.4 15.4L5 3.5"/></svg></div>
         <div class="sect-name">Coiffure & Beauté</div>
         <p class="sect-desc">Salons de coiffure, instituts de beauté, barbiers, onglerie.</p>
@@ -542,7 +475,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="/secteurs/coiffure/" class="sect-btn">Découvrir →</a>
       </div>
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.2a5 5 0 0 0-4.1 8.3L3.6 19.3a2 2 0 0 0 2.8 2.8l7.8-7.8a5 5 0 0 0 6.1-6.9l-2.9 2.9-2.6-.7-.7-2.6z"/></svg></div>
         <div class="sect-name">Garage & Automobile</div>
         <p class="sect-desc">Garages, mécanique, carrosserie, esthétique automobile.</p>
@@ -552,7 +485,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="/secteurs/garage/" class="sect-btn">Découvrir →</a>
       </div>
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5l3-3 3.5 3.5-3 3z"/><path d="M15.6 8.7L6 18.3a2.2 2.2 0 0 1-3.1-3.1l9.6-9.6"/><path d="M9 3.5l3 3-2.5 2.5-3-3z"/></svg></div>
         <div class="sect-name">Artisans du bâtiment</div>
         <p class="sect-desc">Plombiers, électriciens, peintres, maçons, et tous corps de métier du bâtiment.</p>
@@ -562,7 +495,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="/secteurs/batiment/" class="sect-btn">Découvrir →</a>
       </div>
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-6.5"/><path d="M12 14.5c0-3.6 2.6-6.5 6-6.5 0 3.6-2.6 6.5-6 6.5z"/><path d="M12 14.5c0-3.6-2.6-6.5-6-6.5 0 3.6 2.6 6.5 6 6.5z"/><path d="M12 8.5C12 5.6 13.4 3 15 3c0 2.9-1.4 5.5-3 5.5z"/></svg></div>
         <div class="sect-name">Jardinage & Paysagisme</div>
         <p class="sect-desc">Entretien de jardins, élagage, création et aménagement paysager.</p>
@@ -572,7 +505,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="/secteurs/jardinage/" class="sect-btn">Découvrir →</a>
       </div>
 
-      <div class="sect-card reveal">
+      <div class="sect-card">
         <div class="sect-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="3.6" ry="3"/><ellipse cx="6" cy="10.5" rx="2" ry="2.4"/><ellipse cx="18" cy="10.5" rx="2" ry="2.4"/><ellipse cx="9.6" cy="6.2" rx="1.9" ry="2.3"/><ellipse cx="14.4" cy="6.2" rx="1.9" ry="2.3"/></svg></div>
         <div class="sect-name">Ostéopathie Animale</div>
         <p class="sect-desc">Praticiens en ostéopathie pour chiens, chats, chevaux et NAC.</p>
@@ -584,11 +517,11 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 
     </div>
 
-    <div class="sect-other reveal">
+    <div class="sect-other">
       <div class="sect-other-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
       <div class="sect-other-title">Et pour tous les autres secteurs ?</div>
-      <p class="sect-other-desc">La liste ci-dessus n'est qu'un aperçu. Artisans, professionnels de santé, commerces de proximité, associations, indépendants... on crée des sites sur-mesure pour absolument tout type d'activité. Contactez-nous directement, on adapte le formulaire à votre métier.</p>
-      <a href="#cta-final" class="btn-p">Nous contacter</a>
+      <p class="sect-other-desc">La liste ci-dessus n'est qu'un début : artisans, professionnels de santé, commerces de proximité, associations, indépendants. Appelez-moi, j'adapte le formulaire à votre métier.</p>
+      <a href="#cta-final" class="btn-p">Me contacter</a>
     </div>
   </div>
 </section>
@@ -596,12 +529,11 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <!-- REALISATIONS -->
 <section class="section" id="realisations">
   <div class="si">
-    <div class="s-tag reveal">Nos réalisations</div>
-    <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous<span class="pt">.</span></span></h2>
-    <p class="s-sub reveal" style="max-width:560px">Des exemples concrets du type de site qu'on livre — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
+    <h2 class="s-title">Six démonstrations,<br/>six mises en page</h2>
+    <p class="s-sub" style="max-width:560px">À quoi ressemblera votre site, métier par métier. Chacune a sa propre mise en page : pas de modèle recolorié.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les exemples →</p>
     <div class="real-grid">
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -618,7 +550,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="https://demo-nettoyage.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -635,7 +567,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="https://demo-coiffure.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -652,7 +584,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="https://demo-garage.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -669,7 +601,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="https://demo-batiment.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -686,7 +618,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="https://demo-jardinage.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
-      <div class="real-card reveal">
+      <div class="real-card">
         <div class="real-browser">
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
@@ -704,7 +636,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="https://demo-osteo-animal.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
     </div>
-    <p class="real-note reveal">Ces sites sont des démonstrations fictives, réalisées pour illustrer notre niveau de finition dans chaque secteur.</p>
+    <p class="real-note">Ces six entreprises sont fictives : je les ai créées pour montrer le niveau de finition dans chaque métier.</p>
   </div>
 </section>
 
@@ -712,30 +644,29 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="process">
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
-      <div class="s-tag reveal" style="justify-content:center">Démarrage simple</div>
-      <h2 class="s-title reveal" style="text-align:center">En ligne en <span>48 heures<span class="pt">.</span></span></h2>
-      <p class="s-sub reveal" style="max-width:520px;margin:0 auto;text-align:center">Le délai démarre à la réception de vos éléments : logo, photos et informations sur votre activité. Le formulaire les rassemble en une seule fois.</p>
+      <h2 class="s-title" style="text-align:center">En ligne en 48 heures</h2>
+      <p class="s-sub" style="max-width:520px;margin:0 auto;text-align:center">Le délai démarre à la réception de vos éléments : logo, photos et informations sur votre activité. Le formulaire les rassemble en une seule fois.</p>
     </div>
     <div class="proc-steps">
-      <div class="proc-step reveal">
+      <div class="proc-step">
         <div class="proc-num">1</div>
         <div class="proc-title">Formulaire</div>
         <p class="proc-desc">Vous remplissez le formulaire de votre secteur en 5 minutes, avec votre logo et vos photos.</p>
       </div>
-      <div class="proc-step reveal">
+      <div class="proc-step">
         <div class="proc-num">2</div>
         <div class="proc-title">Création</div>
-        <p class="proc-desc">Dès qu’on a reçu tous vos éléments, on crée votre site sur-mesure.</p>
+        <p class="proc-desc">Dès que j'ai reçu tous vos éléments, je crée votre site sur mesure.</p>
       </div>
-      <div class="proc-step reveal">
+      <div class="proc-step">
         <div class="proc-num">3</div>
         <div class="proc-title">Mise en ligne</div>
-        <p class="proc-desc">Votre site est en ligne sur votre adresse. QR codes avis envoyés.</p>
+        <p class="proc-desc">Votre site est en ligne à votre adresse, et je vous envoie vos QR codes avis.</p>
       </div>
-      <div class="proc-step reveal">
+      <div class="proc-step">
         <div class="proc-num">4</div>
-        <div class="proc-title">On gère ensemble</div>
-        <p class="proc-desc">Un interlocuteur unique reste disponible pour toute mise à jour.</p>
+        <div class="proc-title">Vous m'appelez, moi</div>
+        <p class="proc-desc">Pas de standard ni de ticket : chaque mise à jour, c'est à moi que vous la demandez.</p>
       </div>
     </div>
   </div>
@@ -745,12 +676,12 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="tarifs">
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
-      <div class="s-tag reveal" style="justify-content:center">Tarifs</div>
-      <h2 class="s-title reveal" style="text-align:center">Clair<span class="pt">,</span> simple<span class="pt">,</span> <span>sans surprise<span class="pt">.</span></span></h2>
-      <p class="s-sub reveal" style="max-width:440px;margin:0 auto;text-align:center">Sans engagement. Résiliable à tout moment avec un préavis d'un mois.</p>
+      <div class="s-tag" style="justify-content:center">Tarifs</div>
+      <h2 class="s-title" style="text-align:center">Les prix sont ici<span class="pt">,</span><br/>pas après un rendez-vous</h2>
+      <p class="s-sub" style="max-width:440px;margin:0 auto;text-align:center">Sans engagement. Résiliable à tout moment avec un préavis d'un mois.</p>
     </div>
     <div class="tarifs-grid">
-      <div class="tarif-card reveal">
+      <div class="tarif-card">
         <div class="tarif-name">Essentiel</div>
         <div class="tarif-price"><span class="tarif-num">39</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
         <div class="tarif-setup">+ 250&nbsp;€ à la création</div>
@@ -765,7 +696,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
-      <div class="tarif-card featured reveal">
+      <div class="tarif-card featured">
         <div class="tarif-pop">Le plus demandé</div>
         <div class="tarif-name">Pro</div>
         <div class="tarif-price"><span class="tarif-num">69</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
@@ -781,14 +712,14 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-p">Démarrer →</a>
       </div>
-      <div class="tarif-card reveal">
+      <div class="tarif-card">
         <div class="tarif-name">Premium</div>
         <div class="tarif-price"><span class="tarif-num">119</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
         <div class="tarif-setup">+ 750&nbsp;€ à la création</div>
         <div class="tarif-features">
           <div class="tf"><span class="tf-check">✓</span>Tout du Pro</div>
           <div class="tf"><span class="tf-check">✓</span>Jusqu'à 15 pages, sur-mesure</div>
-          <div class="tf"><span class="tf-check">✓</span>Suivi proactif (on vous recontacte, pas l'inverse)</div>
+          <div class="tf"><span class="tf-check">✓</span>Suivi proactif (je vous recontacte, pas l'inverse)</div>
           <div class="tf"><span class="tf-check">✓</span>QR Codes avis (3 formats + variantes sur demande)</div>
           <div class="tf"><span class="tf-check">✓</span>Gestion Google My Business</div>
           <div class="tf"><span class="tf-check">✓</span>Newsletter clients</div>
@@ -797,16 +728,16 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
     </div>
     <p class="scroll-hint">← Faites glisser pour comparer les formules →</p>
-    <p class="tarif-note reveal" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et on vous remet les fichiers de votre site.</p>
-    <p class="tarif-note reveal">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15&nbsp;€ par an), à votre nom — on s'occupe gratuitement de toute la configuration technique.</p>
-    <div class="tarif-addon reveal">
+    <p class="tarif-note" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et je vous remets les fichiers de votre site.</p>
+    <p class="tarif-note">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15&nbsp;€ par an), à votre nom. Je m'occupe gratuitement de toute la configuration technique.</p>
+    <div class="tarif-addon">
       <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span>
       <div>
         <div class="tarif-addon-title">Besoin d'une fonctionnalité en plus&nbsp;?</div>
-        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150&nbsp;€</strong>. Dites-nous ce dont vous avez besoin, on vous dit si c'est faisable et à quel prix.</div>
+        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150&nbsp;€</strong>. Dites-moi ce dont vous avez besoin, je vous dis si c'est faisable et à quel prix.</div>
       </div>
     </div>
-    <div class="tarif-addon reveal">
+    <div class="tarif-addon">
       <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></span>
       <div>
         <div class="tarif-addon-title">Option disponible sur tous les plans</div>
@@ -819,50 +750,49 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="si" style="text-align:center">
-    <div class="s-tag reveal" style="justify-content:center">Questions fréquentes</div>
-    <h2 class="s-title reveal" style="text-align:center">Vous avez des questions<span class="pt">,</span><br/><span>on a les réponses<span class="pt">.</span></span></h2>
+    <h2 class="s-title" style="text-align:center">Ce qu'on me demande<br/>sur le pas de la porte</h2>
     <div class="faq-list" style="text-align:left">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Comment ça démarre concrètement ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Vous choisissez votre secteur dans la section "Secteurs" ci-dessus, vous remplissez le formulaire dédié (5 minutes) avec vos informations, logo et photos. On reçoit votre demande instantanément et on vous recontacte sous 48h.</div>
+        <div class="faq-a">Vous choisissez votre secteur dans la section "Secteurs" ci-dessus, vous remplissez le formulaire dédié (5 minutes) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48h.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Combien de temps pour mettre mon site en ligne ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">48 heures à partir du moment où on a reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, on vous le dit tout de suite et le délai repart à sa réception. On crée le site, vous le validez, et on le met en ligne.</div>
+        <div class="faq-a">48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Est-ce que je peux résilier à tout moment ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. <strong>Et vous ne repartez pas les mains vides :</strong> votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous nous quittez, on vous remet également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail.</div>
+        <div class="faq-a">Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. <strong>Et vous ne repartez pas les mains vides :</strong> votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Comment fonctionne la gestion des avis ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">On vous fournit des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. On ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible.</div>
+        <div class="faq-a">Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Est-ce que je peux modifier mes prestations moi-même ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Pas besoin. Envoyez-nous un email avec vos modifications, et on s'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite.</div>
+        <div class="faq-a">Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Mon secteur n'a pas de formulaire dédié, que faire ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Contactez-nous directement via le formulaire tout en bas de cette page. On travaille avec tous types de commerces et artisans locaux, et on adapte le brief à votre activité.</div>
+        <div class="faq-a">Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité.</div>
       </div>
     </div>
   </div>
@@ -872,16 +802,15 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="cta-final">
   <div class="cta-bg"></div>
   <div class="cta-inner">
-    <div class="s-tag reveal" style="justify-content:center;color:var(--green-dk)">Démarrer</div>
-    <h2 class="cta-title reveal">Prêt à lancer<br/>votre site ? <span>Parlons-en<span class="pt">.</span></span></h2>
-    <p class="cta-sub reveal">Quel que soit votre métier, laissez votre email ou votre numéro. On vous rappelle pour un premier échange, sans engagement.</p>
-    <div class="cta-form reveal">
+    <h2 class="cta-title">Laissez votre numéro<span class="pt">,</span><br/>je vous rappelle</h2>
+    <p class="cta-sub">Pas de centre d'appel ni de commercial : c'est moi qui vous rappelle, et c'est moi qui ferai votre site.</p>
+    <div class="cta-form">
       <input type="text" id="ctaHp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
       <input class="cta-input" type="text" id="ctaInput" placeholder="Email ou téléphone..."/>
       <button class="cta-send" id="ctaSendBtn" onclick="handleCta()">Envoyer →</button>
     </div>
     <p class="cta-err" id="ctaErr" role="alert" aria-live="polite"></p>
-  <p class="cta-note reveal">Ou directement : <a href="tel:+33646574982">06 46 57 49 82</a> &middot; <span id="ctaMail"></span></p>
+  <p class="cta-note">Ou directement : <a href="tel:+33646574982">06 46 57 49 82</a> &middot; <span id="ctaMail"></span></p>
   </div>
 </section>
 
@@ -894,7 +823,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="n-logo-mark">N</div>
           <div class="n-logo-text" style="color:#fff">Nova<span style="color:var(--green-dk)">Spot</span></div>
         </div>
-        <p class="footer-desc">L'agence digitale des commerces et artisans locaux. Site web, avis clients, visibilité — on s'occupe de tout.</p>
+        <p class="footer-desc">Joris Arnoux. Sites internet et avis Google pour les artisans et commerçants de Gironde.</p>
       </div>
       <div>
         <div class="ft-col-title">Secteurs</div>
@@ -927,15 +856,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 </footer>
 
 <script>
-/* Au DOM pret, pas au chargement complet : sinon une police ou le script
-   EmailJS qui tarde laisse le visiteur devant le rideau. */
-(function(){
-  var lever=function(){ setTimeout(function(){
-    var l=document.getElementById('loader'); if(l) l.classList.add('out');
-  },350); };
-  if(document.readyState==='loading') addEventListener('DOMContentLoaded',lever);
-  else lever();
-})();
 const nav=document.getElementById('nav');
 
 function syncHeaderHeight(){
@@ -947,9 +867,7 @@ window.addEventListener('resize',syncHeaderHeight);
 window.addEventListener('load',syncHeaderHeight);
 document.getElementById('burger').addEventListener('click',()=>document.getElementById('nLinks').classList.toggle('open'));
 document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nLinks').classList.remove('open')));
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
 document.getElementById('year').textContent=new Date().getFullYear();
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
 // Sur mobile, le carrousel des tarifs s'ouvre sur la formule mise en avant,
 // sinon "Le plus demande" n'apparait qu'en faisant glisser.
 (function(){
@@ -1043,48 +961,8 @@ document.getElementById('ctaInput').addEventListener('keypress',e=>{if(e.key==='
 
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Compteurs animés (stats du hero)
-function animateCount(el){
-  const target=parseFloat(el.dataset.target);
-  const suffix=el.dataset.suffix||'';
-  if(reduceMotion){el.textContent=target+suffix;return;}
-  const dur=1200;const start=performance.now();
-  function tick(now){
-    const p=Math.min((now-start)/dur,1);
-    const eased=1-Math.pow(1-p,3);
-    el.textContent=Math.round(target*eased)+suffix;
-    if(p<1)requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-window.addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.cnt').forEach(animateCount),500));
 
-// Halo qui suit la souris dans le hero
-if(!reduceMotion){
-  const heroEl=document.getElementById('hero');
-  const spot=document.getElementById('heroSpot');
-  heroEl.addEventListener('mousemove',e=>{
-    const r=heroEl.getBoundingClientRect();
-    spot.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    spot.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-}
 
-// Tilt 3D au survol des cartes — souris uniquement.
-// Sur tactile, les navigateurs émettent des mousemove de compatibilité : le transform
-// écrit sur une carte décalait son point d'accroche et cassait le défilement du carrousel.
-const pointeurFin = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-if(!reduceMotion && pointeurFin){
-  document.querySelectorAll('.srv-card,.sect-card,.tarif-card').forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const px=(e.clientX-r.left)/r.width-.5;
-      const py=(e.clientY-r.top)/r.height-.5;
-      card.style.transform=`translateY(-4px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg)`;
-    });
-    card.addEventListener('mouseleave',()=>{card.style.transform='';});
-  });
-}
 </script>
 <!-- Mesure d'audience : à remplacer par le script Cloudflare Web Analytics
      (gratuit, sans cookie) une fois le site migré. -->
@@ -1097,7 +975,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Comment ça démarre concrètement ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vous choisissez votre secteur dans la section \"Secteurs\" ci-dessus, vous remplissez le formulaire dédié (5 minutes) avec vos informations, logo et photos. On reçoit votre demande instantanément et on vous recontacte sous 48h."
+        "text": "Vous choisissez votre secteur dans la section \"Secteurs\" ci-dessus, vous remplissez le formulaire dédié (5 minutes) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48h."
       }
     },
     {
@@ -1105,7 +983,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Combien de temps pour mettre mon site en ligne ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "48 heures à partir du moment où on a reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, on vous le dit tout de suite et le délai repart à sa réception. On crée le site, vous le validez, et on le met en ligne."
+        "text": "48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne."
       }
     },
     {
@@ -1113,7 +991,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Est-ce que je peux résilier à tout moment ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. Et vous ne repartez pas les mains vides : votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous nous quittez, on vous remet également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail."
+        "text": "Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. Et vous ne repartez pas les mains vides : votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail."
       }
     },
     {
@@ -1121,7 +999,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Comment fonctionne la gestion des avis ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On vous fournit des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. On ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible."
+        "text": "Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible."
       }
     },
     {
@@ -1129,7 +1007,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Est-ce que je peux modifier mes prestations moi-même ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pas besoin. Envoyez-nous un email avec vos modifications, et on s'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite."
+        "text": "Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite."
       }
     },
     {
@@ -1137,7 +1015,7 @@ if(!reduceMotion && pointeurFin){
       "name": "Mon secteur n'a pas de formulaire dédié, que faire ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Contactez-nous directement via le formulaire tout en bas de cette page. On travaille avec tous types de commerces et artisans locaux, et on adapte le brief à votre activité."
+        "text": "Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité."
       }
     }
   ]

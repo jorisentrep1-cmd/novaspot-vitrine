@@ -221,17 +221,19 @@ h1 span{color:var(--orange)}
 .sect-other-desc{font-size:.85rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
 
 /* REALISATIONS */
-#realisations{background:#fff}
+/* Fond clair et cartes blanches : sans la section "Comment on travaille",
+   secteurs, realisations et process se suivaient sur trois fonds blancs. */
+#realisations{background:var(--light)}
 .real-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:3.5rem}
-.real-card{flex:1 1 320px;max-width:380px;background:var(--light);border:1px solid var(--border);border-radius:14px;padding:1.25rem;transition:all var(--t)}
+.real-card{flex:1 1 320px;max-width:380px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.25rem;transition:all var(--t)}
 .real-card:hover{box-shadow:0 16px 40px rgba(15,31,61,.1);transform:translateY(-4px)}
 .real-browser{display:flex;gap:.35rem;margin-bottom:1rem;align-items:center;padding:0 .25rem}
 .real-dot{width:9px;height:9px;border-radius:50%}
 .real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
 /* Adresse sur une seule ligne, coupee proprement si elle ne tient pas. */
-.real-url,.sv-url{gap:.3rem;white-space:nowrap;min-width:0;overflow:hidden}
-.real-url svg,.sv-url svg{width:10px;height:10px;flex-shrink:0}
-.real-url span,.sv-url span{overflow:hidden;text-overflow:ellipsis}
+.real-url{gap:.3rem;white-space:nowrap;min-width:0;overflow:hidden}
+.real-url svg{width:10px;height:10px;flex-shrink:0}
+.real-url span{overflow:hidden;text-overflow:ellipsis}
 .real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:top center;border:1px solid var(--border)}
 .real-badge{flex-shrink:0;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px}
 /* La capture reste entierement visible : nom et etiquette passent dessous. */
@@ -241,27 +243,6 @@ h1 span{color:var(--orange)}
 .real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
 .real-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .real-note{font-size:.78rem;color:var(--text3);margin-top:2rem;max-width:560px}
-
-/* SOLUTION */
-#solution{background:var(--light)}
-.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
-.sol-list{display:flex;flex-direction:column;gap:1.75rem}
-.sol-item{display:flex;gap:1.1rem;align-items:flex-start}
-.sol-num{width:38px;height:38px;background:var(--navy);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
-.sol-item-title{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
-.sol-item-desc{font-size:.8rem;color:var(--text2);line-height:1.75}
-.sol-visual{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:0 10px 34px rgba(15,31,61,.07)}
-.sv-bar{display:flex;gap:.35rem;margin-bottom:1.25rem;align-items:center}
-.sv-dot{width:9px;height:9px;border-radius:50%}
-.sv-url{flex:1;background:var(--light);height:24px;display:flex;align-items:center;padding:0 .75rem;font-size:.62rem;color:var(--text3);border-radius:5px}
-.sv-form{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:.9rem}
-.sv-form-title{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
-.sv-form-title::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%}
-.sv-field{background:#fff;border:1px solid var(--border);border-radius:5px;padding:.5rem .75rem;font-size:.65rem;color:var(--text3);margin-bottom:.5rem}
-.sv-check{display:flex;gap:.4rem;flex-wrap:wrap}
-.sv-chip{background:var(--orange3);color:var(--orange);border:1px solid rgba(4,120,87,.25);border-radius:100px;padding:.2rem .6rem;font-size:.58rem;font-weight:700}
-.sv-notif{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:.65rem .9rem;font-size:.68rem;color:#15803d;border-radius:6px;display:flex;align-items:center;gap:.5rem}
-.notif-dot{width:5px;height:5px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pdot 1.5s infinite}
 
 /* PROCESS */
 #process{background:#fff}
@@ -371,7 +352,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .n-links.open a{padding:.7rem .9rem}
   .hamburger{display:flex}
   .section{padding:3.5rem 1.5rem}
-  .sol-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr}
   .proc-steps::before{display:none}
   .hero-stats{flex-wrap:wrap;border-radius:10px}
@@ -725,55 +705,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
     </div>
     <p class="real-note reveal">Ces sites sont des démonstrations fictives, réalisées pour illustrer notre niveau de finition dans chaque secteur.</p>
-  </div>
-</section>
-
-<!-- SOLUTION -->
-<section class="section" id="solution">
-  <div class="si">
-    <div class="sol-grid">
-      <div class="reveal-l">
-        <div class="s-tag">Comment on travaille</div>
-        <h2 class="s-title">On s'occupe de tout<span class="pt">,</span><br/>vous faites ce que<br/>vous <span>aimez<span class="pt">.</span></span></h2>
-        <p class="s-sub" style="margin-bottom:2.5rem">Un abonnement mensuel, un interlocuteur unique. Votre présence digitale tourne en arrière-plan pendant que vous gérez votre activité.</p>
-        <div class="sol-list">
-          <div class="sol-item">
-            <div class="sol-num">01</div>
-            <div><div class="sol-item-title">Vous remplissez le formulaire</div><div class="sol-item-desc">5 minutes suffisent. On reçoit votre demande avec toutes les infos, logo et photos inclus.</div></div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-num">02</div>
-            <div><div class="sol-item-title">Votre site est prêt sous 48h</div><div class="sol-item-desc">Dès réception de vos éléments (logo, photos, infos), on crée votre site. Vous validez, on met en ligne.</div></div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-num">03</div>
-            <div><div class="sol-item-title">On met à jour dès que vous en avez besoin</div><div class="sol-item-desc">Un simple message suffit. Nouvelle prestation, nouveaux horaires — c'est fait sous 48h.</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="sol-visual reveal-r">
-        <div class="sv-bar">
-          <div class="sv-dot" style="background:#ef4444"></div>
-          <div class="sv-dot" style="background:#f59e0b"></div>
-          <div class="sv-dot" style="background:#22c55e"></div>
-          <div class="sv-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>nettoyage.novaspot.fr</span></div>
-        </div>
-        <div class="sv-form">
-          <div class="sv-form-title">Formulaire de brief client</div>
-          <div class="sv-field">Nom de l'entreprise</div>
-          <div class="sv-field">Adresse & coordonnées</div>
-          <div class="sv-check">
-            <span class="sv-chip">Logo ✓</span>
-            <span class="sv-chip">Photos ✓</span>
-            <span class="sv-chip">Couleurs ✓</span>
-          </div>
-        </div>
-        <div class="sv-notif">
-          <span class="notif-dot"></span>
-          Nouvelle demande reçue — traitement en cours
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 

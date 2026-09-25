@@ -49,6 +49,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 #fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
 .top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
 .top-bar span{color:var(--green-dk)}
+.top-bar .tb-long{color:inherit}
 
 nav{position:relative;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .n-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
@@ -84,6 +85,10 @@ h1 span{color:var(--orange)}
 .real-browser{display:flex;gap:.35rem;margin-bottom:1rem;align-items:center;padding:0 .25rem}
 .real-dot{width:9px;height:9px;border-radius:50%}
 .real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
+/* Adresse sur une seule ligne, coupee proprement si elle ne tient pas. */
+.real-url,.sv-url{gap:.3rem;white-space:nowrap;min-width:0;overflow:hidden}
+.real-url svg,.sv-url svg{width:10px;height:10px;flex-shrink:0}
+.real-url span,.sv-url span{overflow:hidden;text-overflow:ellipsis}
 .real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
 .real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
 .real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,61,0) 30%,rgba(15,31,61,.55) 62%,rgba(15,31,61,.92) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
@@ -98,6 +103,9 @@ h1 span{color:var(--orange)}
 .s-tag::before{content:'';width:20px;height:2px;background:var(--orange)}
 .s-title{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
 .s-title span{color:var(--orange)}
+/* Le point et la virgule de cette police portent une large marge a gauche :
+   on les rapproche du mot, sinon on lit "sans surprise ." */
+.pt{color:inherit!important;margin-left:-.06em}
 .s-sub{font-size:.92rem;color:var(--text2);line-height:1.8}
 
 #services{background:var(--light)}
@@ -118,6 +126,7 @@ h1 span{color:var(--orange)}
 .tarif-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:1.5rem}
 .tarif-num{font-size:3rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}
 .tarif-cur{font-size:1rem;font-weight:700;color:var(--text2)}
+.tarif-cur+.tarif-per{margin-left:-.3rem}
 .tarif-per{font-size:.78rem;color:var(--text2)}
 .tarif-btn{width:100%;padding:.8rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:all var(--t);text-align:center;text-decoration:none;display:block;border-radius:6px;margin-top:auto}
 .tarif-btn-p{background:var(--orange);color:#fff;border:none}
@@ -168,6 +177,8 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
 .reveal.v{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
+  .top-bar{font-size:.7rem;padding:.5rem .75rem}
+  .top-bar .tb-long{display:none}
   nav{padding:0 1.5rem}
   .n-links{display:none}
   .n-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
@@ -217,7 +228,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
 <body>
 
 <div id="fixedHead">
-  <div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
+  <div class="top-bar">✓ <span>Sans engagement</span> — <span class="tb-long">contrairement à d'autres agences qui vous engagent sur 48 mois, </span>vous restez parce que ça fonctionne.</div>
   <nav id="nav">
     <a class="n-logo" href="/">
       <div class="n-logo-mark">N</div>
@@ -241,8 +252,8 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span class="h-dot"></span>Nettoyage · Entretien · Esthétique auto</div>
-      <h1>Un site internet qui donne <span>confiance avant même le premier passage.</span></h1>
-      <p class="hero-sub">NovaSpot crée le site web de votre entreprise de nettoyage : prestations, zones couvertes, avis clients, formulaire de devis. En ligne en 48h après réception de vos éléments, dès 39€/mois.</p>
+      <h1>Un site internet qui donne <span>confiance avant même le premier passage<span class="pt">.</span></span></h1>
+      <p class="hero-sub">NovaSpot crée le site web de votre entreprise de nettoyage : prestations, zones couvertes, avis clients, formulaire de devis. En ligne en 48h après réception de vos éléments, dès 39&nbsp;€/mois.</p>
       <div class="hero-btns">
         <a href="https://nettoyage.novaspot.fr" target="_blank" class="btn-p">Créer mon site →</a>
         <a href="https://demo-nettoyage.novaspot.fr" target="_blank" class="btn-s">Voir un exemple</a>
@@ -253,7 +264,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
         <div class="real-dot" style="background:#ef4444"></div>
         <div class="real-dot" style="background:#f59e0b"></div>
         <div class="real-dot" style="background:#22c55e"></div>
-        <div class="real-url">🔒 demo-nettoyage.novaspot.fr</div>
+        <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-nettoyage.novaspot.fr</span></div>
       </div>
       <div class="real-preview" style="background-image:url('/img/unsplash-photo-1577412647305-991150c7d163.jpg')">
         <div class="real-badge">Exemple</div>
@@ -270,7 +281,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
 <section class="section" id="services">
   <div class="si">
     <div class="s-tag reveal">Pensé pour votre métier</div>
-    <h2 class="s-title reveal">Ce dont une entreprise de<br/>nettoyage a vraiment <span>besoin.</span></h2>
+    <h2 class="s-title reveal">Ce dont une entreprise de<br/>nettoyage a vraiment <span>besoin<span class="pt">.</span></span></h2>
     <div class="srv-grid">
       <div class="srv-card reveal" style="border-color:rgba(4,120,87,.35)">
         <div class="srv-icon" style="background:var(--orange);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85z"/></svg></div>
@@ -310,57 +321,57 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
       <div class="s-tag reveal" style="justify-content:center">Tarifs</div>
-      <h2 class="s-title reveal" style="text-align:center">Clair, simple, <span>sans surprise.</span></h2>
+      <h2 class="s-title reveal" style="text-align:center">Clair<span class="pt">,</span> simple<span class="pt">,</span> <span>sans surprise<span class="pt">.</span></span></h2>
     </div>
     <div class="tarifs-grid">
       <div class="tarif-card reveal">
         <div class="tarif-name">Essentiel</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">39</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-price"><span class="tarif-num">39</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
         <div class="tarif-feats">
         <div class="tarif-feat">Site pro (1 page)</div>
         <div class="tarif-feat">Quelques photos</div>
         <div class="tarif-feat">Gestion des avis</div>
         <div class="tarif-feat">QR code sticker vitrine</div>
         </div>
-        <div class="tarif-setup-note">+ 250€ à la création</div>
+        <div class="tarif-setup-note">+ 250&nbsp;€ à la création</div>
         <a href="https://nettoyage.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
       <div class="tarif-card featured reveal">
         <div class="tarif-pop">Le plus demandé</div>
         <div class="tarif-name">Pro</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">69</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-price"><span class="tarif-num">69</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
         <div class="tarif-feats">
         <div class="tarif-feat">Jusqu'à 5 pages</div>
         <div class="tarif-feat">Domaine perso*</div>
         <div class="tarif-feat">Galerie de prestations</div>
         <div class="tarif-feat">3 formats de QR codes</div>
         </div>
-        <div class="tarif-setup-note">+ 450€ à la création</div>
+        <div class="tarif-setup-note">+ 450&nbsp;€ à la création</div>
         <a href="https://nettoyage.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-p">Démarrer →</a>
       </div>
       <div class="tarif-card reveal">
         <div class="tarif-name">Premium</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">119</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-price"><span class="tarif-num">119</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
         <div class="tarif-feats">
         <div class="tarif-feat">Jusqu'à 15 pages</div>
         <div class="tarif-feat">Suivi proactif</div>
         <div class="tarif-feat">Gestion Google My Business</div>
         <div class="tarif-feat">Newsletter clients</div>
         </div>
-        <div class="tarif-setup-note">+ 750€ à la création</div>
+        <div class="tarif-setup-note">+ 750&nbsp;€ à la création</div>
         <a href="https://nettoyage.novaspot.fr" target="_blank" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
     </div>
     <p class="tarif-more reveal">Détail complet des formules sur <a href="/#tarifs">la page tarifs</a>.</p>
     <p class="tarif-note reveal" style="color:var(--navy);font-weight:600">Si vous partez, vous gardez tout : votre domaine est à votre nom, et on vous remet les fichiers de votre site.</p>
-    <p class="tarif-note reveal">* Domaine perso : vous l'achetez vous-même (environ 10 à 15€ par an), à votre nom — on s'occupe gratuitement de la configuration technique.</p>
+    <p class="tarif-note reveal">* Domaine perso : vous l'achetez vous-même (environ 10 à 15&nbsp;€ par an), à votre nom — on s'occupe gratuitement de la configuration technique.</p>
   </div>
 </section>
 
 <section class="section" id="faq">
   <div class="si" style="text-align:center">
     <div class="s-tag reveal" style="justify-content:center">Questions fréquentes</div>
-    <h2 class="s-title reveal" style="text-align:center">Spécifique au<br/><span>nettoyage.</span></h2>
+    <h2 class="s-title reveal" style="text-align:center">Spécifique au<br/><span>nettoyage<span class="pt">.</span></span></h2>
     <div class="faq-list" style="text-align:left">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -390,7 +401,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
 <section class="section" id="cta-final">
   <div class="cta-bg"></div>
   <div class="cta-inner">
-    <div class="s-tag reveal" style="justify-content:center;color:var(--orange2)">Démarrer</div>
+    <div class="s-tag reveal" style="justify-content:center">Démarrer</div>
     <h2 class="cta-title reveal">Prêt à avoir un site qui<br/><span>inspire confiance ?</span></h2>
     <p class="cta-sub reveal">5 minutes pour remplir le formulaire. Votre site est prêt sous 48h une fois vos éléments reçus (logo, photos, informations).</p>
     <a href="https://nettoyage.novaspot.fr" target="_blank" class="btn-p">Remplir le formulaire →</a>

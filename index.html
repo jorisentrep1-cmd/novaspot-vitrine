@@ -124,6 +124,7 @@ html.js #loader{display:flex;animation:rideau-secours .5s linear 3s forwards}
 #fixedHead{position:fixed;top:0;left:0;right:0;z-index:101}
 .top-bar{background:var(--navy);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.75rem;font-weight:600}
 .top-bar span{color:var(--green-dk)}
+.top-bar .tb-long{color:inherit}
 
 /* NAV */
 nav{position:relative;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
@@ -183,6 +184,9 @@ h1 span{color:var(--orange)}
 .s-tag::before{content:'';width:20px;height:2px;background:var(--orange)}
 .s-title{font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:1.25rem}
 .s-title span{color:var(--orange)}
+/* Le point et la virgule de cette police portent une large marge a gauche :
+   on les rapproche du mot, sinon on lit "sans surprise ." */
+.pt{color:inherit!important;margin-left:-.06em}
 .s-sub{font-size:.92rem;color:var(--text2);line-height:1.8}
 .scroll-hint{display:none;font-size:.72rem;font-weight:600;color:var(--orange);margin-top:.75rem}
 
@@ -224,6 +228,10 @@ h1 span{color:var(--orange)}
 .real-browser{display:flex;gap:.35rem;margin-bottom:1rem;align-items:center;padding:0 .25rem}
 .real-dot{width:9px;height:9px;border-radius:50%}
 .real-url{flex:1;background:#fff;height:26px;display:flex;align-items:center;padding:0 .75rem;font-size:.65rem;color:var(--text3);border-radius:5px;border:1px solid var(--border);margin-left:.5rem}
+/* Adresse sur une seule ligne, coupee proprement si elle ne tient pas. */
+.real-url,.sv-url{gap:.3rem;white-space:nowrap;min-width:0;overflow:hidden}
+.real-url svg,.sv-url svg{width:10px;height:10px;flex-shrink:0}
+.real-url span,.sv-url span{overflow:hidden;text-overflow:ellipsis}
 .real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
 .real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
 .real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,61,0) 30%,rgba(15,31,61,.55) 62%,rgba(15,31,61,.92) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
@@ -275,6 +283,7 @@ h1 span{color:var(--orange)}
 .tarif-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:.4rem}
 .tarif-num{font-size:3.4rem;font-weight:800;color:var(--navy);letter-spacing:-2px;line-height:1}
 .tarif-cur{font-size:1.05rem;font-weight:700;color:var(--text2)}
+.tarif-cur+.tarif-per{margin-left:-.3rem}
 .tarif-per{font-size:.8rem;color:var(--text2)}
 .tarif-setup{font-size:.78rem;font-weight:600;color:var(--text2);margin-bottom:2rem}
 .tarif-note{font-size:.78rem;color:var(--text3);text-align:center;max-width:640px;margin:1.75rem auto 0;line-height:1.7}
@@ -282,6 +291,8 @@ h1 span{color:var(--orange)}
 .tf{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:var(--text2);line-height:1.5}
 .tf-check{color:var(--orange);flex-shrink:0;font-size:.8rem}
 .tf-x{color:var(--text3);flex-shrink:0}
+/* Non inclus : barre, mais lisible (l'ancienne opacite .4 tombait a 1,76:1). */
+.tf-off{color:var(--text3);text-decoration:line-through;text-decoration-color:rgba(95,110,136,.55)}
 .tarif-btn{width:100%;padding:.85rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:all var(--t);text-align:center;text-decoration:none;display:block;border-radius:6px}
 .tarif-btn-p{background:var(--orange);color:#fff;border:none}
 .tarif-btn-p:hover{background:var(--orange2)}
@@ -341,7 +352,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
 .footer-copy{font-size:.7rem;color:rgba(255,255,255,.5)}
 .footer-live{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:rgba(255,255,255,.58)}
-.footer-live-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pdot 2s infinite}
 
 /* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
@@ -352,6 +362,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 .reveal-r.v{opacity:1;transform:translateX(0)}
 
 @media(max-width:900px){
+  .top-bar{font-size:.7rem;padding:.5rem .75rem}
+  .top-bar .tb-long{display:none}
   nav{padding:0 1.5rem}
   .n-links{display:none}
   .n-links.open{display:flex;flex-direction:column;gap:.5rem;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
@@ -387,9 +399,16 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   .sect-grid,.srv-grid,.tarifs-grid{perspective:none}
   .sect-card,.real-card,.srv-card,.tarif-card{transform-style:flat;will-change:auto}
   .sect-card,.real-card{scroll-snap-align:start;flex:0 0 80%;max-width:none}
+  /* Un peu plus large et plus serre, pour que l'adresse tienne sur une ligne des 360 px. */
+  .real-card{flex-basis:85%;padding:1rem}
+  .real-browser{gap:.25rem}
+  .real-dot{width:7px;height:7px}
+  .real-url{font-size:.6rem;padding:0 .5rem;margin-left:.35rem}
 
   /* Compression mobile : la section tarifs faisait 3,3 ecrans a elle seule. */
-  .tarifs-grid{margin-top:2rem;gap:.9rem}
+  /* Le padding haut laisse la place a l'etiquette "Le plus demande", qui
+     depasse de la carte et serait rognee par le defilement horizontal. */
+  .tarifs-grid{margin-top:1.1rem;padding-top:.9rem;gap:.9rem}
   .tarif-card{padding:1.6rem 1.5rem;scroll-snap-align:start;flex:0 0 84%;max-width:none}
   .tarif-card.featured{margin:0;padding:1.8rem 1.5rem}
   .tarif-addon{padding:1.1rem 1.25rem;margin-top:1.25rem;gap:.8rem}
@@ -413,7 +432,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 </div>
 
 <div id="fixedHead">
-  <div class="top-bar">✓ <span>Sans engagement</span> — contrairement à d'autres agences qui vous engagent sur 48 mois, vous restez parce que ça fonctionne.</div>
+  <div class="top-bar">✓ <span>Sans engagement</span> — <span class="tb-long">contrairement à d'autres agences qui vous engagent sur 48 mois, </span>vous restez parce que ça fonctionne.</div>
 
   <!-- NAV -->
   <nav id="nav">
@@ -440,7 +459,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="hero-spot" id="heroSpot"></div>
   <div class="hero-inner">
     <div class="hero-badge"><span class="h-dot"></span>Agence digitale · Commerces & Artisans locaux</div>
-    <h1>Votre établissement mérite<br/>d'être <span>vu, trouvé, choisi.</span></h1>
+    <h1>Votre établissement mérite<br/>d'être <span>vu<span class="pt">,</span> trouvé<span class="pt">,</span> choisi<span class="pt">.</span></span></h1>
     <p class="hero-sub">NovaSpot crée et gère votre présence en ligne. Site web, récolte d'avis clients, visibilité locale — vous vous concentrez sur votre métier.</p>
     <div class="hero-btns">
       <a href="#secteurs" class="btn-p">Créer mon site →</a>
@@ -448,8 +467,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
     <div class="hero-stats">
       <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="48" data-suffix="h">0h</span></div><div class="hs-label">Après réception de votre dossier</div></div>
-      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="39" data-suffix="€">0€</span></div><div class="hs-label">Par mois, sans engagement</div></div>
-      <div class="h-stat"><div class="hs-num">0<span>€</span></div><div class="hs-label">De frais de résiliation</div></div>
+      <div class="h-stat"><div class="hs-num"><span class="cnt" data-target="39" data-suffix="&nbsp;€">0&nbsp;€</span></div><div class="hs-label">Par mois, sans engagement</div></div>
+      <div class="h-stat"><div class="hs-num">0&nbsp;<span>€</span></div><div class="hs-label">De frais de résiliation</div></div>
     </div>
   </div>
 </section>
@@ -476,7 +495,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="services">
   <div class="si">
     <div class="s-tag reveal">Ce qu'on fait</div>
-    <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin, <span>inclus.</span></h2>
+    <h2 class="s-title reveal">Tout ce dont vous avez<br/>besoin<span class="pt">,</span> <span>inclus<span class="pt">.</span></span></h2>
     <div class="srv-grid">
       <div class="srv-card reveal" style="border-color:rgba(4,120,87,.35);position:relative">
         <div class="srv-icon" style="background:var(--orange);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85z"/></svg></div>
@@ -517,7 +536,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="secteurs">
   <div class="si">
     <div class="s-tag reveal">Démarrer maintenant</div>
-    <h2 class="s-title reveal">Quelques exemples de secteurs,<br/><span>et bien plus encore.</span></h2>
+    <h2 class="s-title reveal">Quelques exemples de secteurs<span class="pt">,</span><br/><span>et bien plus encore<span class="pt">.</span></span></h2>
     <p class="s-sub reveal" style="max-width:560px">Ces secteurs ont un formulaire dédié pour aller plus vite, mais on crée des sites sur-mesure pour n'importe quel commerce ou activité. Remplissez le formulaire de votre secteur (5 minutes) ou contactez-nous directement — votre site est prêt sous 48h après réception de vos éléments.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
@@ -527,8 +546,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Nettoyage & Entretien</div>
         <p class="sect-desc">Entreprises de nettoyage, esthétique automobile, services associés.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Formulaire de devis</div>
         </div>
         <a href="/secteurs/nettoyage/" class="sect-btn">Découvrir →</a>
@@ -539,8 +556,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Coiffure & Beauté</div>
         <p class="sect-desc">Salons de coiffure, instituts de beauté, barbiers, onglerie.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Galerie de prestations</div>
         </div>
         <a href="/secteurs/coiffure/" class="sect-btn">Découvrir →</a>
@@ -551,8 +566,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Garage & Automobile</div>
         <p class="sect-desc">Garages, mécanique, carrosserie, esthétique automobile.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Formulaire de devis</div>
         </div>
         <a href="/secteurs/garage/" class="sect-btn">Découvrir →</a>
@@ -563,8 +576,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Artisans du bâtiment</div>
         <p class="sect-desc">Plombiers, électriciens, peintres, maçons, et tous corps de métier du bâtiment.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Formulaire de devis</div>
         </div>
         <a href="/secteurs/batiment/" class="sect-btn">Découvrir →</a>
@@ -575,8 +586,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Jardinage & Paysagisme</div>
         <p class="sect-desc">Entretien de jardins, élagage, création et aménagement paysager.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Formulaire de devis</div>
         </div>
         <a href="/secteurs/jardinage/" class="sect-btn">Découvrir →</a>
@@ -587,8 +596,6 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <div class="sect-name">Ostéopathie Animale</div>
         <p class="sect-desc">Praticiens en ostéopathie pour chiens, chats, chevaux et NAC.</p>
         <div class="sect-feats">
-          <div class="sect-feat">Site professionnel</div>
-          <div class="sect-feat">QR codes avis clients</div>
           <div class="sect-feat">Zone d'intervention affichée</div>
         </div>
         <a href="/secteurs/osteopathie-animale/" class="sect-btn">Découvrir →</a>
@@ -609,7 +616,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="realisations">
   <div class="si">
     <div class="s-tag reveal">Nos réalisations</div>
-    <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous.</span></h2>
+    <h2 class="s-title reveal">Voyez ce qu'on peut<br/>créer <span>pour vous<span class="pt">.</span></span></h2>
     <p class="s-sub reveal" style="max-width:560px">Des exemples concrets du type de site qu'on livre — sur-mesure, pensé pour convertir vos visiteurs en clients.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les exemples →</p>
     <div class="real-grid">
@@ -618,7 +625,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-nettoyage.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-nettoyage.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1577412647305-991150c7d163.jpg')">
           <div class="real-badge">Exemple</div>
@@ -634,7 +641,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-coiffure.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-coiffure.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1600948836101-f9ffda59d250.jpg')">
           <div class="real-badge">Exemple</div>
@@ -650,7 +657,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-garage.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-garage.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1723099971299-3789db53604c.jpg')">
           <div class="real-badge">Exemple</div>
@@ -666,7 +673,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-batiment.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-batiment.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1489514354504-1653aa90e34e.jpg')">
           <div class="real-badge">Exemple</div>
@@ -682,7 +689,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-jardinage.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-jardinage.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1689728318937-17d24bc0a65c.jpg')">
           <div class="real-badge">Exemple</div>
@@ -698,7 +705,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="real-dot" style="background:#ef4444"></div>
           <div class="real-dot" style="background:#f59e0b"></div>
           <div class="real-dot" style="background:#22c55e"></div>
-          <div class="real-url">🔒 demo-osteo-animal.novaspot.fr</div>
+          <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-osteo-animal.novaspot.fr</span></div>
         </div>
         <div class="real-preview" style="background-image:url('/img/unsplash-photo-1770836037289-e00e5f351d11.jpg')">
           <div class="real-badge">Exemple</div>
@@ -720,7 +727,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="sol-grid">
       <div class="reveal-l">
         <div class="s-tag">Comment on travaille</div>
-        <h2 class="s-title">On s'occupe de tout,<br/>vous faites ce que<br/>vous <span>aimez.</span></h2>
+        <h2 class="s-title">On s'occupe de tout<span class="pt">,</span><br/>vous faites ce que<br/>vous <span>aimez<span class="pt">.</span></span></h2>
         <p class="s-sub" style="margin-bottom:2.5rem">Un abonnement mensuel, un interlocuteur unique. Votre présence digitale tourne en arrière-plan pendant que vous gérez votre activité.</p>
         <div class="sol-list">
           <div class="sol-item">
@@ -742,7 +749,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="sv-dot" style="background:#ef4444"></div>
           <div class="sv-dot" style="background:#f59e0b"></div>
           <div class="sv-dot" style="background:#22c55e"></div>
-          <div class="sv-url">🔒 nettoyage.novaspot.fr</div>
+          <div class="sv-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>nettoyage.novaspot.fr</span></div>
         </div>
         <div class="sv-form">
           <div class="sv-form-title">Formulaire de brief client</div>
@@ -768,7 +775,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
       <div class="s-tag reveal" style="justify-content:center">Démarrage simple</div>
-      <h2 class="s-title reveal" style="text-align:center">En ligne en <span>48 heures.</span></h2>
+      <h2 class="s-title reveal" style="text-align:center">En ligne en <span>48 heures<span class="pt">.</span></span></h2>
       <p class="s-sub reveal" style="max-width:520px;margin:0 auto;text-align:center">Le délai démarre à la réception de vos éléments : logo, photos et informations sur votre activité. Le formulaire les rassemble en une seule fois.</p>
     </div>
     <div class="proc-steps">
@@ -801,14 +808,14 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
       <div class="s-tag reveal" style="justify-content:center">Tarifs</div>
-      <h2 class="s-title reveal" style="text-align:center">Clair, simple, <span>sans surprise.</span></h2>
+      <h2 class="s-title reveal" style="text-align:center">Clair<span class="pt">,</span> simple<span class="pt">,</span> <span>sans surprise<span class="pt">.</span></span></h2>
       <p class="s-sub reveal" style="max-width:440px;margin:0 auto;text-align:center">Sans engagement. Résiliable à tout moment avec un préavis d'un mois.</p>
     </div>
     <div class="tarifs-grid">
       <div class="tarif-card reveal">
         <div class="tarif-name">Essentiel</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">39</span><span class="tarif-per">/mois</span></div>
-        <div class="tarif-setup">+ 250€ à la création</div>
+        <div class="tarif-price"><span class="tarif-num">39</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-setup">+ 250&nbsp;€ à la création</div>
         <div class="tarif-features">
           <div class="tf"><span class="tf-check">✓</span>Site web professionnel (1 page)</div>
           <div class="tf"><span class="tf-check">✓</span>Quelques photos de votre activité</div>
@@ -816,15 +823,15 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Gestion des avis clients</div>
           <div class="tf"><span class="tf-check">✓</span>QR Code avis (format sticker vitrine)</div>
           <div class="tf"><span class="tf-check">✓</span>Mises à jour du contenu (sous 48h)</div>
-          <div class="tf"><span class="tf-x">✗</span><span style="opacity:.4">Domaine personnalisé</span></div>
+          <div class="tf"><span class="tf-x">✗</span><span class="tf-off">Domaine personnalisé</span></div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
       </div>
       <div class="tarif-card featured reveal">
         <div class="tarif-pop">Le plus demandé</div>
         <div class="tarif-name">Pro</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">69</span><span class="tarif-per">/mois</span></div>
-        <div class="tarif-setup">+ 450€ à la création</div>
+        <div class="tarif-price"><span class="tarif-num">69</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-setup">+ 450&nbsp;€ à la création</div>
         <div class="tarif-features">
           <div class="tf"><span class="tf-check">✓</span>Tout de l'Essentiel</div>
           <div class="tf"><span class="tf-check">✓</span>Jusqu'à 5 pages</div>
@@ -838,8 +845,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
       <div class="tarif-card reveal">
         <div class="tarif-name">Premium</div>
-        <div class="tarif-price"><span class="tarif-cur">€</span><span class="tarif-num">119</span><span class="tarif-per">/mois</span></div>
-        <div class="tarif-setup">+ 750€ à la création</div>
+        <div class="tarif-price"><span class="tarif-num">119</span><span class="tarif-cur">€</span><span class="tarif-per">/mois</span></div>
+        <div class="tarif-setup">+ 750&nbsp;€ à la création</div>
         <div class="tarif-features">
           <div class="tf"><span class="tf-check">✓</span>Tout du Pro</div>
           <div class="tf"><span class="tf-check">✓</span>Jusqu'à 15 pages, sur-mesure</div>
@@ -853,19 +860,19 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
     <p class="scroll-hint">← Faites glisser pour comparer les formules →</p>
     <p class="tarif-note reveal" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et on vous remet les fichiers de votre site.</p>
-    <p class="tarif-note reveal">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15€ par an), à votre nom — on s'occupe gratuitement de toute la configuration technique.</p>
+    <p class="tarif-note reveal">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15&nbsp;€ par an), à votre nom — on s'occupe gratuitement de toute la configuration technique.</p>
     <div class="tarif-addon reveal">
       <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span>
       <div>
         <div class="tarif-addon-title">Besoin d'une fonctionnalité en plus&nbsp;?</div>
-        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150€</strong>. Dites-nous ce dont vous avez besoin, on vous dit si c'est faisable et à quel prix.</div>
+        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150&nbsp;€</strong>. Dites-nous ce dont vous avez besoin, on vous dit si c'est faisable et à quel prix.</div>
       </div>
     </div>
     <div class="tarif-addon reveal">
       <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></span>
       <div>
         <div class="tarif-addon-title">Option disponible sur tous les plans</div>
-        <div class="tarif-addon-desc">Impression & remise physique de vos QR codes (stickers + carte comptoir), en plus des fichiers numériques déjà inclus — <strong>à partir de 29€</strong> (selon quantité et formats souhaités).</div>
+        <div class="tarif-addon-desc">Impression & remise physique de vos QR codes (stickers + carte comptoir), en plus des fichiers numériques déjà inclus — <strong>à partir de 29&nbsp;€</strong> (selon quantité et formats souhaités).</div>
       </div>
     </div>
   </div>
@@ -875,7 +882,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="faq">
   <div class="si" style="text-align:center">
     <div class="s-tag reveal" style="justify-content:center">Questions fréquentes</div>
-    <h2 class="s-title reveal" style="text-align:center">Vous avez des questions,<br/><span>on a les réponses.</span></h2>
+    <h2 class="s-title reveal" style="text-align:center">Vous avez des questions<span class="pt">,</span><br/><span>on a les réponses<span class="pt">.</span></span></h2>
     <div class="faq-list" style="text-align:left">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -928,7 +935,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <div class="s-tag reveal" style="justify-content:center;color:var(--green-dk)">Démarrer</div>
-    <h2 class="cta-title reveal">Prêt à lancer<br/>votre site ? <span>Parlons-en.</span></h2>
+    <h2 class="cta-title reveal">Prêt à lancer<br/>votre site ? <span>Parlons-en<span class="pt">.</span></span></h2>
     <p class="cta-sub reveal">Quel que soit votre métier, laissez votre email ou votre numéro. On vous rappelle pour un premier échange, sans engagement.</p>
     <div class="cta-form reveal">
       <input type="text" id="ctaHp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
@@ -976,7 +983,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© <span id="year">2026</span> NovaSpot · Tous droits réservés</div>
-      <div class="footer-live"><span class="footer-live-dot"></span>Service actif</div>
+      <div class="footer-live">Saint-Martin-Lacaussade, Gironde</div>
     </div>
   </div>
 </footer>
@@ -1005,6 +1012,14 @@ document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
 document.getElementById('year').textContent=new Date().getFullYear();
 document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+// Sur mobile, le carrousel des tarifs s'ouvre sur la formule mise en avant,
+// sinon "Le plus demande" n'apparait qu'en faisant glisser.
+(function(){
+  const grille=document.querySelector('.tarifs-grid');
+  const pro=grille&&grille.querySelector('.featured');
+  if(!pro||grille.scrollWidth<=grille.clientWidth) return;
+  grille.scrollLeft=pro.offsetLeft-grille.firstElementChild.offsetLeft;
+})();
 function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
 const EMAILJS_PUBLIC_KEY='IENEk0fXfBBkXFNwj';
 const EMAILJS_SERVICE_ID='service_ovh';

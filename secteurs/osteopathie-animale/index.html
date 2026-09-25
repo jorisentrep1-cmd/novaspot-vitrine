@@ -89,11 +89,12 @@ h1 span{color:var(--orange)}
 .real-url,.sv-url{gap:.3rem;white-space:nowrap;min-width:0;overflow:hidden}
 .real-url svg,.sv-url svg{width:10px;height:10px;flex-shrink:0}
 .real-url span,.sv-url span{overflow:hidden;text-overflow:ellipsis}
-.real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:center}
-.real-badge{position:absolute;top:.9rem;left:.9rem;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;z-index:1}
-.real-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,61,0) 30%,rgba(15,31,61,.55) 62%,rgba(15,31,61,.92) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem}
-.real-name{font-size:1.2rem;font-weight:800;color:#fff}
-.real-sector{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.15rem}
+.real-preview{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background-size:cover;background-position:top center;border:1px solid var(--border)}
+.real-badge{flex-shrink:0;background:var(--orange);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px}
+/* La capture reste entierement visible : nom et etiquette passent dessous. */
+.real-legende{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.9rem;padding:0 .25rem}
+.real-name{font-size:1.05rem;font-weight:800;color:var(--navy)}
+.real-sector{font-size:.72rem;color:var(--text2);margin-top:.1rem}
 .real-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:.85rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--t);text-decoration:none;border-radius:6px;margin-top:1rem}
 .real-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 
@@ -266,12 +267,13 @@ footer{background:var(--navy);padding:2.5rem 2rem;border-top:1px solid rgba(255,
         <div class="real-dot" style="background:#22c55e"></div>
         <div class="real-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>demo-osteo-animal.novaspot.fr</span></div>
       </div>
-      <div class="real-preview" style="background-image:url('/img/unsplash-photo-1770836037289-e00e5f351d11.jpg')">
-        <div class="real-badge">Exemple</div>
-        <div class="real-overlay">
+      <div class="real-preview" role="img" aria-label="Page d'accueil du site Cabinet Léa Martin" style="background-image:url('/img/demo-osteo-animal.jpg')"></div>
+      <div class="real-legende">
+        <div>
           <div class="real-name">Cabinet Léa Martin</div>
           <div class="real-sector">Ostéopathie Animale</div>
         </div>
+        <div class="real-badge">Exemple</div>
       </div>
       <a href="https://demo-osteo-animal.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
     </div>

@@ -944,6 +944,8 @@ function handleCta(){
     from_name:'Prospect (formulaire homepage — secteur non listé)',
     from_email:isEmail?val:'',
     from_phone:isEmail?'':val,
+    // « Répondre » écrit au prospect quand il a laissé un email
+    reply_to:isEmail?val:CTA_NOVASPOT_EMAIL,
     subject:'Nouvelle demande — secteur non listé',
     message:`Contact laissé sur la homepage NovaSpot : ${val}`
   }).then(()=>{

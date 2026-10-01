@@ -7,7 +7,7 @@
 <meta name="description" content="Je fais les sites internet des artisans et commerçants de Gironde, avec récolte d&#x27;avis Google. À partir de 39 € par mois, sans engagement."/>
 <link rel="canonical" href="https://novaspot.fr/"/>
 <!-- EmailJS : version figée + empreinte. Pour mettre à jour, changer la version ET recalculer integrity. -->
-<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+<script defer src="/js/emailjs-4.4.1.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS"></script>
 <!-- Marque que JavaScript tourne, avant la premiere peinture : le rideau de
      chargement ne s'affiche que s'il y a quelqu'un pour le retirer. -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -31,7 +31,7 @@
   "@id": "https://novaspot.fr/#novaspot",
   "name": "NovaSpot",
   "url": "https://novaspot.fr/",
-  "description": "Création et gestion de sites internet pour les commerçants et artisans : site web, récolte d'avis clients Google, visibilité locale.",
+  "description": "Création et gestion de sites internet pour les commerçants et artisans : site web, récolte d'avis clients Google, visibilité locale.",
   "email": "contact@novaspot.fr",
   "telephone": "+33646574982",
   "image": "https://novaspot.fr/img/og-image.jpg",
@@ -65,7 +65,7 @@
         "name": "Essentiel",
         "price": "39",
         "priceCurrency": "EUR",
-        "description": "Site d'une page, gestion des avis clients, QR code, mises à jour sous 48h."
+        "description": "Site d'une page, gestion des avis clients, QR code, mises à jour sous 48 h."
       },
       {
         "@type": "Offer",
@@ -85,9 +85,15 @@
   }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* Polices servies par le site lui-meme (sous-ensemble latin) : aucune requete vers Google. */
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+
 :root{
   --navy:#0f1f3d;--navy2:#16294f;--navy3:#1e3660;
   --orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);--green-dk:#34d399;
@@ -382,7 +388,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#cta-final" class="n-cta">Me contacter</a></li>
     </ul>
-    <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nLinks"><span></span><span></span><span></span></button>
   </nav>
 </div>
 
@@ -391,13 +397,13 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="hero-inner">
     <div class="hero-moi"><img class="moi-photo" src="/img/joris-arnoux.jpg" alt="" width="52" height="52"/><span class="moi-txt"><b>Joris Arnoux</b>Sites internet en Gironde</span></div>
     <h1>Votre site internet<span class="pt">,</span><br/>et quelqu'un à appeler<span class="pt">.</span></h1>
-    <p class="hero-sub">Je fais les sites des artisans et commerçants de Gironde et je vous aide à récolter des avis Google. Un horaire ou un tarif à changer ? Vous m'envoyez un message, c'est fait sous 48&nbsp;h.</p>
+    <p class="hero-sub">Je fais les sites des artisans et commerçants de Gironde et je vous aide à récolter des avis Google. Un horaire ou un tarif à changer ? Vous m'envoyez un message, c'est fait sous 48&nbsp;h.</p>
     <div class="hero-btns">
       <a href="#secteurs" class="btn-p">Créer mon site →</a>
       <a href="#tarifs" class="btn-s">Voir les tarifs</a>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="hs-num">48h</div><div class="hs-label">Après réception de votre dossier</div></div>
+      <div class="h-stat"><div class="hs-num">48 h</div><div class="hs-label">Après réception de votre dossier</div></div>
       <div class="h-stat"><div class="hs-num">39&nbsp;<span>€</span></div><div class="hs-label">Par mois, sans engagement</div></div>
       <div class="h-stat"><div class="hs-num">0&nbsp;<span>€</span></div><div class="hs-label">De frais de résiliation</div></div>
     </div>
@@ -413,7 +419,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="srv-card" style="border-color:rgba(4,120,87,.35);position:relative">
         <div class="srv-icon" style="background:var(--orange);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85z"/></svg></div>
         <div class="srv-title">Récolte & gestion des avis clients</div>
-        <p class="srv-desc">Ma spécialité. QR codes à poser en boutique ou à remettre à vos clients : laisser un avis Google devient l'affaire de 10 secondes. Et si un client est mécontent, vous êtes prévenu immédiatement pour réagir avant que ça s'envenime.</p>
+        <p class="srv-desc">Ma spécialité. QR codes à poser en boutique ou à remettre à vos clients : laisser un avis Google devient l'affaire de 10 secondes. Et si un client est mécontent, vous êtes prévenu immédiatement pour réagir avant que ça s'envenime.</p>
       </div>
       <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19M5.8 6.25h.01M8.3 6.25h.01M10.8 6.25h.01"/></svg></div>
@@ -423,7 +429,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.2 7-10.5A7 7 0 0 0 5 10.5C5 15.8 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.6"/></svg></div>
         <div class="srv-title">SEO local inclus</div>
-        <p class="srv-desc">Chaque site intègre les bases techniques pour être bien vu par Google : données structurées, méta-descriptions, vitesse de chargement, version mobile optimisée.</p>
+        <p class="srv-desc">Chaque site intègre les bases techniques pour être bien vu par Google : données structurées, méta-descriptions, vitesse de chargement, version mobile optimisée.</p>
       </div>
       <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/><path d="M14 14h3v3h-3zM20.5 14v3M17.5 20.5h3M14 20.5h.01"/></svg></div>
@@ -433,12 +439,12 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 3.6a2.1 2.1 0 0 1 3 3L9.2 16.9l-4 1 1-4z"/><path d="M14.5 5.6l3 3"/></svg></div>
         <div class="srv-title">Mises à jour illimitées</div>
-        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment : envoyez-moi un message, c'est mis à jour sous 48h.</p>
+        <p class="srv-desc">Nouvelles prestations, nouveaux horaires, promotion du moment : envoyez-moi un message, c'est mis à jour sous 48 h.</p>
       </div>
       <div class="srv-card">
         <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 8.5v7a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-7"/><path d="M3.5 8.5l8.5-5 8.5 5"/><path d="M9 17.5v-4.2a3 3 0 0 1 6 0v4.2"/></svg></div>
         <div class="srv-title">Sans engagement</div>
-        <p class="srv-desc">Pas de contrat sur plusieurs années : vous restez parce que le service fonctionne, pas parce que vous êtes coincé.</p>
+        <p class="srv-desc">Pas de contrat sur plusieurs années : vous restez parce que le service fonctionne, pas parce que vous êtes coincé.</p>
       </div>
     </div>
     <p class="scroll-hint">← Faites glisser pour voir tous les services →</p>
@@ -449,7 +455,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="secteurs">
   <div class="si">
     <h2 class="s-title">Six métiers ont déjà<br/>leur formulaire</h2>
-    <p class="s-sub" style="max-width:560px">Ces six métiers ont un formulaire tout prêt, mais je fais des sites pour bien d'autres commerces et activités. Remplissez celui de votre métier (un quart d'heure) ou appelez-moi : votre site est en ligne 48h après réception de vos éléments.</p>
+    <p class="s-sub" style="max-width:560px">Ces six métiers ont un formulaire tout prêt, mais je fais des sites pour bien d'autres commerces et activités. Remplissez celui de votre métier (un quart d'heure) ou appelez-moi : votre site est en ligne 48 h après réception de vos éléments.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les secteurs →</p>
     <div class="sect-grid">
 
@@ -517,8 +523,8 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 
     <div class="sect-other">
       <div class="sect-other-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
-      <div class="sect-other-title">Et pour tous les autres secteurs ?</div>
-      <p class="sect-other-desc">La liste ci-dessus n'est qu'un début : artisans, professionnels de santé, commerces de proximité, associations, indépendants. Appelez-moi, j'adapte le formulaire à votre métier.</p>
+      <div class="sect-other-title">Et pour tous les autres secteurs ?</div>
+      <p class="sect-other-desc">La liste ci-dessus n'est qu'un début : artisans, professionnels de santé, commerces de proximité, associations, indépendants. Appelez-moi, j'adapte le formulaire à votre métier.</p>
       <a href="#cta-final" class="btn-p">Me contacter</a>
     </div>
   </div>
@@ -528,7 +534,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
 <section class="section" id="realisations">
   <div class="si">
     <h2 class="s-title">Six démonstrations,<br/>six mises en page</h2>
-    <p class="s-sub" style="max-width:560px">À quoi ressemblera votre site, métier par métier. Chacune a sa propre mise en page : pas de modèle recolorié.</p>
+    <p class="s-sub" style="max-width:560px">À quoi ressemblera votre site, métier par métier. Chacune a sa propre mise en page : pas de modèle recolorié.</p>
     <p class="scroll-hint">← Faites glisser pour voir tous les exemples →</p>
     <div class="real-grid">
       <div class="real-card">
@@ -634,7 +640,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
         <a href="https://demo-osteo-animal.novaspot.fr" target="_blank" class="real-btn">Voir le site en direct →</a>
       </div>
     </div>
-    <p class="real-note">Ces six entreprises sont fictives : je les ai créées pour montrer le niveau de finition dans chaque métier.</p>
+    <p class="real-note">Ces six entreprises sont fictives : je les ai créées pour montrer le niveau de finition dans chaque métier.</p>
   </div>
 </section>
 
@@ -643,7 +649,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="si">
     <div style="text-align:center;margin-bottom:1rem">
       <h2 class="s-title" style="text-align:center">En ligne en 48 heures</h2>
-      <p class="s-sub" style="max-width:520px;margin:0 auto;text-align:center">Le délai démarre à la réception de vos éléments : logo, photos et informations sur votre activité. Le formulaire les rassemble en une seule fois.</p>
+      <p class="s-sub" style="max-width:520px;margin:0 auto;text-align:center">Le délai démarre à la réception de vos éléments : logo, photos et informations sur votre activité. Le formulaire les rassemble en une seule fois.</p>
     </div>
     <div class="proc-steps">
       <div class="proc-step">
@@ -664,7 +670,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       <div class="proc-step">
         <div class="proc-num">4</div>
         <div class="proc-title">Vous m'appelez, moi</div>
-        <p class="proc-desc">Pas de standard ni de ticket : chaque mise à jour, c'est à moi que vous la demandez.</p>
+        <p class="proc-desc">Pas de standard ni de ticket : chaque mise à jour, c'est à moi que vous la demandez.</p>
       </div>
     </div>
   </div>
@@ -689,7 +695,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Sous-domaine novaspot.fr</div>
           <div class="tf"><span class="tf-check">✓</span>Gestion des avis clients</div>
           <div class="tf"><span class="tf-check">✓</span>QR Code avis (format sticker vitrine)</div>
-          <div class="tf"><span class="tf-check">✓</span>Mises à jour du contenu (sous 48h)</div>
+          <div class="tf"><span class="tf-check">✓</span>Mises à jour du contenu (sous 48 h)</div>
           <div class="tf"><span class="tf-x">✗</span><span class="tf-off">Domaine personnalisé</span></div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-s">Démarrer →</a>
@@ -705,7 +711,7 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
           <div class="tf"><span class="tf-check">✓</span>Domaine personnalisé*</div>
           <div class="tf"><span class="tf-check">✓</span>Design personnalisé avancé</div>
           <div class="tf"><span class="tf-check">✓</span>Galerie de prestations avec photos</div>
-          <div class="tf"><span class="tf-check">✓</span>QR Codes avis (3 formats : brut, comptoir, vitrine)</div>
+          <div class="tf"><span class="tf-check">✓</span>QR Codes avis (3 formats : brut, comptoir, vitrine)</div>
           <div class="tf"><span class="tf-check">✓</span>Entretien de l'ensemble de vos pages (textes, photos, horaires)</div>
         </div>
         <a href="#secteurs" class="tarif-btn tarif-btn-p">Démarrer →</a>
@@ -726,13 +732,13 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
       </div>
     </div>
     <p class="scroll-hint">← Faites glisser pour comparer les formules →</p>
-    <p class="tarif-note" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et je vous remets les fichiers de votre site.</p>
-    <p class="tarif-note">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15&nbsp;€ par an), à votre nom. Je m'occupe gratuitement de toute la configuration technique.</p>
+    <p class="tarif-note" style="color:var(--navy);font-weight:600;margin-top:1.25rem">Si vous partez, vous gardez tout : votre nom de domaine est à votre nom, et je vous remets les fichiers de votre site.</p>
+    <p class="tarif-note">* Domaine personnalisé : vous l'achetez vous-même chez un fournisseur de noms de domaine comme OVH ou Gandi (environ 10 à 15&nbsp;€ par an), à votre nom. Je m'occupe gratuitement de toute la configuration technique.</p>
     <div class="tarif-addon">
       <span class="tarif-addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span>
       <div>
         <div class="tarif-addon-title">Besoin d'une fonctionnalité en plus&nbsp;?</div>
-        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150&nbsp;€</strong>. Dites-moi ce dont vous avez besoin, je vous dis si c'est faisable et à quel prix.</div>
+        <div class="tarif-addon-desc">Prise de rendez-vous en ligne, demande de devis, paiement d'un acompte, newsletter : ces modules peuvent être ajoutés à votre site, sur n'importe quelle formule — <strong>sur devis, à partir de 150&nbsp;€</strong>. Dites-moi ce dont vous avez besoin, je vous dis si c'est faisable et à quel prix.</div>
       </div>
     </div>
     <div class="tarif-addon">
@@ -752,52 +758,52 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
     <div class="faq-list" style="text-align:left">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Comment ça démarre concrètement ?</span>
+          <span class="faq-q-text">Comment ça démarre concrètement ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Vous choisissez votre secteur dans la section "Secteurs" ci-dessus, vous remplissez le formulaire dédié (un quart d'heure) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48h.</div>
+        <div class="faq-a">Vous choisissez votre secteur dans la section "Secteurs" ci-dessus, vous remplissez le formulaire dédié (un quart d'heure) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48 h.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Combien de temps pour mettre mon site en ligne ?</span>
+          <span class="faq-q-text">Combien de temps pour mettre mon site en ligne ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne.</div>
+        <div class="faq-a">48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Est-ce que je peux résilier à tout moment ?</span>
+          <span class="faq-q-text">Est-ce que je peux résilier à tout moment ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. <strong>Et vous ne repartez pas les mains vides :</strong> votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail.</div>
+        <div class="faq-a">Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. <strong>Et vous ne repartez pas les mains vides :</strong> votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Comment je paie ?</span>
+          <span class="faq-q-text">Comment je paie ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Par prélèvement automatique ou par carte, sur une page de paiement sécurisée. Les frais de création se règlent en deux fois : la moitié à la commande, la moitié à la mise en ligne. L'abonnement est ensuite prélevé chaque mois à la même date, sans rien avoir à faire. Chaque paiement vous donne une facture par email, et vous pouvez à tout moment retrouver vos factures ou changer de moyen de paiement.</div>
+        <div class="faq-a">Par prélèvement automatique ou par carte, sur une page de paiement sécurisée. Les frais de création se règlent en deux fois : la moitié à la commande, la moitié à la mise en ligne. L'abonnement est ensuite prélevé chaque mois à la même date, sans rien avoir à faire. Chaque paiement vous donne une facture par email, et vous pouvez à tout moment retrouver vos factures ou changer de moyen de paiement.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Comment fonctionne la gestion des avis ?</span>
+          <span class="faq-q-text">Comment fonctionne la gestion des avis ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible.</div>
+        <div class="faq-a">Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Est-ce que je peux modifier mes prestations moi-même ?</span>
+          <span class="faq-q-text">Est-ce que je peux modifier mes prestations moi-même ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite.</div>
+        <div class="faq-a">Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48 h. C'est inclus dans votre abonnement, sans limite.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Mon secteur n'a pas de formulaire dédié, que faire ?</span>
+          <span class="faq-q-text">Mon secteur n'a pas de formulaire dédié, que faire ?</span>
           <div class="faq-icon">+</div>
         </div>
-        <div class="faq-a">Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité.</div>
+        <div class="faq-a">Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité.</div>
       </div>
     </div>
   </div>
@@ -808,14 +814,14 @@ footer{background:var(--navy);padding:3rem 2rem 2rem;border-top:1px solid rgba(2
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <h2 class="cta-title">Laissez votre numéro<span class="pt">,</span><br/>je vous rappelle</h2>
-    <p class="cta-sub">Pas de centre d'appel ni de commercial : c'est moi qui vous rappelle, et c'est moi qui ferai votre site.</p>
+    <p class="cta-sub">Pas de centre d'appel ni de commercial : c'est moi qui vous rappelle, et c'est moi qui ferai votre site.</p>
     <div class="cta-form">
       <input type="text" id="ctaHp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
-      <input class="cta-input" type="text" id="ctaInput" placeholder="Email ou téléphone..."/>
+      <input class="cta-input" type="text" id="ctaInput" aria-label="Votre email ou votre téléphone" autocomplete="email" placeholder="Email ou téléphone..."/>
       <button class="cta-send" id="ctaSendBtn" onclick="handleCta()">Envoyer →</button>
     </div>
     <p class="cta-err" id="ctaErr" role="alert" aria-live="polite"></p>
-  <p class="cta-note">Ou directement : <a href="tel:+33646574982">06 46 57 49 82</a> &middot; <span id="ctaMail"></span></p>
+  <p class="cta-note">Ou directement : <a href="tel:+33646574982">06 46 57 49 82</a> &middot; <span id="ctaMail"></span></p>
   </div>
 </section>
 
@@ -870,7 +876,7 @@ function syncHeaderHeight(){
 syncHeaderHeight();
 window.addEventListener('resize',syncHeaderHeight);
 window.addEventListener('load',syncHeaderHeight);
-document.getElementById('burger').addEventListener('click',()=>document.getElementById('nLinks').classList.toggle('open'));
+document.getElementById('burger').addEventListener('click',e=>{const o=document.getElementById('nLinks').classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',o);e.currentTarget.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');});
 document.querySelectorAll('#nLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nLinks').classList.remove('open')));
 document.getElementById('year').textContent=new Date().getFullYear();
 // Sur mobile, le carrousel des tarifs s'ouvre sur la formule mise en avant,
@@ -979,58 +985,58 @@ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Comment ça démarre concrètement ?",
+      "name": "Comment ça démarre concrètement ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vous choisissez votre secteur dans la section \"Secteurs\" ci-dessus, vous remplissez le formulaire dédié (un quart d'heure) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48h."
+        "text": "Vous choisissez votre secteur dans la section \"Secteurs\" ci-dessus, vous remplissez le formulaire dédié (un quart d'heure) avec vos informations, logo et photos. Je reçois votre demande tout de suite et je vous rappelle sous 48 h."
       }
     },
     {
       "@type": "Question",
-      "name": "Combien de temps pour mettre mon site en ligne ?",
+      "name": "Combien de temps pour mettre mon site en ligne ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne."
+        "text": "48 heures à partir du moment où j'ai reçu votre dossier complet : vos informations, votre logo et vos photos. Le formulaire de votre secteur sert justement à tout rassembler d’un coup. Si un élément manque, je vous le dis tout de suite et le délai repart à sa réception. Je crée le site, vous le validez, et je le mets en ligne."
       }
     },
     {
       "@type": "Question",
-      "name": "Est-ce que je peux résilier à tout moment ?",
+      "name": "Est-ce que je peux résilier à tout moment ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. Et vous ne repartez pas les mains vides : votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail."
+        "text": "Oui. Aucun engagement minimum, un préavis d'un mois suffit, et aucun frais de résiliation. Et vous ne repartez pas les mains vides : votre nom de domaine vous appartient déjà, puisque vous l'achetez à votre nom. Si vous partez, je vous remets également les fichiers de votre site, que vous pourrez faire héberger où vous voulez. Vous ne perdez ni votre adresse, ni votre travail."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment je paie ?",
+      "name": "Comment je paie ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Par prélèvement automatique ou par carte, sur une page de paiement sécurisée. Les frais de création se règlent en deux fois : la moitié à la commande, la moitié à la mise en ligne. L'abonnement est ensuite prélevé chaque mois à la même date, sans rien avoir à faire. Chaque paiement vous donne une facture par email, et vous pouvez à tout moment retrouver vos factures ou changer de moyen de paiement."
+        "text": "Par prélèvement automatique ou par carte, sur une page de paiement sécurisée. Les frais de création se règlent en deux fois : la moitié à la commande, la moitié à la mise en ligne. L'abonnement est ensuite prélevé chaque mois à la même date, sans rien avoir à faire. Chaque paiement vous donne une facture par email, et vous pouvez à tout moment retrouver vos factures ou changer de moyen de paiement."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment fonctionne la gestion des avis ?",
+      "name": "Comment fonctionne la gestion des avis ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible."
+        "text": "Je vous fournis des QR codes à poser en boutique ou à remettre à vos clients. Un scan, deux clics, l'avis Google est déposé — c'est ce qui fait vraiment décoller le nombre d'avis. Si un client se dit insatisfait, il peut en plus vous écrire directement en privé, et vous recevez son message par email tout de suite pour le rappeler et rattraper le coup. Je ne bloque jamais personne : chacun reste libre de publier ce qu'il veut sur Google, c'est la règle de Google et c'est aussi ce qui rend votre fiche crédible."
       }
     },
     {
       "@type": "Question",
-      "name": "Est-ce que je peux modifier mes prestations moi-même ?",
+      "name": "Est-ce que je peux modifier mes prestations moi-même ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48h. C'est inclus dans votre abonnement, sans limite."
+        "text": "Pas besoin. Envoyez-moi un email avec vos modifications, je m'en occupe sous 48 h. C'est inclus dans votre abonnement, sans limite."
       }
     },
     {
       "@type": "Question",
-      "name": "Mon secteur n'a pas de formulaire dédié, que faire ?",
+      "name": "Mon secteur n'a pas de formulaire dédié, que faire ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité."
+        "text": "Contactez-moi directement via le formulaire tout en bas de cette page : j'adapte le brief à votre activité."
       }
     }
   ]

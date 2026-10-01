@@ -13,9 +13,14 @@
 <meta property="og:locale" content="fr_FR"/>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* Polices servies par le site lui-meme (sous-ensemble latin) : aucune requete vers Google. */
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+
 :root{
   --navy:#0f1f3d;--orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
   --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
@@ -78,7 +83,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
 <main>
   <div class="tag">Informations légales</div>
   <h1>Mentions légales</h1>
-  <div class="maj">Dernière mise à jour : 5 septembre 2026</div>
+  <div class="maj">Dernière mise à jour : 5 septembre 2026</div>
 
   <p class="intro">Conformément à la loi pour la confiance dans l'économie numérique, voici les informations relatives à l'éditeur et à l'hébergeur de ce site.</p>
 
@@ -114,11 +119,11 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
 
   <h2>Propriété intellectuelle</h2>
   <p>L'ensemble des éléments composant ce site — structure, textes, mise en page, code, identité visuelle — est la propriété de NovaSpot, sauf mention contraire. Toute reproduction ou représentation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
-  <p>Les sites présentés dans la section « réalisations » sont des <strong>exemples de démonstration créés par NovaSpot</strong>. Les entreprises qui y figurent sont fictives : ni leurs noms, ni leurs coordonnées, ni leurs contenus ne correspondent à des sociétés réelles.</p>
+  <p>Les sites présentés dans la section « réalisations » sont des <strong>exemples de démonstration créés par NovaSpot</strong>. Les entreprises qui y figurent sont fictives : ni leurs noms, ni leurs coordonnées, ni leurs contenus ne correspondent à des sociétés réelles.</p>
   <p>Les photographies d'illustration utilisées sur ce site proviennent de banques d'images libres de droits.</p>
 
   <h2>Sites réalisés pour les clients</h2>
-  <p>Les sites créés par NovaSpot pour ses clients restent la propriété de ces derniers pour ce qui concerne leurs contenus : textes, photographies, logo et données commerciales qu'ils fournissent.</p>
+  <p>Les sites créés par NovaSpot pour ses clients restent la propriété de ces derniers pour ce qui concerne leurs contenus : textes, photographies, logo et données commerciales qu'ils fournissent.</p>
   <p>Le nom de domaine personnalisé éventuellement associé à un site client est <strong>acheté et détenu directement par le client</strong>, à son nom. NovaSpot n'en est ni propriétaire ni titulaire, et n'intervient que sur sa configuration technique.</p>
   <p><strong>En cas de résiliation, le client conserve son site.</strong> NovaSpot s'engage à lui remettre les fichiers sources du site réalisé pour lui, afin qu'il puisse le faire héberger ailleurs. Le nom de domaine étant déjà à son nom, il conserve également son adresse.</p>
 
@@ -126,20 +131,20 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
   <p>Le traitement des données collectées via ce site est détaillé dans notre <a href="/confidentialite">politique de confidentialité</a>. Ce site ne dépose aucun cookie de suivi.</p>
 
   <h2>Responsabilité</h2>
-  <p>NovaSpot s'efforce de maintenir les informations de ce site exactes et à jour, sans garantir qu'elles soient exemptes d'erreur. Les tarifs affichés sont indicatifs et peuvent évoluer ; seul un devis accepté a valeur contractuelle.</p>
+  <p>NovaSpot s'efforce de maintenir les informations de ce site exactes et à jour, sans garantir qu'elles soient exemptes d'erreur. Les tarifs affichés sont indicatifs et peuvent évoluer ; seul un devis accepté a valeur contractuelle.</p>
   <p>Ce site comporte des liens vers des sites tiers, dont NovaSpot ne maîtrise ni le contenu ni les pratiques.</p>
 
   <h2>Délai de mise en ligne</h2>
-  <p>Le délai annoncé de 48 heures court à compter de la réception de l'ensemble des éléments nécessaires à la création du site : informations sur l'activité, logo, photos et tout contenu fourni par le client. Tant que le dossier est incomplet, le délai est suspendu. NovaSpot signale au client les éléments manquants dès qu'ils sont identifiés.</p>
+  <p>Le délai annoncé de 48 heures court à compter de la réception de l'ensemble des éléments nécessaires à la création du site : informations sur l'activité, logo, photos et tout contenu fourni par le client. Tant que le dossier est incomplet, le délai est suspendu. NovaSpot signale au client les éléments manquants dès qu'ils sont identifiés.</p>
   <p>Ce délai couvre la livraison d'une première version soumise à validation. Les échanges de validation et les modifications demandées par le client n'entrent pas dans son décompte.</p>
 
   <h2>Litiges</h2>
-  <p>Les prestations de NovaSpot s'adressent à des professionnels dans le cadre de leur activité. En cas de désaccord, la recherche d'une solution amiable sera toujours privilégiée : écrivez-nous à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>.</p>
+  <p>Les prestations de NovaSpot s'adressent à des professionnels dans le cadre de leur activité. En cas de désaccord, la recherche d'une solution amiable sera toujours privilégiée : écrivez-nous à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>.</p>
   <p>À défaut d'accord, le litige relève des juridictions françaises compétentes.</p>
 
   <div class="callout">
-    <div class="callout-t">Une question sur ces informations ?</div>
-    <p>Écrivez-nous à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>, on vous répond sous 48h.</p>
+    <div class="callout-t">Une question sur ces informations ?</div>
+    <p>Écrivez-nous à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>, on vous répond sous 48 h.</p>
   </div>
 </main>
 

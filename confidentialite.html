@@ -13,9 +13,14 @@
 <meta property="og:locale" content="fr_FR"/>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* Polices servies par le site lui-meme (sous-ensemble latin) : aucune requete vers Google. */
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+
 :root{
   --navy:#0f1f3d;--orange:#047857;--orange2:#059669;--orange3:rgba(4,120,87,.08);
   --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
@@ -79,7 +84,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
 <main>
   <div class="tag">Vos données</div>
   <h1>Politique de confidentialité</h1>
-  <div class="maj">Dernière mise à jour : <span id="maj">8 septembre 2026</span></div>
+  <div class="maj">Dernière mise à jour : <span id="maj">1er octobre 2026</span></div>
 
   <p class="intro">Cette page explique quelles données NovaSpot collecte, pourquoi, à qui elles sont transmises et comment vous gardez la main dessus. Elle est écrite pour être lue, pas pour se protéger derrière du jargon.</p>
 
@@ -90,7 +95,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
 
   <h2>1. Qui traite vos données</h2>
   <p>Le responsable de traitement est <strong>Joris Arnoux</strong>, entrepreneur individuel exerçant sous le nom commercial <strong>NovaSpot</strong>, 76 rue Semillon, 33390 Saint-Martin-Lacaussade — SIRET 109 526 681 00019.</p>
-  <p>Contact pour toute question relative à vos données : <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a></p>
+  <p>Contact pour toute question relative à vos données : <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a></p>
   <p>Les informations complètes sur l'éditeur figurent dans les <a href="/mentions-legales">mentions légales</a>.</p>
 
   <h2>2. Quelles données sont collectées</h2>
@@ -110,7 +115,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
       <tr>
         <td><strong>Formulaire de création de site</strong><br/>(sous-domaines par secteur)</td>
         <td>Nom de l'entreprise, coordonnées professionnelles, numéro SIRET, nom du responsable, description de l'activité, zone d'intervention, réseaux sociaux, logo et photos que vous téléversez, avis clients que vous choisissez de transmettre.</td>
-        <td>Concevoir et mettre en ligne votre site web : ce sont les informations qui y figureront.</td>
+        <td>Concevoir et mettre en ligne votre site web : ce sont les informations qui y figureront.</td>
       </tr>
     </tbody>
   </table>
@@ -120,10 +125,10 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
   <p>Les champs marqués comme optionnels peuvent être laissés vides sans conséquence sur le traitement de votre demande.</p>
 
   <h2>3. Sur quelle base légale</h2>
-  <p>Le traitement repose sur l'<strong>exécution de mesures précontractuelles ou du contrat</strong> (article 6.1.b du RGPD) : vous nous transmettez ces informations pour obtenir un devis ou faire réaliser votre site. Sans elles, la prestation ne peut pas être fournie.</p>
+  <p>Le traitement repose sur l'<strong>exécution de mesures précontractuelles ou du contrat</strong> (article 6.1.b du RGPD) : vous nous transmettez ces informations pour obtenir un devis ou faire réaliser votre site. Sans elles, la prestation ne peut pas être fournie.</p>
 
   <h2>4. À qui vos données sont transmises</h2>
-  <p>NovaSpot s'appuie sur des prestataires techniques pour fonctionner. Chacun n'a accès qu'à ce qui lui est strictement nécessaire :</p>
+  <p>NovaSpot s'appuie sur des prestataires techniques pour fonctionner. Chacun n'a accès qu'à ce qui lui est strictement nécessaire :</p>
 
   <div class="tbl-wrap">
   <table>
@@ -134,33 +139,32 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center}
       <tr><td><strong>Cloudflare</strong></td><td>Hébergement du site et mesure d'audience</td><td>Journaux techniques, adresse IP</td></tr>
       <tr><td><strong>EmailJS</strong></td><td>Acheminement des formulaires par email</td><td>Le contenu que vous saisissez dans les formulaires</td></tr>
       <tr><td><strong>imgbb</strong></td><td>Hébergement des images téléversées</td><td>Logo et photos que vous envoyez</td></tr>
-      <tr><td><strong>Google Fonts</strong></td><td>Affichage des polices d'écriture</td><td>Adresse IP, lors du chargement des pages</td></tr>
     </tbody>
   </table>
   </div>
   <p class="tbl-glisser">Faites glisser le tableau vers la gauche pour voir la suite.</p>
 
-  <p><strong>Transferts hors Union européenne.</strong> Cloudflare, EmailJS, imgbb et Google sont établis aux États-Unis. Vos données peuvent donc être traitées en dehors de l'Union européenne, dans le cadre des mécanismes de transfert prévus par le RGPD. Si vous préférez ne pas passer par les formulaires en ligne, écrivez-nous : vos informations peuvent nous être transmises directement par email.</p>
+  <p><strong>Transferts hors Union européenne.</strong> Cloudflare, EmailJS et imgbb sont établis aux États-Unis. Vos données peuvent donc être traitées en dehors de l'Union européenne, dans le cadre des mécanismes de transfert prévus par le RGPD. Si vous préférez ne pas passer par les formulaires en ligne, écrivez-nous : vos informations peuvent nous être transmises directement par email.</p>
 
   <p>En dehors de ces prestataires, <strong>aucune donnée n'est communiquée à des tiers</strong>, et rien n'est jamais vendu ni utilisé à des fins publicitaires.</p>
 
   <h2>5. Cookies et mesure d'audience</h2>
-  <p>Ce site <strong>ne dépose aucun cookie</strong>, ni de suivi, ni publicitaire, ni de personnalisation. C'est pourquoi aucun bandeau de consentement ne vous est présenté : il n'y a rien à consentir.</p>
+  <p>Ce site <strong>ne dépose aucun cookie</strong>, ni de suivi, ni publicitaire, ni de personnalisation. C'est pourquoi aucun bandeau de consentement ne vous est présenté : il n'y a rien à consentir.</p>
   <p>La fréquentation du site est mesurée avec <strong>Cloudflare Web Analytics</strong>. Cet outil compte les pages consultées <strong>sans déposer de cookie et sans créer d'identifiant</strong> : il ne permet ni de vous reconnaître d'une visite à l'autre, ni de vous suivre sur d'autres sites. Les informations recueillies sont agrégées — pages vues, pays, type d'appareil, site d'origine — et ne sont jamais rattachées à une personne.</p>
   <p>La même mesure, sans cookie, s'applique aux sites de démonstration (<code>demo-…novaspot.fr</code>) et aux formulaires de création de site par secteur.</p>
-  <p>Les formulaires de création de site gardent vos réponses <strong>sur votre appareil</strong>, dans la mémoire de votre navigateur, pour que vous puissiez vous interrompre et reprendre plus tard. Ce n'est pas un cookie : aucun autre site ne peut les lire, et moi non plus avant l'envoi. Vos réponses écrites ne quittent votre appareil que lorsque vous cliquez sur « Envoyer ma demande ». Le logo et les photos, eux, partent chez imgbb dès que vous les choisissez ; les photos sont allégées sur votre appareil avant de partir, ce qui retire au passage leurs données de localisation. Tout ce qui est gardé sur l'appareil est effacé après un envoi réussi, et le bouton « Recommencer à zéro » l'efface à tout moment.</p>
+  <p>Les formulaires de création de site gardent vos réponses <strong>sur votre appareil</strong>, dans la mémoire de votre navigateur, pour que vous puissiez vous interrompre et reprendre plus tard. Ce n'est pas un cookie : aucun autre site ne peut les lire, et moi non plus avant l'envoi. Vos réponses écrites ne quittent votre appareil que lorsque vous cliquez sur « Envoyer ma demande ». Le logo et les photos, eux, partent chez imgbb dès que vous les choisissez ; les photos sont allégées sur votre appareil avant de partir, ce qui retire au passage leurs données de localisation. Tout ce qui est gardé sur l'appareil est effacé après un envoi réussi, et le bouton « Recommencer à zéro » l'efface à tout moment.</p>
 
   <h2>6. Combien de temps vos données sont conservées</h2>
   <ul>
     <li><strong>Demande sans suite</strong> : les données sont supprimées dans un délai maximum de 12 mois après le dernier échange.</li>
     <li><strong>Client</strong> : les données nécessaires au site et à la relation commerciale sont conservées pendant toute la durée de l'abonnement, puis supprimées dans les 12 mois qui suivent son arrêt.</li>
-    <li><strong>Obligations comptables</strong> : les factures sont conservées 10 ans, comme la loi l'impose.</li>
+    <li><strong>Obligations comptables</strong> : les factures sont conservées 10 ans, comme la loi l'impose.</li>
   </ul>
 
   <h2>7. Vos droits</h2>
   <p>Vous disposez à tout moment d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité sur vos données.</p>
   <p>Pour les exercer, un simple email à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a> suffit — aucune justification n'est nécessaire. Réponse sous 30 jours maximum.</p>
-  <p>Si la réponse ne vous convient pas, vous pouvez saisir la CNIL, autorité française de contrôle : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">cnil.fr/fr/plaintes</a></p>
+  <p>Si la réponse ne vous convient pas, vous pouvez saisir la CNIL, autorité française de contrôle : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">cnil.fr/fr/plaintes</a></p>
 
   <h2>8. Sécurité</h2>
   <p>Le site est intégralement servi en HTTPS. Les formulaires sont protégés contre les envois automatisés. L'accès aux données transmises est limité à NovaSpot et aux prestataires listés au point 4.</p>
